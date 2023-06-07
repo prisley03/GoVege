@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="GoVege.View.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            text-decoration:none;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .button{
+            border:none;
+            background:none;
+            padding: 4px 8px;
+            color: white;
+            background:#30D315;
+            justify-content:space-between;
+            border-radius:3px;
+            margin:2px;
+        }
+        .button:hover{
+            border:2px solid #30D315;
+            color:#30D315;
+            background-color:white;
+            border-radius:3px;
+            margin:0;
+            cursor:pointer;
+        }
+        header{
+            padding: 16px 32px;
+            display:flex;
+            justify-content:space-between;
+            vertical-align:middle;
+            border-bottom: 3px solid #423db9;
+            background-color: rgba(0,0,0,0.5);
+        }
+        #imageContainer{
+            display:inline;
+        }
+        #textLogoContainer{
+            display:block;
+        }
+        #textLogo1{
+            display:inline;
+            color:white;
+        }
+        #textLogo2{
+            display:inline;
+            color:#30D315;
+        }
+        #headerLogo{
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+        }
+        #headerNav{
+            display:flex;
+            align-items:center;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <a href="./HomePage.aspx">
+            <div id="headerLogo">
+                <div id="imageContainer">
+                    <asp:Image ID="imageLogo" runat="server" ImageUrl="~/Assets/pottedPlant.png"/>
+                </div>
+                <div id="textLogoContainer">
+                    <p id="textLogo1"><i>Go</i></p>
+                    <p id="textLogo2"><i>Vege</i></p>
+                </div>
+            </div>
+            </a>
+            <div id="headerNav">
+                <div ID="NavGuest" runat="server" style="display:inline">
+                    <asp:Button CssClass="button" ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
+                    <asp:Button CssClass="button" ID="BtnRegister" runat="server" Text="Register" OnClick="BtnRegister_Click" />
+                </div>
+
+                <div ID="NavCustomer" runat="server" style="display:inline">
+                    <asp:Button CssClass="button" ID="BtnCart" runat="server" Text="Cart" OnClick="BtnCart_Click" />
+                    <asp:Button CssClass="button" ID="BtnLogout" runat="server" Text="Logout" OnClick="BtnLogout_Click" />
+                </div>
+            </div>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
