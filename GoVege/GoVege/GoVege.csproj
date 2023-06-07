@@ -73,7 +73,13 @@
     <Content Include="App_Data\GoVegeDB_log.ldf">
       <DependentUpon>GoVegeDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Controller\Dummy Text.txt" />
+    <Content Include="Factory\Dummy Text.txt" />
+    <Content Include="Handler\Dummy Text.txt" />
+    <Content Include="Model\Dummy Text.txt" />
+    <Content Include="Repository\Dummy Text.txt" />
     <Content Include="SQL\CreateTablesAndInsertData.sql" />
+    <Content Include="View\Dummy Text.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,14 +94,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Factory\" />
-    <Folder Include="Handler\" />
-    <Folder Include="Model\" />
-    <Folder Include="Repository\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
