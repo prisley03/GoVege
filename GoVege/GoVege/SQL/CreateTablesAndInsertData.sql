@@ -42,7 +42,8 @@ CREATE TABLE [dbo].[MsProduct]
     [productName] VARCHAR(255) NOT NULL, 
     [productPrice] INT NOT NULL, 
     [productImage] VARCHAR(255) NOT NULL, 
-    [productFoodType] VARCHAR(255) NOT NULL, 
+    [productFoodType] VARCHAR(255) NOT NULL,
+    [productCalories] INT NOT NULL,
     CONSTRAINT [FK_MsProduct_ToMsVendor] FOREIGN KEY ([vendorID]) REFERENCES [MsVendor]([vendorID]) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
