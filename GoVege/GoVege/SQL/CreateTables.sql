@@ -13,7 +13,8 @@ CREATE TABLE [dbo].[MsVoucher]
 (
 	[voucherID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [voucherName] VARCHAR(255) NOT NULL, 
-    [discountAmount] INT NOT NULL
+    [discountAmount] INT NOT NULL,
+    [voucherImage] VARCHAR(255) NOT NULL
 )
 
 CREATE TABLE [dbo].[MsDriver]

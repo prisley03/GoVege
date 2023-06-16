@@ -81,8 +81,85 @@
     <Content Include="App_Data\GoVegeDB_log.ldf">
       <DependentUpon>GoVegeDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\056bee43243634a85925a6dad3d28f6baf4b7820.png" />
+    <Content Include="Assets\0f21a8c55ca7efd833d5e6d88143c7c837e0a583.png" />
+    <Content Include="Assets\1f40328cd2eea5e0b387b5b378cf99a2a6a78262.png" />
+    <Content Include="Assets\2f4a6d0295f37b265a4c4500fd1cce2f0a812bca.png" />
+    <Content Include="Assets\2f5deb86ee20ce55c30b297146bc4f601aa9a1fd.png" />
+    <Content Include="Assets\370dc63b6917d44a8b24f605d1c164b671252526.png" />
+    <Content Include="Assets\41fcdeac70520f3cad0d9eee86fee4e8a2040bae.png" />
+    <Content Include="Assets\578e89880fa7da1ed672576e00f971d3b66246a6.png" />
+    <Content Include="Assets\64cbe9f7d219e33c01fd0623801d7f25f81bda5e.png" />
+    <Content Include="Assets\7add20e3e89ffe4a1c0adb100bd56c1b90ffc5a3.png" />
+    <Content Include="Assets\7cd3d8fba1ed179b22ac348fba16072dce85589d.png" />
+    <Content Include="Assets\804eff1baf34500405b6a29b6098ecb0eeddbca2.png" />
+    <Content Include="Assets\86a9603dbd338c3ed0e3a07acd8ed319b6e2bfc8.png" />
+    <Content Include="Assets\89d41587e97c40559e045c175b29619c4724aba4.png" />
+    <Content Include="Assets\8bea6d2ed41b0e88a04aaf9e9122085c0cebca6a.png" />
+    <Content Include="Assets\92a313bb47347fb0349367bb54b456b7ea6f25ed.png" />
+    <Content Include="Assets\9480d0272df04c0bb15a662d700b14529fef57a8.png" />
+    <Content Include="Assets\a1398acde8113225482f94672093a54d51e4a88f.png" />
+    <Content Include="Assets\b7694d564f62b4ce7c62f40029610bc9919d2975.png" />
+    <Content Include="Assets\d057e1679fa937cc86fcebab9177fdcd9cc8804f.png" />
+    <Content Include="Assets\d1dc2c6c14b0b78c26cd07ca5aecb442df75d37e.png" />
+    <Content Include="Assets\d42a6995c567c4fea48bcf5644b4cbcedf1bc3bf.png" />
+    <Content Include="Assets\df4a9d353b707189f8ec0f165eadcfb711c363d5.png" />
+    <Content Include="Assets\emailIcon.png" />
+    <Content Include="Assets\f0eac2e810d17fc9ea0a1f82deb691beb7f5bb35.png" />
+    <Content Include="Assets\facebookIcon.png" />
+    <Content Include="Assets\feaae4bea0e6b2cac8e9ee7359d9b508d33c0527.png" />
+    <Content Include="Assets\Food\Vegan\02b91fbada0569365ab8868f64dfc33a36013db6.png" />
+    <Content Include="Assets\Food\Vegan\10c8b6ff56c1cf59a9a54236ff6497946ccbff3a.png" />
+    <Content Include="Assets\Food\Vegan\10f08735d7c7b2af6e70ff6915954047afd74238.png" />
+    <Content Include="Assets\Food\Vegan\248a81b661f400e8fd4b6d54314457153cf3b3ab.png" />
+    <Content Include="Assets\Food\Vegan\27dc264762caef02f23be761d40d78a7723d876e.png" />
+    <Content Include="Assets\Food\Vegan\36c47df470f15c6167b6ee678def873e6fa78652.png" />
+    <Content Include="Assets\Food\Vegan\3af81ad3d69fce86bf695cb8c9e0494bb0980b21.png" />
+    <Content Include="Assets\Food\Vegan\402a4bf2168a94591d7d2902df2d5ab901d2904f.png" />
+    <Content Include="Assets\Food\Vegan\41b33d083018607d7177e0ec30a0c174c6948328.png" />
+    <Content Include="Assets\Food\Vegan\4c4dfe9319c4dd36593c8f783fc32ce25f792653.png" />
+    <Content Include="Assets\Food\Vegan\58a9e9ae3f6a28ed836b9fb4a20be3057413b1a8.png" />
+    <Content Include="Assets\Food\Vegan\61a55647922eec73bfd01ea12b73616dfbf67827.png" />
+    <Content Include="Assets\Food\Vegan\6e7022528d39a50bd28a8bd0146f4aebf4e178e3.png" />
+    <Content Include="Assets\Food\Vegan\7d5b7732b1b0230ba161ea958bb6fd61e8905375.png" />
+    <Content Include="Assets\Food\Vegan\83a59ee28341f23565e91c7648ef85ef0d751f11.png" />
+    <Content Include="Assets\Food\Vegan\98efa92fe0215402923bd7d956f4cbe9bceb7ae9.png" />
+    <Content Include="Assets\Food\Vegan\9a1a4a13c1c6f2ff06d5cb6f8dc47021069799a4.png" />
+    <Content Include="Assets\Food\Vegan\9fb4c197ebed0c997de8406a96d297eac823ca36.png" />
+    <Content Include="Assets\Food\Vegetarian\158688ad154409f3ee7430235aac44136ec57f2b.png" />
+    <Content Include="Assets\Food\Vegetarian\21650b9e4cd81b10b07f2091dec38ceb7ea5dc85.png" />
+    <Content Include="Assets\Food\Vegetarian\30145e6ad8bdbc6e3b056c7399a99c998a255f26.png" />
+    <Content Include="Assets\Food\Vegetarian\3aad9f2a9e0676069bbd5ad0d6e9be59080d2f5b.png" />
+    <Content Include="Assets\Food\Vegetarian\4464243589cdfb12bfb7d6efc1300c77a930305e.png" />
+    <Content Include="Assets\Food\Vegetarian\526240e7ae3ce04380a93fda5d4083cdd224835b.png" />
+    <Content Include="Assets\Food\Vegetarian\72765c50eb1d41bffc9eee45370ce90ab40616c9.png" />
+    <Content Include="Assets\Food\Vegetarian\798e4399660f50deed922b0d15df47fe13ecd632.png" />
+    <Content Include="Assets\Food\Vegetarian\9482479ecf58f8a29472ea0f077785c986966896.png" />
+    <Content Include="Assets\Food\Vegetarian\9566a38a4fdb4a8d9fe3ed0dfcdcb4fc07397217.png" />
+    <Content Include="Assets\Food\Vegetarian\a97b8b3d62608eb1cb5c9432e9b4285466b14516.png" />
+    <Content Include="Assets\Food\Vegetarian\b324365a4766d6aed50e7fad094654cd49a1616e.png" />
+    <Content Include="Assets\Food\Vegetarian\bcbee698d0311473fe2ec58ad27ca0640a76de0c.png" />
+    <Content Include="Assets\Food\Vegetarian\d6da9631706bd7c6e5d61a68cd04b863504ca607.png" />
+    <Content Include="Assets\Food\Vegetarian\d818017b3be252ed3f9187c74f323c8512e6f7d7.png" />
+    <Content Include="Assets\Food\Vegetarian\de6e8b350d1cfc8ca7d1f768bbf0d5c73c5a0837.png" />
+    <Content Include="Assets\Food\Vegetarian\e1ae4859424983d5c63ee5906b08d3f4a14454c6.png" />
+    <Content Include="Assets\Food\Vegetarian\ef75e97b4ba19eecccdb6a50eec7ec55e97cbb75.png" />
+    <Content Include="Assets\Food\Vegetarian\f0bda7679b909a68f5c147f4bf4743107b160710.png" />
     <Content Include="Assets\gpsLocation.png" />
+    <Content Include="Assets\instagramIcon.png" />
     <Content Include="Assets\pottedPlant.png" />
+    <Content Include="Assets\twitterIcon.png" />
+    <Content Include="Assets\User\06a.jpg" />
+    <Content Include="Assets\User\aeroplanefront.jpg" />
+    <Content Include="Assets\User\dale-cooper-1.jpg" />
+    <Content Include="Assets\User\dd1d7775a162ceca40b6e72b2a4ad332b2ed362c.png" />
+    <Content Include="Assets\User\Fvptvt2aYAAedfH.jpg" />
+    <Content Include="Assets\User\gigachadjpg-20221126044302.jpg" />
+    <Content Include="Assets\Voucher\25b00736a03d36de8f230cbcdd1284e3d341a8dc.png" />
+    <Content Include="Assets\Voucher\2ac8bf807fa7836269120b9f80b0d89a5d0557fe.png" />
+    <Content Include="Assets\Voucher\48d1124f0a29976a1530f49ca9c2f2f7dd0b4718.png" />
+    <Content Include="Assets\Voucher\6901d591d59b208e438170e1172395302863b45a.png" />
+    <Content Include="Assets\Voucher\9168953b8ebe7cc17e7c56356785f981c62a8994.png" />
     <Content Include="Controller\Dummy Text.txt" />
     <Content Include="Factory\Dummy Text.txt" />
     <Content Include="Handler\Dummy Text.txt" />
@@ -98,6 +175,7 @@
     </Content>
     <Content Include="Repository\Dummy Text.txt" />
     <Content Include="SQL\CreateTables.sql" />
+    <Content Include="SQL\DropTables.sql" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -142,6 +220,7 @@
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,7 +253,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\New folder\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
