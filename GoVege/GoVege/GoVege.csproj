@@ -88,8 +88,8 @@
     <Content Include="Handler\Dummy Text.txt" />
     <Content Include="Model\GoVegeDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GoVegeDBModel.Context.cs</LastGenOutput>
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
+      <LastGenOutput>GoVegeDBModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\GoVegeDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -97,7 +97,7 @@
       <LastGenOutput>GoVegeDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Repository\Dummy Text.txt" />
-    <Content Include="SQL\CreateTablesAndInsertData.sql" />
+    <Content Include="SQL\CreateTables.sql" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

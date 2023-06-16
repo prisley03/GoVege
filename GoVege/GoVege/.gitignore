@@ -4,8 +4,14 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # model
-/Model
-/aspnet_client
+Model/
+
+# for report
+aspnet_client/
+
+# for database
+App_Data/
+
 # User-specific files
 *.rsuser
 *.suo
