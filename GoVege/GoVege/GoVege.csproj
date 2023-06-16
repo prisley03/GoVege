@@ -176,6 +176,7 @@
     <Content Include="Repository\Dummy Text.txt" />
     <Content Include="SQL\CreateTables.sql" />
     <Content Include="SQL\DropTables.sql" />
+    <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -214,6 +215,9 @@
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsVendor.cs">
+      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MsVendorCategory.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsVoucher.cs">

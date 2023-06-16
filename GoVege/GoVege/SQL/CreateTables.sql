@@ -14,7 +14,9 @@ CREATE TABLE [dbo].[MsVoucher]
 	[voucherID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [voucherName] VARCHAR(255) NOT NULL, 
     [discountAmount] INT NOT NULL,
-    [voucherImage] VARCHAR(255) NOT NULL
+    [voucherImage] VARCHAR(255) NOT NULL,
+    [startDate] DATE NOT NULL,
+    [endDate] DATE NOT NULL
 )
 
 CREATE TABLE [dbo].[MsDriver]
@@ -26,14 +28,22 @@ CREATE TABLE [dbo].[MsDriver]
     [driverImage] VARCHAR(255) NOT NULL
 )
 
+CREATE TABLE [dbo].[MsVendorCategory]
+(
+	[categoryID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+    [categoryName] VARCHAR(255) NOT NULL
+)
+
 CREATE TABLE [dbo].[MsVendor]
 (
 	[vendorID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [vendorName] VARCHAR(255) NOT NULL, 
     [vendorAddress] VARCHAR(255) NOT NULL, 
-    [vendorRating] INT NOT NULL, 
+    [vendorRating] FLOAT NOT NULL, 
     [vendorImage] VARCHAR(255) NOT NULL, 
-    [vendorTypePreference] VARCHAR(255) NOT NULL
+    [vendorTypePreference] VARCHAR(255) NOT NULL,
+    [categoryID] INT NOT NULL,
+    FOREIGN KEY ([categoryID]) REFERENCES [MsVendorCategory]([categoryID]) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[MsProduct]
