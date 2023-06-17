@@ -25,7 +25,8 @@ CREATE TABLE [dbo].[MsDriver]
     [driverName] VARCHAR(255) NOT NULL, 
     [driverLicensePlate] VARCHAR(255) NOT NULL, 
     [driverVehicleName] VARCHAR(255) NOT NULL, 
-    [driverImage] VARCHAR(255) NOT NULL
+    [driverImage] VARCHAR(255) NOT NULL,
+    [driverRating] FLOAT NOT NULL
 )
 
 CREATE TABLE [dbo].[MsVendorCategory]

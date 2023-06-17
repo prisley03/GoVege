@@ -24,12 +24,13 @@ DELETE FROM [MsDriver];
 DBCC CHECKIDENT ('[MsDriver]', RESEED, 0);
 
 SET IDENTITY_INSERT [dbo].[MsDriver] ON
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (1, N'Jimmy DeSanta', N'B 1990 AWT', N'Daihatsu Xenia', N'jimmy.png')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (2, N'Bjork', N'B 1045 RGB ', N'Toyota Camry', N'bjork.jpg')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (3, N'Kendrick Lamar', N'L 1556 TWT', N'Daihatsu Sigra', N'kdot.jpg')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (4, N'Mega Mind', N'B 1990 SSE', N'Toyota Avanza', N'megamind.jpg')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (5, N'Tupac Shakur', N'N 1423 FFR', N'Honda Civic', N'tupac.png')
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (1, N'Jimmy DeSanta', N'B 1990 AWT', N'Daihatsu Xenia', N'jimmy.png', 3.5)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (2, N'Bjork', N'B 1045 RGB', N'Toyota Camry', N'bjork.jpg', 5)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (3, N'Kendrick Lamar', N'L 1556 TWT', N'Daihatsu Sigra', N'kdot.jpg', 4.5)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (4, N'Mega Mind', N'B 1990 SSE', N'Toyota Avanza', N'megamind.jpg', 4)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (5, N'Tupac Shakur', N'N 1423 FFR', N'Honda Civic', N'tupac.png', 5)
 SET IDENTITY_INSERT [dbo].[MsDriver] OFF
+
 
 DELETE FROM [MsVendorCategory];
 DBCC CHECKIDENT ('[MsVendorCategory]', RESEED, 0);
