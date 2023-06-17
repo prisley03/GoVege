@@ -31,7 +31,8 @@ CREATE TABLE [dbo].[MsDriver]
 CREATE TABLE [dbo].[MsVendorCategory]
 (
 	[categoryID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [categoryName] VARCHAR(255) NOT NULL
+    [categoryName] VARCHAR(255) NOT NULL,
+    [categoryImage] VARCHAR(255) NOT NULL
 )
 
 CREATE TABLE [dbo].[MsVendor]
