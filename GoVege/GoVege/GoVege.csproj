@@ -115,7 +115,9 @@
     <Content Include="Assets\facebookIcon.png" />
     <Content Include="Assets\feaae4bea0e6b2cac8e9ee7359d9b508d33c0527.png" />
     <Content Include="Assets\gpsLocation.png" />
+    <Content Include="Assets\hermes-rivera-Ww8eQWjMJWk-unsplash.jpg" />
     <Content Include="Assets\instagramIcon.png" />
+    <Content Include="Assets\koftaFlatbreads.jpg" />
     <Content Include="Assets\pottedPlant.png" />
     <Content Include="Assets\Product\bibimbap.jpg" />
     <Content Include="Assets\Product\bread.png" />
@@ -160,6 +162,8 @@
     <Content Include="Assets\Product\tacos.jpg" />
     <Content Include="Assets\Product\tahu.jpe" />
     <Content Include="Assets\Product\tempe.jpg" />
+    <Content Include="Assets\sales.jpg" />
+    <Content Include="Assets\sales50.png" />
     <Content Include="Assets\twitterIcon.png" />
     <Content Include="Assets\User\dalecooper.jpg" />
     <Content Include="Assets\User\kanye.jpg" />
@@ -167,6 +171,7 @@
     <Content Include="Assets\User\ongo gablogian.png" />
     <Content Include="Assets\User\scorsese.jpg" />
     <Content Include="Assets\User\shockedguy.png" />
+    <Content Include="Assets\veganLoMeinMeinMeinMein.png" />
     <Content Include="Assets\VendorCategory\bibimbap.jpg" />
     <Content Include="Assets\VendorCategory\bread.png" />
     <Content Include="Assets\VendorCategory\breakfast.jpg" />
@@ -278,10 +283,12 @@
     <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\CartPage.aspx" />
     <Content Include="View\HomePage.aspx" />
+    <Content Include="View\PromotionPage.aspx" />
     <Content Include="View\StorePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\PromotionController.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -328,6 +335,7 @@
     <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\PromotionRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
     <Compile Include="View\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
@@ -349,6 +357,13 @@
     </Compile>
     <Compile Include="View\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromotionPage.aspx.cs">
+      <DependentUpon>PromotionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\PromotionPage.aspx.designer.cs">
+      <DependentUpon>PromotionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\StorePage.aspx.cs">
       <DependentUpon>StorePage.aspx</DependentUpon>
