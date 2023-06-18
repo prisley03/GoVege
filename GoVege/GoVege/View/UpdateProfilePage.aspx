@@ -91,7 +91,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div CssClass="container">
-        <asp:Image CssClass="backgroundCss" ID="backgroundImg" runat="server" ImageUrl="~/Assets/hermes-rivera-Ww8eQWjMJWk-unsplash.jpg" />
+        <asp:Image CssClass="backgroundCss" ID="backgroundImg" runat="server" ImageUrl="~/Assets/louis-hansel-MlPD-AzZYMg-unsplash.jpg" />
 
         <div id="registerBox">
             <div class="inputContainer">
