@@ -16,6 +16,13 @@ namespace GoVege.Handler
             return true;
         }
 
+        public static bool UpdateCustomer(string fullName, string phoneNum, string email, string password, string foodPref, bool emailChanged, int id)
+        {
+            if (CustomerRepository.GetCustomerByEmail(email) != null && emailChanged == true) return false;
+            CustomerRepository.UpdateCustomer(fullName, phoneNum, email, password, foodPref, id);
+            return true;
+        }
+
         public static MsUser LoginCustomer(string email, string password)
         {
             MsUser cust = CustomerRepository.GetCustomerByEmailAndPassword(email, password);

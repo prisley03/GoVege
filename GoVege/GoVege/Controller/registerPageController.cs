@@ -37,6 +37,39 @@ namespace GoVege.Controller
             return false;
         }
 
+        public static bool UpdateCustomer(string fullname, string phoneNum, string email, string password, string rePass, string foodPref, string storedEmail, int id)
+        {
+            bool emailChanged = false;
+
+            if (fullname.Equals(""))
+            {
+                return false;
+            }
+
+            if (!CheckPhoneNum(phoneNum))
+            {
+                return false;
+            }
+
+            if (!IsEmail(email))
+            {
+                return false;
+            }
+
+            if (!IsSamePassword(password, rePass))
+            {
+                return false;
+            }
+
+            if(email.CompareTo(storedEmail) != 0)
+            {
+                emailChanged = true;
+            }
+
+            if (customerHandler.UpdateCustomer(fullname, phoneNum, email, password, foodPref, emailChanged, id)) return true;
+            return false;
+        }
+
         private static bool CheckPhoneNum(string phoneNum)
         {
             if (phoneNum.Trim().Equals("")) return false;
