@@ -278,10 +278,12 @@
     <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\CartPage.aspx" />
     <Content Include="View\HomePage.aspx" />
+    <Content Include="View\PromotionPage.aspx" />
     <Content Include="View\StorePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\PromotionController.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -328,6 +330,7 @@
     <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\PromotionRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
     <Compile Include="View\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
@@ -349,6 +352,13 @@
     </Compile>
     <Compile Include="View\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromotionPage.aspx.cs">
+      <DependentUpon>PromotionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\PromotionPage.aspx.designer.cs">
+      <DependentUpon>PromotionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\StorePage.aspx.cs">
       <DependentUpon>StorePage.aspx</DependentUpon>
