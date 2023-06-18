@@ -1,5 +1,6 @@
 ﻿using GoVege.Controller;
 using GoVege.Model;
+using GoVege.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,11 @@ namespace GoVege.View
     {
         private List<MsVendor> vendorList;
         private List<MsVendorCategory> categoryList;
+        public MsUser cust;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            GoVegeDBEntities db = DatabaseSingleton.GetInstance();
 
             if (Request.QueryString["categoryID"] != null)
             {
@@ -24,27 +28,34 @@ namespace GoVege.View
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
             {
-                
+                cust = null;
             }
             else
             {
                 if (Session["user"] == null)
                 {
                     var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
-                    cust = (from x in db.Customers where x.CustomerID == id select x).FirstOrDefault();
+                    cust = (from x in db.MsUsers where x.userID == id select x).FirstOrDefault();
                     Session["user"] = cust;
                 }
                 else
                 {
-                    cust = (Customer)Session["user"];
+                    cust = (MsUser)Session["user"];
                 }
             }
-
-            if (Request.QueryString["CustomerID"] == null)
+            
+            if (cust == null)
             {
-                Response.Redirect("/Home");
-            }
 
+            }
+            else if (cust.userFoodPreference.Equals("Vegan"))
+            {
+                vegetarianRestaurantID.Visible = false;
+            }
+            else if (cust.userFoodPreference.Equals("Vegetarian"))
+            {
+                veganRestaurantID.Visible = false;
+            }
 
             vendorList = VendorController.loadVegetarianVendor(5);
             LVVendorVegetarian.DataSource = vendorList;
@@ -69,7 +80,7 @@ namespace GoVege.View
             Button1.Visible = false;
         }
 
-    protected void Button2_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
             vendorList = VendorController.loadVeganVendor(10);
             LVVendorVegan.DataSource = vendorList;
@@ -86,12 +97,6 @@ namespace GoVege.View
 
             Button3.Visible = false;
         }
-
-        protected void SearchAddressBox_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void ButtonSearchRestaurant_Click(object sender, EventArgs e)
         {
             LblError.ForeColor = System.Drawing.Color.Red;
@@ -100,8 +105,19 @@ namespace GoVege.View
             searchedRestaurantID.Visible = true;
 
             string name = txtSearched.Text;
-
-            vendorList = VendorController.loadVendorByName(name, "Vegetarian");
+            if (cust == null)
+            {
+                vendorList = VendorController.loadVendorByName(name, "Vegetarian");
+            }
+            else if (cust.userFoodPreference.Equals("Vegan"))
+            {
+                vendorList = VendorController.loadVendorByName(name, "Vegan");
+            }
+            else if (cust.userFoodPreference.Equals("Vegetarian"))
+            {
+                vendorList = VendorController.loadVendorByName(name, "Vegetarian");
+            }
+            
             if (vendorList.Count == 0)
             {
                 LblError.Text = "Sorry there is no restaurant with that name";
@@ -122,7 +138,38 @@ namespace GoVege.View
 
             int id = int.Parse(Request.QueryString["categoryID"]);
             LblError.Text = id.ToString();
-            vendorList = VendorController.loadVendorByCategory(id, "Vegetarian");
+            GoVegeDBEntities db = DatabaseSingleton.GetInstance();
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                cust = null;
+            }
+            else
+            {
+                if (Session["user"] == null)
+                {
+                    var id2 = Int32.Parse(Request.Cookies["user_cookie"].Value);
+                    cust = (from x in db.MsUsers where x.userID == id select x).FirstOrDefault();
+                    Session["user"] = cust;
+                }
+                else
+                {
+                    cust = (MsUser)Session["user"];
+                }
+            }
+
+            if (cust == null)
+            {
+                vendorList = VendorController.loadVendorByCategory(id, "Vegetarian");
+            }
+            else if (cust.userFoodPreference.Equals("Vegan"))
+            {
+                vendorList = VendorController.loadVendorByCategory(id, "Vegan");
+            }
+            else if (cust.userFoodPreference.Equals("Vegetarian"))
+            {
+                vendorList = VendorController.loadVendorByCategory(id, "Vegetarian");
+            }
+
             if (vendorList.Count == 0)
             {
                 LblError.Text = "Sorry there is no restaurant with that category";

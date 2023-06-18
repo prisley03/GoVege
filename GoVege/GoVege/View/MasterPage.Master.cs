@@ -27,27 +27,17 @@ namespace GoVege.View
                 if (Session["user"] == null)
                 {
                     var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
-                    cust = (from x in db.Customers where x.CustomerID == id select x).FirstOrDefault();
+                    cust = (from x in db.MsUsers where x.userID == id select x).FirstOrDefault();
                     Session["user"] = cust;
                 }
                 else
                 {
-                    cust = (Customer)Session["user"];
+                    cust = (MsUser)Session["user"];
                 }
-
-                // if role is admin
-                if (cust.CustomerRole.Equals("ADM"))
-                {
-                    NavAdmin.Visible = true;
-                }
-                // if role is customer
-                else
-                {
-                    NavCustomer.Visible = true;
-                }
+                NavCustomer.Visible = true;
+                BtnProfile.Text += cust.userName;
             }
         }
-    }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
@@ -64,10 +54,22 @@ namespace GoVege.View
             Response.Redirect("CartPage.aspx");
         }
 
-        protected void BtnLogout_Click(object sender, EventArgs e)
+        protected void BtnProfile_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("UpdateProfilePage.aspx");
         }
 
+        protected void BtnLogout_Click(object sender, EventArgs e)
+        {
+            string[] cookies = Request.Cookies.AllKeys;
+
+            foreach (string c in cookies)
+            {
+                Response.Cookies[c].Expires = DateTime.Now.AddDays(-2);
+            }
+
+            Session.Remove("user");
+            Response.Redirect("LoginPage.aspx");
+        }
     }
 }

@@ -299,8 +299,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\PromotionController.cs" />
+    <Compile Include="Controller\registerPageController.cs" />
     <Compile Include="Controller\VendorController.cs" />
+    <Compile Include="Factory\CustomerFactory.cs" />
     <Compile Include="Factory\VendorFactory.cs" />
+    <Compile Include="Handler\customerHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -346,6 +349,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PromotionRepository.cs" />
