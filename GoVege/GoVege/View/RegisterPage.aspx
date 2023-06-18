@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="GoVege.View.RegisterPage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .container{
@@ -91,7 +92,6 @@
         .rblCss input[type="radio"]{
             margin-right: 1rem;
             accent-color: #30D315;
-            
         }
         .termsCss{
             display: flex;
@@ -107,6 +107,9 @@
             display: flex;
             flex-direction: column;
             gap: 1em;
+        }
+        .btnCont, .btnAlreadyAccount{
+            cursor: pointer;
         }
 
     </style>
@@ -147,8 +150,8 @@
                     <div class="fields">
                         <asp:Label ID="lblFoodPref" runat="server" Text="Food Preference"></asp:Label>
                         <asp:RadioButtonList ID="rblFoodPref" runat="server" CssClass="rblCss">
-                            <asp:ListItem Value="vegan">Vegan</asp:ListItem>
-                            <asp:ListItem Value="vegetarian">Vegetarian</asp:ListItem>
+                            <asp:ListItem Value="Vegan">Vegan</asp:ListItem>
+                            <asp:ListItem Value="Vegetarian">Vegetarian</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                 </div>
