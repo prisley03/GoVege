@@ -91,6 +91,9 @@
             width: 20px;
             height: 20px;
         }
+        .btnCont, .txtBtn{
+            cursor: pointer;
+        }
     </style>
 </asp:Content>
 
@@ -109,6 +112,9 @@
                     <div id="passwordCss">
                         <asp:Label ID="lblPassword" runat="server" Text="Password">
                         </asp:Label><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="txtBox"></asp:TextBox>
+                    </div><br />
+                    <div id="errMsg">
+                        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
                     </div>
                  </div>
                 <div id="rememberMeCss">
@@ -119,8 +125,7 @@
             <div class="miscBtn">
                 <asp:Button CssClass="btnCont" ID="btnContinue" runat="server" Text="Continue" OnClick="btnContinue_Click"/>
                 <div class="txtBtnContainer">
-                    <asp:Button CssClass="txtBtn" ID="btnForgotPassword" runat="server" Text="Forgot Password?" OnClick="btnForgotPassword_Click"/>
-                    <asp:Button CssClass="txtBtn" ID="btnDontHaveAccount" runat="server" Text="Don't Have an Account?" OnClick="btnDontHaveAccount_Click"/>
+                     <asp:Button CssClass="txtBtn" ID="btnDontHaveAccount" runat="server" Text="Don't Have an Account?" OnClick="btnDontHaveAccount_Click"/>
                 </div>
             </div>
         </div>
