@@ -17,15 +17,20 @@ namespace GoVege.View
         public double vendorRating;
         public int fullStarCount, halfStarCount, emptyStarCount;
 
-        protected void BtnAddCart_Command(object sender, CommandEventArgs e)
+        protected void ListViewProduct_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            if(e.CommandArgument == null)
+            if(e.CommandName == "save")
             {
-                Response.Redirect("~/View/HomePage.aspx");
-            }
-            else
-            {
-                
+                if (((TextBox)(e.Item.FindControl("TxtQty"))).Text.Equals("") || !((TextBox)(e.Item.FindControl("TxtQty"))).Text.Trim().All(Char.IsDigit) || e.CommandArgument.ToString().Equals(""))
+                {
+                    Response.Write("<script language=javascript>alert('ERROR: Please input a valid quantity');</script>");
+                }
+                else
+                {
+                    int productId = int.Parse(e.CommandArgument.ToString());
+                    String qty = (((TextBox)e.Item.FindControl("txtqty")).Text);
+                    ((TextBox)(e.Item.FindControl("TxtQty"))).Text = "In Cart";
+                }
             }
         }
 
@@ -35,6 +40,7 @@ namespace GoVege.View
             {
                 Response.Redirect("~/View/HomePage.aspx");
             }
+
             vendorID = Convert.ToInt32(Request.QueryString["VendorID"]);
 
             vendorTarget = VendorRepository.GetVendorByID(vendorID);
@@ -54,8 +60,12 @@ namespace GoVege.View
             ImageVendor.ImageUrl = "~/Assets/Vendor/" + vendorImage;
             
             productList = ProductRepository.GetProductsByVendorID(vendorID);
-            ListViewProduct.DataSource = productList;
-            ListViewProduct.DataBind();
+
+            if (!IsPostBack)
+            {
+                ListViewProduct.DataSource = productList;
+                ListViewProduct.DataBind();
+            }
         }
     }
 }

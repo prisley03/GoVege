@@ -118,7 +118,7 @@
         <div class="product-container">
             <h2 style="color: #2EB14B;">Today’s Specials</h2>
             
-            <asp:ListView ID="ListViewProduct" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder">
+            <asp:ListView ID="ListViewProduct" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewProduct_ItemCommand">
                 <LayoutTemplate>
                     <div class="product-wrapper">
                         <asp:PlaceHolder ID="rowGroupPlaceholder" runat="server"></asp:PlaceHolder>
@@ -134,7 +134,7 @@
                     <div><%# Eval("productName") %></div>
                     <div><%# "Rp " + Eval("productPrice") %></div>
                     <asp:TextBox ID="TxtQty" runat="server"></asp:TextBox>
-                    <asp:LinkButton ID="BtnAddCart" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' OnCommand="BtnAddCart_Command" />
+                    <asp:LinkButton ID="BtnAddCart" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' CommandName="save"/>
                 </ItemTemplate>
             </asp:ListView>
         </div>
