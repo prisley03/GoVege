@@ -115,7 +115,9 @@
     <Content Include="Assets\facebookIcon.png" />
     <Content Include="Assets\feaae4bea0e6b2cac8e9ee7359d9b508d33c0527.png" />
     <Content Include="Assets\gpsLocation.png" />
+    <Content Include="Assets\hermes-rivera-Ww8eQWjMJWk-unsplash.jpg" />
     <Content Include="Assets\instagramIcon.png" />
+    <Content Include="Assets\koftaFlatbreads.jpg" />
     <Content Include="Assets\pottedPlant.png" />
     <Content Include="Assets\Product\bibimbap.jpg" />
     <Content Include="Assets\Product\bread.png" />
@@ -167,6 +169,7 @@
     <Content Include="Assets\User\ongo gablogian.png" />
     <Content Include="Assets\User\scorsese.jpg" />
     <Content Include="Assets\User\shockedguy.png" />
+    <Content Include="Assets\veganLoMeinMeinMeinMein.png" />
     <Content Include="Assets\VendorCategory\bibimbap.jpg" />
     <Content Include="Assets\VendorCategory\bread.png" />
     <Content Include="Assets\VendorCategory\breakfast.jpg" />
@@ -259,9 +262,6 @@
     <Content Include="Assets\Voucher\voucher-3.png" />
     <Content Include="Assets\Voucher\voucher-4.png" />
     <Content Include="Assets\Voucher\voucher-5.png" />
-    <Content Include="Controller\Dummy Text.txt" />
-    <Content Include="Factory\Dummy Text.txt" />
-    <Content Include="Handler\Dummy Text.txt" />
     <Content Include="Model\GoVegeDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
@@ -272,14 +272,18 @@
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
       <LastGenOutput>GoVegeDBModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Repository\Dummy Text.txt" />
     <Content Include="SQL\CreateTables.sql" />
     <Content Include="SQL\DropTables.sql" />
     <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\HomePage.aspx" />
+    <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\VendorController.cs" />
+    <Compile Include="Factory\VendorFactory.cs" />
+    <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -324,6 +328,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
+    <Compile Include="Repository\VendorRepository.cs" />
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,12 +336,26 @@
     <Compile Include="View\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
