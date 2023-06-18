@@ -162,8 +162,6 @@
     <Content Include="Assets\Product\tacos.jpg" />
     <Content Include="Assets\Product\tahu.jpe" />
     <Content Include="Assets\Product\tempe.jpg" />
-    <Content Include="Assets\sales.jpg" />
-    <Content Include="Assets\sales50.png" />
     <Content Include="Assets\twitterIcon.png" />
     <Content Include="Assets\User\dalecooper.jpg" />
     <Content Include="Assets\User\kanye.jpg" />
@@ -264,9 +262,6 @@
     <Content Include="Assets\Voucher\voucher-3.png" />
     <Content Include="Assets\Voucher\voucher-4.png" />
     <Content Include="Assets\Voucher\voucher-5.png" />
-    <Content Include="Controller\Dummy Text.txt" />
-    <Content Include="Factory\Dummy Text.txt" />
-    <Content Include="Handler\Dummy Text.txt" />
     <Content Include="Model\GoVegeDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
@@ -277,11 +272,9 @@
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
       <LastGenOutput>GoVegeDBModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Repository\Dummy Text.txt" />
     <Content Include="SQL\CreateTables.sql" />
     <Content Include="SQL\DropTables.sql" />
     <Content Include="SQL\InsertTables.sql" />
-    <Content Include="View\CartPage.aspx" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\PromotionPage.aspx" />
@@ -312,6 +305,9 @@
     <Compile Include="Model\MsCart.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MsCartDetail.cs">
+      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\MsDriver.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
@@ -319,9 +315,6 @@
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsTransaction.cs">
-      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MsTransactionDetail.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsUser.cs">
@@ -337,19 +330,11 @@
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PromotionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
-    <Compile Include="View\CartPage.aspx.cs">
-      <DependentUpon>CartPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\CartPage.aspx.designer.cs">
-      <DependentUpon>CartPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,8 +374,8 @@
       <DependentUpon>StorePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\StorePage.aspx.designer.cs">
-      <DependentUpon>StorePage.aspx</DependentUpon>
+    <Compile Include="View\RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

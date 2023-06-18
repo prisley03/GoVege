@@ -16,22 +16,22 @@ namespace GoVege.View
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("LoginPage.aspx");
         }
 
         protected void BtnRegister_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("RegisterPage.aspx");
         }
 
         protected void BtnCart_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("CartPage.aspx");
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
-
+            
         }
 
     }
