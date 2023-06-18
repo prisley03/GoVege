@@ -192,6 +192,7 @@
                             <image class="contentImage" src='../Assets/Vendor/<%#Eval("vendorImage")%>'></image>
                             <p><%#Eval("vendorName")%></p>
                             <p><%#Eval("vendorRating")%>/5 Stars</p>
+                            <div class="rating-container">
                         </div>
                     </a>
                 </ItemTemplate>

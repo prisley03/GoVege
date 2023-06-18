@@ -21,6 +21,31 @@ namespace GoVege.View
                 recommended();
             }
 
+
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                
+            }
+            else
+            {
+                if (Session["user"] == null)
+                {
+                    var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
+                    cust = (from x in db.Customers where x.CustomerID == id select x).FirstOrDefault();
+                    Session["user"] = cust;
+                }
+                else
+                {
+                    cust = (Customer)Session["user"];
+                }
+            }
+
+            if (Request.QueryString["CustomerID"] == null)
+            {
+                Response.Redirect("/Home");
+            }
+
+
             vendorList = VendorController.loadVegetarianVendor(5);
             LVVendorVegetarian.DataSource = vendorList;
             LVVendorVegetarian.DataBind();

@@ -1,4 +1,5 @@
-﻿using GoVege.Repository;
+﻿using GoVege.Model;
+using GoVege.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
