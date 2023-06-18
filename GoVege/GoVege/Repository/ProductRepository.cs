@@ -13,5 +13,10 @@ namespace GoVege.Repository
         {
             return (from i in db.MsProducts where i.vendorID == id select i).ToList();
         }
+
+        public static MsProduct GetProductByID(int id)
+        {
+            return (from i in db.MsProducts where i.productID == id select i).FirstOrDefault();
+        }
     }
 }
