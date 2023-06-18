@@ -9,15 +9,16 @@
     [userImage] VARCHAR(255) NOT NULL
 )
 
-CREATE TABLE [dbo].[MsVoucher]
-(
-	[voucherID] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [voucherName] VARCHAR(255) NOT NULL, 
-    [discountAmount] INT NOT NULL,
-    [voucherImage] VARCHAR(255) NOT NULL,
-    [startDate] DATE NOT NULL,
-    [endDate] DATE NOT NULL
-)
+CREATE TABLE [dbo].[MsVoucher] (
+    [voucherID]         INT           IDENTITY (1, 1) NOT NULL,
+    [voucherName]       VARCHAR (255) NOT NULL,
+    [description]       VARCHAR (500) NOT NULL,
+    [startDate]         DATE          NOT NULL,
+    [endDate]           DATE          NOT NULL,
+    [discountAmount]      FLOAT NOT NULL,
+    [photo]             VARCHAR (255) NOT NULL,
+    PRIMARY KEY CLUSTERED ([voucherID] ASC)
+);
 
 CREATE TABLE [dbo].[MsDriver]
 (
@@ -25,7 +26,8 @@ CREATE TABLE [dbo].[MsDriver]
     [driverName] VARCHAR(255) NOT NULL, 
     [driverLicensePlate] VARCHAR(255) NOT NULL, 
     [driverVehicleName] VARCHAR(255) NOT NULL, 
-    [driverImage] VARCHAR(255) NOT NULL
+    [driverImage] VARCHAR(255) NOT NULL,
+    [driverRating] FLOAT NOT NULL
 )
 
 CREATE TABLE [dbo].[MsVendorCategory]
@@ -61,33 +63,36 @@ CREATE TABLE [dbo].[MsProduct]
 
 CREATE TABLE [dbo].[MsCart]
 (
-	[cartID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[userID] INT NOT NULL, 
-	[voucherID] INT NOT NULL, 
-    [deliveryAddress] VARCHAR(255) NOT NULL, 
-    [deliveryNotes] VARCHAR(255) NOT NULL, 
-    [paymentMethod] VARCHAR(255) NOT NULL, 
-    CONSTRAINT [FK_MsCart_ToMsUser] FOREIGN KEY ([userID]) REFERENCES [MsUser]([userID]) ON UPDATE CASCADE ON DELETE CASCADE, 
-    CONSTRAINT [FK_MsCart_ToMsVoucher] FOREIGN KEY ([voucherID]) REFERENCES [MsVoucher]([voucherID]) ON UPDATE CASCADE ON DELETE CASCADE 
-)
-
-CREATE TABLE [dbo].[MsCartDetail]
-(
-	[cartID] INT NOT NULL,
 	[productID] INT NOT NULL, 
-	[quantity] INT NOT NULL, 
-    CONSTRAINT [FK_MsCartDetail_ToMsCart] FOREIGN KEY ([cartID]) REFERENCES [MsCart]([cartID]) ON UPDATE CASCADE ON DELETE CASCADE , 
-    CONSTRAINT [FK_MsCartDetail_ToMsProduct] FOREIGN KEY ([productID]) REFERENCES [MsProduct]([productID]) ON UPDATE CASCADE ON DELETE CASCADE, 
-    CONSTRAINT [PK_MsCartDetail] PRIMARY KEY ([cartID], [productID])
+    [quantity] INT NOT NULL, 
+    CONSTRAINT [FK_MsCart_ToMsUser] FOREIGN KEY ([userID]) REFERENCES [MsUser]([userID]) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT [FK_MsCart_ToMsProduct] FOREIGN KEY ([productID]) REFERENCES [MsProduct]([productID]) ON UPDATE CASCADE ON DELETE CASCADE, 
+    CONSTRAINT [PK_MsCart] PRIMARY KEY ([userID], [productID])
 )
 
 CREATE TABLE [dbo].[MsTransaction]
 (
 	[transactionID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[cartID] INT NOT NULL, 
+    [userID] INT NOT NULL,
 	[driverID] INT NOT NULL, 
-    CONSTRAINT [FK_MsTransaction_ToMsCart] FOREIGN KEY ([cartID]) REFERENCES [MsCart]([cartID]) ON UPDATE CASCADE ON DELETE CASCADE , 
+    [voucherID] INT, 
+    [deliveryDate] DATE NOT NULL, 
+    [deliveryTime] TIME NOT NULL, 
+    [deliveryAddress] VARCHAR(255) NOT NULL, 
+    [deliveryNotes] VARCHAR(255), 
+    [paymentMethod] VARCHAR(255) NOT NULL, 
+    CONSTRAINT [FK_MsTransaction_ToMsUser] FOREIGN KEY ([userID]) REFERENCES [MsUser]([userID]) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT [FK_MsTransaction_ToMsDriver] FOREIGN KEY ([driverID]) REFERENCES [MsDriver]([driverID]) ON UPDATE CASCADE ON DELETE CASCADE, 
+    CONSTRAINT [FK_MsTransaction_ToMsVoucher] FOREIGN KEY ([voucherID]) REFERENCES [MsVoucher]([voucherID]) ON UPDATE CASCADE ON DELETE CASCADE 
 )
 
-
+CREATE TABLE [dbo].[MsTransactionDetail]
+(
+    [transactionID] INT NOT NULL,
+	[productID] INT NOT NULL, 
+    [quantity] INT NOT NULL, 
+    CONSTRAINT [FK_MsTransactionDetail_ToMsProduct] FOREIGN KEY ([productID]) REFERENCES [MsProduct]([productID]) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT [FK_MsTransactionDetail_ToMsTransaction] FOREIGN KEY ([transactionID]) REFERENCES [MsTransaction]([transactionID]) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT [PK_MsTransaction] PRIMARY KEY ([transactionID], [productID])
+)

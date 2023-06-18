@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\GoVege",
-    "\\GoVege\\GoVege",
-    "\\GoVege\\GoVege\\View"
+    ""
   ],
-  "SelectedNode": "\\GoVege\\GoVege\\View\\MasterPage.Master.cs",
+  "SelectedNode": "\\GoVege.sln",
   "PreviewInSolutionExplorer": false
 }

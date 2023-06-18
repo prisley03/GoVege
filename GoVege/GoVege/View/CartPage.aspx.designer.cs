@@ -10,7 +10,7 @@
 
 namespace GoVege.View
 {
-    public partial class test
+    public partial class CartPage
     {
     }
 }

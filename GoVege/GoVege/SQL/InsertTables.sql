@@ -13,23 +13,24 @@ DELETE FROM [MsVoucher];
 DBCC CHECKIDENT ('[MsVoucher]', RESEED, 0);
 
 SET IDENTITY_INSERT [dbo].[MsVoucher] ON
-INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [discountAmount], [voucherImage], [startDate], [endDate]) VALUES (1, N'35% off for our new users', 35, N'voucher-1.png', N'2023-04-01', N'2023-04-14')
-INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [discountAmount], [voucherImage], [startDate], [endDate]) VALUES (2, N'50% off on christmas eve', 50, N'voucher-2.png', N'2023-12-25', N'2023-12-30')
-INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [discountAmount], [voucherImage], [startDate], [endDate]) VALUES (3, N'10% off at the market', 10, N'voucher-3.png', N'2023-04-11', N'2023-05-04')
-INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [discountAmount], [voucherImage], [startDate], [endDate]) VALUES (4, N'70% off at black friday', 70, N'voucher-4.png', N'2023-03-13', N'2023-05-10')
-INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [discountAmount], [voucherImage], [startDate], [endDate]) VALUES (5, N'60% off on Labor Day', 60, N'voucher-5.png', N'2023-09-04', N'2023-09-30')
+INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (1, N'35% off for our new users', N'Mandiry, DCA, VegPay, UVU', N'2023-04-01', N'2023-04-14', 0.35, N'voucher-3.png')
+INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (2, N'50% off on christmas eve', N'Mandiry, DCA, VegPay, UVU', N'2023-12-18', N'2023-12-26', 0.5, N'voucher-2.png')
+INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (3, N'10% off at the market', N'Mandiry, DCA, VegPay, UVU', N'2023-04-11', N'2023-05-04', 0.1, N'voucher-5.png')
+INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (4, N'70% off at black friday', N'Mandiry, DCA, VegPay, UVU', N'2023-03-13', N'2023-05-10', 0.7, N'voucher-4.png')
+INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (5, N'60% off on Labor Day', N'Mandiry, DCA, VegPay, UVU', N'2023-08-10', N'2023-09-06', 0.6, N'voucher-1.png')
 SET IDENTITY_INSERT [dbo].[MsVoucher] OFF
 
 DELETE FROM [MsDriver];
 DBCC CHECKIDENT ('[MsDriver]', RESEED, 0);
 
 SET IDENTITY_INSERT [dbo].[MsDriver] ON
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (1, N'Jimmy DeSanta', N'B 1990 AWT', N'Daihatsu Xenia', N'jimmy.png')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (2, N'Bjork', N'B 1045 RGB ', N'Toyota Camry', N'bjork.jpg')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (3, N'Kendrick Lamar', N'L 1556 TWT', N'Daihatsu Sigra', N'kdot.jpg')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (4, N'Mega Mind', N'B 1990 SSE', N'Toyota Avanza', N'megamind.jpg')
-INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage]) VALUES (5, N'Tupac Shakur', N'N 1423 FFR', N'Honda Civic', N'tupac.png')
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (1, N'Jimmy DeSanta', N'B 1990 AWT', N'Daihatsu Xenia', N'jimmy.png', 3.5)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (2, N'Bjork', N'B 1045 RGB', N'Toyota Camry', N'bjork.jpg', 5)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (3, N'Kendrick Lamar', N'L 1556 TWT', N'Daihatsu Sigra', N'kdot.jpg', 4.5)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (4, N'Mega Mind', N'B 1990 SSE', N'Toyota Avanza', N'megamind.jpg', 4)
+INSERT INTO [dbo].[MsDriver] ([driverID], [driverName], [driverLicensePlate], [driverVehicleName], [driverImage], [driverRating]) VALUES (5, N'Tupac Shakur', N'N 1423 FFR', N'Honda Civic', N'tupac.png', 5)
 SET IDENTITY_INSERT [dbo].[MsDriver] OFF
+
 
 DELETE FROM [MsVendorCategory];
 DBCC CHECKIDENT ('[MsVendorCategory]', RESEED, 0);
@@ -145,62 +146,68 @@ INSERT INTO [dbo].[MsProduct] ([productID], [vendorID], [productName], [productP
 SET IDENTITY_INSERT [dbo].[MsProduct] OFF
 
 DELETE FROM [MsCart];
-DBCC CHECKIDENT ('[MsCart]', RESEED, 0);
 
-SET IDENTITY_INSERT [dbo].[MsCart] ON
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (1, 1, 1, N'15931, Indiana Avenue', N'deliver to security', N'BCA')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (2, 1, 2, N'15931, Indiana Avenue', N'deliver to security', N'BCA')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (3, 1, 1, N'15931, Indiana Avenue', N'deliver to security', N'BCA')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (4, 2, 3, N'369, West Arlight Street', N'none', N'BCA')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (5, 2, 4, N'369, West Arlight Street', N'none', N'BNI')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (6, 3, 5, N'712, Belden Avenue', N'house w black gate', N'Mandiri')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (7, 3, 5, N'712, Belden Avenue', N'house w black gate', N'Mandiri')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (8, 4, 3, N'16511, Summershade Drive', N'none', N'Mandiri')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (9, 5, 1, N'1440, West 25th Street', N'none', N'BCA')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (10, 5, 2, N'1440, West 25th Street', N'none', N'BCA')
-INSERT INTO [dbo].[MsCart] ([cartID], [userID], [voucherID], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (11, 5, 4, N'1440, West 25th Street', N'none', N'BNI')
-SET IDENTITY_INSERT [dbo].[MsCart] OFF
-
-DELETE FROM [MsCartDetail];
-
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (1, 1, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (1, 2, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (1, 3, 3)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (1, 4, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (2, 23, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (2, 24, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (2, 25, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (3, 45, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (3, 46, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (4, 41, 1)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (4, 42, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (4, 43, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (5, 14, 4)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (6, 24, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (6, 25, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (7, 47, 3)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (8, 59, 5)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (9, 66, 6)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (10, 51, 5)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (10, 52, 3)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (10, 53, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (11, 15, 4)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (11, 16, 2)
-INSERT INTO [dbo].[MsCartDetail] ([cartID], [productID], [quantity]) VALUES (11, 17, 2)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (1, 1, 2)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (1, 4, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (1, 6, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (1, 8, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (2, 11, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (2, 12, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (2, 13, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (3, 23, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (3, 24, 2)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (3, 26, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (4, 46, 2)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (4, 47, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (4, 48, 2)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (4, 50, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (5, 37, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (5, 38, 2)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (5, 40, 1)
+INSERT INTO [dbo].[MsCart] ([userID], [productID], [quantity]) VALUES (5, 41, 2)
 
 DELETE FROM [MsTransaction];
 DBCC CHECKIDENT ('[MsTransaction]', RESEED, 0);
 
 SET IDENTITY_INSERT [dbo].[MsTransaction] ON
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (1, 1, 1)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (2, 2, 2)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (3, 3, 3)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (4, 4, 1)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (5, 5, 4)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (6, 6, 4)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (7, 7, 5)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (8, 8, 5)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (9, 9, 2)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (10, 10, 3)
-INSERT INTO [dbo].[MsTransaction] ([transactionID], [cartID], [driverID]) VALUES (11, 11, 3)
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (1, 1, 2, NULL, N'2023-06-01', N'19:30:00', N'15931, Indiana Avenue', NULL, N'DCA')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (2, 1, 3, 2, N'2023-05-25', N'15:00:00', N'15931, Indiana Avenue', N'deliver to security', N'Mandiry')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (3, 1, 5, 4, N'2023-06-10', N'20:00:00', N'15931, Indiana Avenue', N'no pickles', N'UVU')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (4, 2, 1, 1, N'2023-04-30', N'12:00:00', N'369, West Arlight Street', NULL, N'VegPay')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (5, 2, 4, 3, N'2023-04-22', N'16:30:00', N'369, West Arlight Street', N'black gate', N'DCA')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (6, 2, 5, 5, N'2023-06-18', N'19:00:00', N'369, West Arlight Street', N'black gate', N'DCA')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (7, 3, 1, NULL, N'2023-06-18', N'18:00:00', N'712, Belden Avenue', N'with extra condiments', N'Mandiry')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (8, 3, 2, 4, N'2023-03-31', N'15:45:00', N'712, Belden Avenue', N'without rice', N'Mandiry')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (9, 4, 3, 3, N'2023-03-30', N'17:30:00', N'16511, Summershade Drive', N'with no peas', N'DCA')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (10, 4, 5, 1, N'2023-02-26', N'19:00:00', N'16511, Summershade Drive', NULL, N'UVU')
+INSERT INTO [dbo].[MsTransaction] ([transactionID], [userID], [driverID], [voucherID], [deliveryDate], [deliveryTime], [deliveryAddress], [deliveryNotes], [paymentMethod]) VALUES (11, 5, 4, NULL, N'2023-06-17', N'20:00:00', N'1440, West 25th Street', NULL, N'VegPay')
 SET IDENTITY_INSERT [dbo].[MsTransaction] OFF
+
+DELETE FROM [MsTransactionDetail];
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (1, 1, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (1, 2, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (1, 4, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (1, 5, 3)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (1, 6, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (2, 23, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (2, 24, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (2, 25, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (3, 45, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (3, 46, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (3, 48, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (4, 37, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (4, 38, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (5, 51, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (5, 52, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (5, 53, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (6, 51, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (7, 55, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (7, 56, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (7, 58, 1)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (8, 64, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (8, 65, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (9, 59, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (9, 60, 2)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (10, 16, 3)
+INSERT INTO [dbo].[MsTransactionDetail] ([transactionID], [productID], [quantity]) VALUES (11, 18, 5)
+
