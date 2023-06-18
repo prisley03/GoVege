@@ -8,17 +8,23 @@
     <style>
         .informationText{
             font-size:17px;
+            color:black;
+            cursor:pointer;
+            padding:2px;
+        }
+        .informationText:hover{
+            color:white;
+            background-color:black;
+            border-radius:3px;
         }
         footer{
-            margin-top: 30px;
+            margin:30px 32px 0px 32px;
+            padding-bottom:10px;
+            background-color:white;
         }
         .socialImage{
            height:50px;
            width:50px;
-        }
-        #socialImageContainer{
-            display:flex;
-            justify-content:space-between;
         }
         #footerContainer{
             display:flex;
@@ -47,12 +53,16 @@
             margin:0;
             cursor:pointer;
         }
-        header{
-            padding: 16px 32px;
+        #headerContainer{
+            margin: 16px 32px;
             display:flex;
             justify-content:space-between;
             vertical-align:middle;
-            border-bottom: 3px solid #423db9;
+        }
+        header{
+            z-index: 1;
+            width: 100%;
+            position: absolute;
             background-color: rgba(0,0,0,0.5);
         }
         #imageContainer{
@@ -78,6 +88,10 @@
             display:flex;
             align-items:center;
         }
+        .headerButton{
+            margin-left: 2px;
+            margin-right: 2px;
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -85,26 +99,28 @@
 <body>
     <form id="form1" runat="server">
         <header>
-            <a href="./HomePage.aspx">
-            <div id="headerLogo">
-                <div class="imageContainer">
-                    <asp:Image ID="imageLogo" runat="server" ImageUrl="~/Assets/pottedPlant.png"/>
+            <div id="headerContainer">
+                <a href="./HomePage.aspx">
+                <div id="headerLogo">
+                    <div class="imageContainer">
+                        <asp:Image ID="imageLogo" runat="server" ImageUrl="~/Assets/pottedPlant.png"/>
+                    </div>
+                    <div id="textLogoContainer">
+                        <p id="textLogo1"><i>Go</i></p>
+                        <p id="textLogo2"><i>Vege</i></p>
+                    </div>
                 </div>
-                <div id="textLogoContainer">
-                    <p id="textLogo1"><i>Go</i></p>
-                    <p id="textLogo2"><i>Vege</i></p>
-                </div>
-            </div>
-            </a>
-            <div id="headerNav">
-                <div ID="NavGuest" runat="server" style="display:inline">
-                    <asp:Button CssClass="button" ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
-                    <asp:Button CssClass="button" ID="BtnRegister" runat="server" Text="Register" OnClick="BtnRegister_Click" />
-                </div>
+                </a>
+                <div id="headerNav">
+                    <div id="NavGuest" class="headerButton" runat="server">
+                        <asp:Button CssClass="button" ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
+                        <asp:Button CssClass="button" ID="BtnRegister" runat="server" Text="Register" OnClick="BtnRegister_Click" />
+                    </div>
 
-                <div ID="NavCustomer" runat="server" style="display:inline">
-                    <asp:Button CssClass="button" ID="BtnCart" runat="server" Text="Cart" OnClick="BtnCart_Click" />
-                    <asp:Button CssClass="button" ID="BtnLogout" runat="server" Text="Logout" OnClick="BtnLogout_Click" />
+                    <div id="NavCustomer" class="headerButton" runat="server">
+                        <asp:Button CssClass="button" ID="BtnCart" runat="server" Text="Cart" OnClick="BtnCart_Click" />
+                        <asp:Button CssClass="button" ID="BtnLogout" runat="server" Text="Logout" OnClick="BtnLogout_Click" />
+                    </div>
                 </div>
             </div>
         </header>
@@ -113,8 +129,9 @@
             </asp:ContentPlaceHolder>
         </div>
         <footer>
+            <hr style="margin-bottom:10px"/>
             <div id="footerContainer">
-                <div class="footerItem" style="margin-left:5%;">
+                <div class="footerItem">
                     <div class="imageContainer">
                         <asp:Image class="socialImage" runat="server" ImageUrl="~/Assets/pottedPlant.png"/>
                     </div>
@@ -125,17 +142,17 @@
                     flex-direction: column;">
                     <h4>OUR SOCIALS</h4>
                     <div class="socialImageContainer">
-                        <asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/instagramIcon.png"/>
-                        <asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/facebookIcon.png"/>
-                        <asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/twitterIcon.png"/>
-                        <asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/emailIcon.png"/>
+                        <a href="https://instagram.com/" target="_blank"><asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/instagramIcon.png"/></a>
+                        <a href="https://facebook.com/" target="_blank"><asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/facebookIcon.png"/></a>
+                        <a href="https://twitter.com/" target="_blank"><asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/twitterIcon.png"/></a>
+                        <a href="https://gmail.com/" target="_blank"><asp:Image CssClass="socialImage" runat="server" ImageUrl="~/Assets/emailIcon.png"/></a>
                     </div>
                 </div>
-                <div class="footerItem" style="margin-right:5%;">
+                <div class="footerItem">
                     <h4>MORE INFORMATION</h4>
-                    <p class="informationText">About Us</p>
-                    <p class="informationText">Contact Us</p>
-                    <p class="informationText">Help</p>
+                    <a href="AboutUsPage.aspx" target="_blank"><p class="informationText">About Us</p></a>
+                    <a href="ContactUsPage.aspx" target="_blank"><p class="informationText">Contact Us</p></a>
+                    <a href="FAQPage.aspx" target="_blank"><p class="informationText">Help</p></a>
                 </div>
             </div>
             <br />
