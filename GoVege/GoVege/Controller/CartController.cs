@@ -1,0 +1,26 @@
+﻿using GoVege.Handler;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace GoVege.Controller
+{
+    public class CartController
+    {
+        public static String CreateCart(string qty, string custId, string prodId)
+        {
+            if (qty.Equals(""))
+            {
+                return "Quantity should not be empty";
+            }
+            else if(!qty.All(Char.IsDigit)){
+                return "Quantity should be numeric";
+            }
+            else
+            {
+                return CartHandler.CreateCart(qty, custId, prodId);
+            }
+        }
+    }
+}
