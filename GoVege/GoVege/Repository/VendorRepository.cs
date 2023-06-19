@@ -31,7 +31,7 @@ namespace GoVege.Repository
         }
         public static List<MsVendor> loadVendorByCategory(int id, string preference)
         {
-            return (from i in db.MsVendors where i.vendorTypePreference.Equals(preference) && i.categoryID==id orderby i.vendorRating select i).Take(10).ToList();
+            return (from i in db.MsVendors where (i.vendorTypePreference.Equals(preference) && i.categoryID==id) select i).Take(10).ToList();
         }
     }
 }

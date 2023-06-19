@@ -99,7 +99,13 @@
     <Content Include="Assets\92a313bb47347fb0349367bb54b456b7ea6f25ed.png" />
     <Content Include="Assets\9480d0272df04c0bb15a662d700b14529fef57a8.png" />
     <Content Include="Assets\a1398acde8113225482f94672093a54d51e4a88f.png" />
+    <Content Include="Assets\AboutUs\Fast.png" />
+    <Content Include="Assets\AboutUs\Quality.png" />
+    <Content Include="Assets\AboutUs\Sustainable.png" />
     <Content Include="Assets\b7694d564f62b4ce7c62f40029610bc9919d2975.png" />
+    <Content Include="Assets\ContactUs\email.png" />
+    <Content Include="Assets\ContactUs\Phone.png" />
+    <Content Include="Assets\ContactUs\Vector.png" />
     <Content Include="Assets\d057e1679fa937cc86fcebab9177fdcd9cc8804f.png" />
     <Content Include="Assets\d1dc2c6c14b0b78c26cd07ca5aecb442df75d37e.png" />
     <Content Include="Assets\d42a6995c567c4fea48bcf5644b4cbcedf1bc3bf.png" />
@@ -113,6 +119,8 @@
     <Content Include="Assets\emailIcon.png" />
     <Content Include="Assets\f0eac2e810d17fc9ea0a1f82deb691beb7f5bb35.png" />
     <Content Include="Assets\facebookIcon.png" />
+    <Content Include="Assets\FAQ\Question.png" />
+    <Content Include="Assets\FAQ\Vegetables.png" />
     <Content Include="Assets\feaae4bea0e6b2cac8e9ee7359d9b508d33c0527.png" />
     <Content Include="Assets\gpsLocation.png" />
     <Content Include="Assets\hermes-rivera-Ww8eQWjMJWk-unsplash.jpg" />
@@ -278,21 +286,29 @@
     <Content Include="SQL\CreateTables.sql" />
     <Content Include="SQL\DropTables.sql" />
     <Content Include="SQL\InsertTables.sql" />
+    <Content Include="View\AboutUsPage.aspx" />
     <Content Include="View\CartPage.aspx" />
+    <Content Include="View\ContactUsPage.aspx" />
+    <Content Include="View\CustomerInfoPage.aspx" />
+    <Content Include="View\DriverInfoPage.aspx" />
+    <Content Include="View\FAQPage.aspx" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\MerchantInfoPage.aspx" />
     <Content Include="View\PromotionPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="View\StorePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
-    <Compile Include="Controller\VendorController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
-    <Compile Include="Factory\VendorFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
+    <Compile Include="Controller\registerPageController.cs" />
+    <Compile Include="Controller\VendorController.cs" />
+    <Compile Include="Factory\CustomerFactory.cs" />
+    <Compile Include="Factory\VendorFactory.cs" />
+    <Compile Include="Handler\customerHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <DependentUpon>GoVegeDBModel.Context.tt</DependentUpon>
@@ -338,17 +354,52 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PromotionRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
+    <Compile Include="View\AboutUsPage.aspx.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AboutUsPage.aspx.designer.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\CartPage.aspx.designer.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContactUsPage.aspx.cs">
+      <DependentUpon>ContactUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ContactUsPage.aspx.designer.cs">
+      <DependentUpon>ContactUsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerInfoPage.aspx.cs">
+      <DependentUpon>CustomerInfoPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\CustomerInfoPage.aspx.designer.cs">
+      <DependentUpon>CustomerInfoPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\DriverInfoPage.aspx.cs">
+      <DependentUpon>DriverInfoPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\DriverInfoPage.aspx.designer.cs">
+      <DependentUpon>DriverInfoPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\FAQPage.aspx.cs">
+      <DependentUpon>FAQPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\FAQPage.aspx.designer.cs">
+      <DependentUpon>FAQPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
@@ -371,6 +422,13 @@
     <Compile Include="View\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="View\MerchantInfoPage.aspx.cs">
+      <DependentUpon>MerchantInfoPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MerchantInfoPage.aspx.designer.cs">
+      <DependentUpon>MerchantInfoPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\PromotionPage.aspx.cs">
       <DependentUpon>PromotionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,9 +449,6 @@
     </Compile>
     <Compile Include="View\StorePage.aspx.designer.cs">
       <DependentUpon>StorePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\RegisterPage.aspx.designer.cs">
-      <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

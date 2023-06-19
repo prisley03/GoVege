@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="GoVege.View.RegisterPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="UpdateProfilePage.aspx.cs" Inherits="GoVege.View.UpdateProfilePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .container{
@@ -40,34 +39,11 @@
             padding: 15px;
             border-radius: 5px;
         }
-        .btnAlreadyAccount{
-            border: none;
-            background-color: white;
-            font-size: 18px;
-            text-decoration: underline;
-        }
         .txtBox{
             width: 15rem;
             border-radius: 5px;
             border: 1px solid;
             color: #808080;
-        }
-        .txtBoxRegion{
-            width: 3rem;
-            border-radius: 5px;
-            border: 1px solid;
-            color: #808080;
-        }
-        .txtBoxNums{
-            width: 10rem;
-            border-radius: 5px;
-            border: 1px solid;
-            color: #808080;
-        }
-        .numField{
-            display: flex;
-            flex-direction: row;
-            gap: 1.6rem;
         }
         .fields{
             display: flex;
@@ -93,23 +69,21 @@
             margin-right: 1rem;
             accent-color: #30D315;
         }
-        .termsCss{
-            display: flex;
-            flex-direction: row;
-            gap: 1vw;
-        }
-        .termsCss input[type="checkbox"]{
-            accent-color: #30D315;
-            width: 20px;
-            height: 20px;
-        }
         .btnCss{
             display: flex;
-            flex-direction: column;
-            gap: 1em;
+            flex-direction: row;
+            justify-content: space-between;
         }
-        .btnCont, .btnAlreadyAccount{
+        .btnCont, .btnDelete{
             cursor: pointer;
+        }
+        .btnDelete{
+            font-size: 18px;
+            color: white;
+            background-color: red;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
         }
 
     </style>
@@ -117,7 +91,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div CssClass="container">
-        <asp:Image CssClass="backgroundCss" ID="backgroundImg" runat="server" ImageUrl="~/Assets/hermes-rivera-Ww8eQWjMJWk-unsplash.jpg" />
+        <asp:Image CssClass="backgroundCss" ID="backgroundImg" runat="server" ImageUrl="~/Assets/louis-hansel-MlPD-AzZYMg-unsplash.jpg" />
 
         <div id="registerBox">
             <div class="inputContainer">
@@ -130,10 +104,7 @@
                     </div>
                     <div class="fields">
                         <asp:Label ID="lblPhoneNumber" runat="server" Text="Phone Number"></asp:Label>
-                        <div class="numField">
-                            <asp:TextBox ID="txtRegionNumber" runat="server" CssClass="txtBoxRegion" Text="+62"></asp:TextBox>
-                            <asp:TextBox ID="txtNumber" runat="server" CssClass="txtBoxNums"></asp:TextBox>
-                        </div>
+                        <asp:TextBox ID="txtNumber" runat="server" CssClass="txtBox"></asp:TextBox>
                     </div>
                     <div class="fields">
                         <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
@@ -156,13 +127,10 @@
                     </div>
                 </div>
 
-                <div class="termsCss">
-                    <asp:CheckBox ID="checkTerms" runat="server" Text="Agree to terms & condition"/>
-                </div>
-
                 <div class="btnCss">
-                    <asp:Button CssClass="btnCont" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"/>
-                    <asp:Button CssClass="btnAlreadyAccount" ID="btnHaveAccount" runat="server" Text="Already have an account?" Font-Bold="False" OnClick="btnHaveAccount_Click" />
+                    <asp:Button CssClass="btnCont" ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
+                    <asp:Label ID="errMsg" runat="server" Text=""></asp:Label>
+                    <asp:Button CssClass="btnDelete" ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click"/>
                 </div>
             </div>
         </div>

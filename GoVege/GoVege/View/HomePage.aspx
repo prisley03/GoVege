@@ -43,13 +43,13 @@
             margin-top: 0;
         }
 
-            .Button:hover {
-                color: white;
-                background-color: #30D315;
-                border-radius: 3px;
-                margin: 0;
-                cursor: pointer;
-            }
+        .Button:hover {
+            color: white;
+            background-color: #30D315;
+            border-radius: 3px;
+            margin: 0;
+            cursor: pointer;
+        }
 
         .Textbox {
             border: 2px solid #30D315;
@@ -165,7 +165,8 @@
 
     <hr />
     <div class="vegetarianRestaurant" runat="server" id="searchedRestaurantID" visible="false">
-        <h2>Searched Restaurant
+        <h2>
+            Searched Restaurant.
         </h2>
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorSearched" runat="server">
@@ -182,7 +183,8 @@
         </div>
     </div>
     <div class="vegetarianRestaurant" runat="server" id="vegetarianRestaurantID">
-        <h2>Top Vegetarian Restaurants in Jakarta.
+        <h2>
+            Top Vegetarian Restaurants in Jakarta.
         </h2>
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorVegetarian" runat="server">
@@ -205,7 +207,8 @@
 
 
     <div class="veganRestaurant" runat="server" id="veganRestaurantID">
-        <h2>Top Vegan Restaurants in Jakarta.
+        <h2>
+            Top Vegan Restaurants in Jakarta.
         </h2>
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorVegan" runat="server">
@@ -227,7 +230,8 @@
     </div>
 
     <div class="recommendedCategories" runat="server" id="recommendedRestaurantID">
-        <h2>Recommended Categories.
+        <h2>
+            Recommended Categories.
         </h2>
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorRecommended" runat="server">

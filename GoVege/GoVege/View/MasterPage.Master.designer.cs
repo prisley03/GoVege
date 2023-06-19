@@ -96,6 +96,15 @@ namespace GoVege.View
         protected global::System.Web.UI.WebControls.Button BtnLogout;
 
         /// <summary>
+        /// BtnProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnProfile;
+
+        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>
