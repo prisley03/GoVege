@@ -1,4 +1,5 @@
-﻿using GoVege.Model;
+﻿using GoVege.Controller;
+using GoVege.Model;
 using GoVege.Repository;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace GoVege.View
         public int customerID;
         public MsUser currUser;
         public List<MsCart> cartList;
+        public List<MsVoucher> promoList;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
@@ -43,8 +45,42 @@ namespace GoVege.View
             //{
             //    customerID = currUser.userID;
             //}
-            currUser = UserRepository.GetUserByID(2);
+
+            customerID = 2;
+            currUser = UserRepository.GetUserByID(customerID);
+            
             cartList = CartRepository.GetCartByCustId(customerID);
+            promoList = PromotionRepository.getAllPromotion();
+            vendorTarget = cartList.FirstOrDefault().MsProduct.MsVendor;
+            ImageVendor.ImageUrl = "~/Assets/Vendor/" +  vendorTarget.vendorImage;
+
+            ListViewCart.DataSource = cartList;
+            ListViewCart.DataBind();
+            
+        }
+        protected void ListViewCart_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            String prodId = e.CommandArgument.ToString();
+            String error = null;
+
+            if (e.CommandName == "add")
+            {
+                error = CartController.AddQty(customerID, prodId);
+            }
+            else if(e.CommandName == "remove")
+            {
+                error = CartController.RemoveQty(customerID, prodId);  
+            }
+
+            if (!error.Equals("Update successful") || e.CommandArgument.ToString().Equals(""))
+            {
+                Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
+                ListViewCart.DataSource = cartList;
+                ListViewCart.DataBind();
+            }
+
+            ListViewCart.DataSource = cartList;
+            ListViewCart.DataBind();
         }
     }
 }

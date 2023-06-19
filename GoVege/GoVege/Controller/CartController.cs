@@ -22,5 +22,20 @@ namespace GoVege.Controller
                 return CartHandler.CreateCart(qty, custId, prodId);
             }
         }
+
+        public static String UpdateCart(string qty, string custId, string prodId)
+        {
+            return CartHandler.UpdateCart(qty, custId, prodId);
+        }
+
+        public static String AddQty(int custId, string prodId)
+        {
+            return CartHandler.AddQty(custId, prodId);
+        }
+
+        public static String RemoveQty(int custId, string prodId)
+        {
+            return CartHandler.RemoveQty(custId, prodId);
+        }
     }
 }
