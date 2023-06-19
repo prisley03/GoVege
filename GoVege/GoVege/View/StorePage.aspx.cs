@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace GoVege.View
 {
-    public partial class StorePage : System.Web.UI.Page
+    public partial class StorePage1 : System.Web.UI.Page
     {
         public MsVendor vendorTarget = null;
         public List<MsProduct> productList = null;
@@ -17,9 +17,12 @@ namespace GoVege.View
         public double vendorRating;
         public int fullStarCount, halfStarCount, emptyStarCount;
 
+        public int customerID;
+        public MsUser currUser = null;
+
         protected void ListViewProduct_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            if(e.CommandName == "save")
+            if (e.CommandName == "save")
             {
                 if (((TextBox)(e.Item.FindControl("TxtQty"))).Text.Equals("") || !((TextBox)(e.Item.FindControl("TxtQty"))).Text.Trim().All(Char.IsDigit) || e.CommandArgument.ToString().Equals(""))
                 {
@@ -36,6 +39,37 @@ namespace GoVege.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            //{
+            //    Response.Redirect("~/View/HomePage.aspx");
+            //}
+            //else
+            //{
+            //    if (Session["user"] == null)
+            //    {
+            //        var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
+            //        currUser = UserRepository.GetUserByID(id);
+            //        Session["user"] = currUser;
+            //    }
+            //    else
+            //    {
+            //        currUser = (MsUser)Session["user"];
+            //    }
+            //}
+
+            //if (currUser == null)
+            //{
+            //    Response.Redirect("~/View/HomePage.aspx");
+            //}
+            //else
+            //{
+            //    customerID = currUser.userID;
+            //}
+
+            customerID = 2;
+            currUser = UserRepository.GetUserByID(customerID);
+
             if (Request.QueryString["VendorID"] == null)
             {
                 Response.Redirect("~/View/HomePage.aspx");
@@ -45,7 +79,7 @@ namespace GoVege.View
 
             vendorTarget = VendorRepository.getVendorByID(vendorID);
             vendorRating = vendorTarget.vendorRating;
-            
+
 
             fullStarCount = (int)(vendorRating / 1);
             halfStarCount = (int)((vendorRating - fullStarCount) / 0.5);
@@ -58,7 +92,7 @@ namespace GoVege.View
 
             String vendorImage = vendorTarget.vendorImage;
             ImageVendor.ImageUrl = "~/Assets/Vendor/" + vendorImage;
-            
+
             productList = ProductRepository.GetProductsByVendorID(vendorID);
 
             if (!IsPostBack)

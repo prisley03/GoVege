@@ -11,7 +11,7 @@ namespace GoVege.View
 {
 
 
-    public partial class StorePage
+    public partial class StorePage1
     {
 
         /// <summary>

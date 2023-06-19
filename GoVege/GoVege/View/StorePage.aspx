@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="StorePage.aspx.cs" Inherits="GoVege.View.StorePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="StorePage.aspx.cs" Inherits="GoVege.View.StorePage1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .store-container{
@@ -11,19 +11,17 @@
             border: 1px solid #000000;
         }
 
-        use {
-          &:nth-child(2) {
-            transform: translate(20px);
-          }
-          &:nth-child(3) {
-            transform: translate(40px);
-          }
-          &:nth-child(4) {
-            transform: translate(60px);
-          }
-          &:nth-child(5) {
-            transform: translate(80px);
-          }
+        use:nth-child(2) {
+        transform: translate(20px);
+        }
+        use:nth-child(3) {
+        transform: translate(40px);
+        }
+        use:nth-child(4) {
+        transform: translate(60px);
+        }
+        use:nth-child(5) {
+        transform: translate(80px);
         }
 
         .rating {
@@ -32,7 +30,7 @@
           width: 100px;
         }
 
-        .img-product{
+        .img-product, .img-vendor{
             object-fit: cover;
         }
 
@@ -73,6 +71,18 @@
     border-radius: 20px;
     padding: 1rem;
         }
+
+        header{
+            position: static;
+        }
+
+        #headerContainer {
+            margin: 0;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -84,14 +94,14 @@
         <path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" />
         </symbol>
         <symbol id="stars-half-star" viewBox="0 0 102 18" fill="#D3A81E">
-        <use xlink:href="#stars-empty-star" />
+        <use href="#stars-empty-star" />
         <path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792" />
         </symbol>
     </svg>
 
     <div class="store-container">
         <div class="vendor-header-container">
-            <asp:Image ID="ImageVendor" runat="server" Height="150" Width="150" />
+            <asp:Image ID="ImageVendor" runat="server" Height="150" Width="150" CssClass="img-vendor" />
         
             <div class="vendor-info-container">
                 <h1><%= vendorTarget.vendorName %></h1>
@@ -99,13 +109,13 @@
                     <svg aria-hidden="true" focusable="false" class="rating">
             
                         <%for (int i = 0; i < fullStarCount; i++){%>
-                        <use xlink:href="#stars-full-star" />
+                        <use href="#stars-full-star" />
                         <%}%>
                         <%for (int i = 0; i < halfStarCount; i++){%>
-                            <use xlink:href="#stars-half-star" />
+                            <use href="#stars-half-star" />
                             <%}%>
                         <%for (int i = 0; i < emptyStarCount; i++){%>
-                            <use xlink:href="#stars-empty-star" />
+                            <use href="#stars-empty-star" />
                             <%}%>
                     </svg>
                     <% Response.Write(vendorRating.ToString("0.0")); %>

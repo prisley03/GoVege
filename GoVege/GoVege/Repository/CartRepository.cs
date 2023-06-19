@@ -36,5 +36,12 @@ namespace GoVege.Repository
             db.SaveChanges();
             return "Update successful";
         }
+
+        public static String DeleteCart(MsCart cartTarget)
+        {
+            db.MsCarts.Remove(cartTarget);
+            db.SaveChanges();
+            return "Delete successful";
+        }
     }
 }

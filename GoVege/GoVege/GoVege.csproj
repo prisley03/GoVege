@@ -271,13 +271,16 @@
     <Content Include="Assets\Voucher\voucher-4.png" />
     <Content Include="Assets\Voucher\voucher-5.png" />
     <Content Include="Model\GoVegeDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GoVegeDBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\GoVegeDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+    <Content Include="Model\GoVegeDBModel.edmx.diagram">
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\GoVegeDBModel.tt">
+      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GoVegeDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="SQL\CreateTables.sql" />
@@ -299,6 +302,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\PromotionController.cs" />
+    <Compile Include="Factory\CartFactory.cs" />
+    <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Controller\registerPageController.cs" />
     <Compile Include="Controller\VendorController.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
@@ -306,24 +311,21 @@
     <Compile Include="Handler\customerHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>GoVegeDBModel.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Model\GoVegeDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Model\GoVegeDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Model\MsCart.cs">
-      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MsCartDetail.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsDriver.cs">
@@ -333,6 +335,9 @@
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsTransaction.cs">
+      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MsTransactionDetail.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MsUser.cs">
@@ -447,13 +452,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\GoVegeDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GoVegeDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model\GoVegeDBModel.edmx.diagram">
-      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="View\MasterPage.Master" />
     <None Include="Web.Debug.config">
@@ -463,7 +461,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="Model\GoVegeDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GoVegeDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
