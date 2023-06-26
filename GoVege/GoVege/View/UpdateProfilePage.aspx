@@ -128,9 +128,9 @@
                 </div>
 
                 <div class="btnCss">
-                    <asp:Button CssClass="btnCont" ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
-                    <asp:Label ID="errMsg" runat="server" Text=""></asp:Label>
                     <asp:Button CssClass="btnDelete" ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click"/>
+                    <asp:Label ID="errMsg" runat="server" Text=""></asp:Label>
+                    <asp:Button CssClass="btnCont" ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
                 </div>
             </div>
         </div>
