@@ -35,7 +35,7 @@ namespace GoVege.View
                     cust = (MsUser)Session["user"];
                 }
                 NavCustomer.Visible = true;
-                BtnProfile.Text += cust.userName;
+                BtnProfile.Text = "Welcome, " + cust.userName;
             }
         }
 

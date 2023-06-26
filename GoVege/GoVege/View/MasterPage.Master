@@ -54,7 +54,7 @@
             cursor:pointer;
         }
         #headerContainer{
-            margin: 0px 16px 0px, 16px;
+            padding: 2vh 4vw;
             display:flex;
             justify-content:space-between;
             vertical-align:middle;
@@ -120,7 +120,7 @@
                     <div id="NavCustomer" class="headerButton" runat="server">
                         <asp:Button CssClass="button" ID="BtnCart" runat="server" Text="Cart" OnClick="BtnCart_Click" />
                         <asp:Button CssClass="button" ID="BtnLogout" runat="server" Text="Logout" OnClick="BtnLogout_Click" />
-                        <asp:Button CssClass="button" ID="BtnProfile" runat="server" Text="Welcome, " OnClick="BtnProfile_Click" />
+                        <asp:Button CssClass="button" ID="BtnProfile" runat="server" OnClick="BtnProfile_Click" />
                     </div>
                 </div>
             </div>

@@ -271,16 +271,13 @@
     <Content Include="Assets\Voucher\voucher-4.png" />
     <Content Include="Assets\Voucher\voucher-5.png" />
     <Content Include="Model\GoVegeDBModel.Context.tt">
-      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
       <LastGenOutput>GoVegeDBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\GoVegeDBModel.edmx.diagram">
-      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Model\GoVegeDBModel.tt">
-      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
       <LastGenOutput>GoVegeDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="SQL\CreateTables.sql" />
@@ -294,13 +291,16 @@
     <Content Include="View\FAQPage.aspx" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\MasterPage.Master" />
     <Content Include="View\MerchantInfoPage.aspx" />
     <Content Include="View\PromotionPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="View\StorePage.aspx" />
+    <Content Include="View\UpdateProfilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
@@ -311,19 +311,19 @@
     <Compile Include="Handler\customerHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
-      <DependentUpon>GoVegeDBModel.Context.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoVegeDBModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GoVegeDBModel.cs">
-      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoVegeDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GoVegeDBModel.Designer.cs">
-      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\MsCart.cs">
       <DependentUpon>GoVegeDBModel.tt</DependentUpon>
@@ -358,6 +358,7 @@
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PromotionRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
     <Compile Include="View\AboutUsPage.aspx.cs">
       <DependentUpon>AboutUsPage.aspx</DependentUpon>
@@ -450,10 +451,23 @@
     <Compile Include="View\StorePage.aspx.designer.cs">
       <DependentUpon>StorePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateProfilePage.aspx.cs">
+      <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProfilePage.aspx.designer.cs">
+      <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Model\GoVegeDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GoVegeDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\GoVegeDBModel.edmx.diagram">
+      <DependentUpon>GoVegeDBModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
-    <Content Include="View\MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -462,14 +476,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\GoVegeDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GoVegeDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

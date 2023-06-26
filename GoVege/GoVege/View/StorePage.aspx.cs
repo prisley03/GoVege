@@ -1,4 +1,5 @@
-﻿using GoVege.Model;
+﻿using GoVege.Controller;
+using GoVege.Model;
 using GoVege.Repository;
 using System;
 using System.Collections.Generic;
@@ -17,22 +18,35 @@ namespace GoVege.View
         public double vendorRating;
         public int fullStarCount, halfStarCount, emptyStarCount;
 
-        public int customerID;
+        public int customerID = 0;
         public MsUser currUser = null;
 
         protected void ListViewProduct_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
             if (e.CommandName == "save")
             {
-                if (((TextBox)(e.Item.FindControl("TxtQty"))).Text.Equals("") || !((TextBox)(e.Item.FindControl("TxtQty"))).Text.Trim().All(Char.IsDigit) || e.CommandArgument.ToString().Equals(""))
+                if (e.CommandArgument.ToString().Equals(""))
                 {
                     Response.Write("<script language=javascript>alert('ERROR: Please input a valid quantity');</script>");
+                }
+                else if(customerID == 0)
+                {
+                    Response.Write("<script language=javascript>alert('ERROR: Please login first');</script>");
                 }
                 else
                 {
                     int productId = int.Parse(e.CommandArgument.ToString());
                     String qty = (((TextBox)e.Item.FindControl("txtqty")).Text);
-                    ((TextBox)(e.Item.FindControl("TxtQty"))).Text = "In Cart";
+                    String msg = CartController.CreateCart(qty, customerID.ToString(), productId.ToString());
+                    if (msg.Equals("Insert successful") ||
+                        msg.Equals("Update successful"))
+                    {
+                        ((TextBox)(e.Item.FindControl("TxtQty"))).Text = "In Cart";
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>alert('ERROR: " + msg + "');</script>");
+                    }
                 }
             }
         }
@@ -40,35 +54,25 @@ namespace GoVege.View
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
-            //{
-            //    Response.Redirect("~/View/HomePage.aspx");
-            //}
-            //else
-            //{
-            //    if (Session["user"] == null)
-            //    {
-            //        var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
-            //        currUser = UserRepository.GetUserByID(id);
-            //        Session["user"] = currUser;
-            //    }
-            //    else
-            //    {
-            //        currUser = (MsUser)Session["user"];
-            //    }
-            //}
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                
+            }
+            else
+            {
+                if (Session["user"] == null)
+                {
+                    var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
+                    currUser = UserRepository.GetUserByID(id);
+                    Session["user"] = currUser;
+                }
+                else
+                {
+                    currUser = (MsUser)Session["user"];
+                }
 
-            //if (currUser == null)
-            //{
-            //    Response.Redirect("~/View/HomePage.aspx");
-            //}
-            //else
-            //{
-            //    customerID = currUser.userID;
-            //}
-
-            customerID = 2;
-            currUser = UserRepository.GetUserByID(customerID);
+                customerID = currUser.userID;
+            }
 
             if (Request.QueryString["VendorID"] == null)
             {

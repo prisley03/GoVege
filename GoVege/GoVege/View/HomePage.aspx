@@ -3,12 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .topSection {
-            background-image: url("/Assets/gadoGadoImage.png");
-            object-fit: cover;
             height: 60vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: relative;
+            background: black;
+            overflow: hidden;
         }
 
         .topText {
@@ -20,12 +17,8 @@
 
         .searchAddressContainer {
             height: auto;
-            top: 50%;
             display: flex;
-            position: absolute;
-            width: 35vw;
             flex-direction: column;
-            padding-left: 5vw;
         }
 
         .topLabel {
@@ -43,6 +36,15 @@
             margin-top: 0;
         }
 
+        .Button-Search{
+            width: 15%;
+            height: 5vh;
+        }
+
+        .Button-ViewMore{
+            height: 5vh;
+        }
+
         .Button:hover {
             color: white;
             background-color: #30D315;
@@ -56,14 +58,14 @@
             background-color: white;
             border-radius: 3px;
             margin: 0;
+            width: 80%;
+            height: 4vh;
         }
 
         .searchRestaurantContainer {
             display: flex;
-            justify-content: center;
-            align-content: center;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .contentImage {
@@ -111,7 +113,7 @@
         }
 
         .vendorItemContainer:hover {
-            box-shadow: 5px 10px black;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.5)
         }
 
         .vegetarianRestaurant {
@@ -143,21 +145,41 @@
         .errorContainer {
             display: flex;
             justify-content: center;
+            padding: 4vh;
+        }
+
+        .img-home{
+            height: inherit;
+            width: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .search-container{
+            position: absolute;
+            top: 50%;
+            padding-left: 5vw;
+            width: 60%;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="topSection">
-        <div class="searchAddressContainer">
-            <div class="topLabel">
-                <asp:Label CssClass="topText" ID="Label1" runat="server" Text="Order Food to Your Door"></asp:Label>
+        <img src="../Assets/gadoGadoImage.png" class="img-home"/>
+        <div class="search-container">
+            <div class="searchAddressContainer">
+                <div class="topLabel">
+                    <h1><asp:Label CssClass="topText" ID="Label1" runat="server" Text="Order Food to Your Door"></asp:Label></h1>
+                </div>
+            </div>
+            <div class="searchRestaurantContainer">
+                <asp:TextBox CssClass="Textbox" ID="txtSearched" placeholder="Search Your Restaurant Here" runat="server"></asp:TextBox>
+                <asp:Button CssClass="Button Button-Search" ID="ButtonSearchRestaurant" runat="server" Text="Search" OnClick="ButtonSearchRestaurant_Click" />
             </div>
         </div>
     </div>
-    <div class="searchRestaurantContainer">
-        <asp:TextBox CssClass="Textbox" ID="txtSearched" placeholder="Search Your Restaurant Here" runat="server" Width="347px"></asp:TextBox>
-        <asp:Button CssClass="Button" ID="ButtonSearchRestaurant" runat="server" Text="Search" OnClick="ButtonSearchRestaurant_Click" />
-    </div>
+    
     <div class="errorContainer">
         <asp:Label ID="LblError" runat="server" Text=""></asp:Label>
     </div>
@@ -200,7 +222,7 @@
             </asp:ListView>
         </div>
         <div class="buttonContainer">
-            <asp:Button CssClass="Button" ID="Button1" runat="server" Text="View More Suggestions" OnClick="Button1_Click" />
+            <asp:Button CssClass="Button Button-ViewMore" ID="Button1" runat="server" Text="View More Suggestions" OnClick="Button1_Click" />
         </div>
         <hr />
     </div>
@@ -224,7 +246,7 @@
             </asp:ListView>
         </div>
         <div class="buttonContainer">
-            <asp:Button CssClass="Button" ID="Button2" runat="server" Text="View More Suggestions" OnClick="Button2_Click" />
+            <asp:Button CssClass="Button Button-ViewMore" ID="Button2" runat="server" Text="View More Suggestions" OnClick="Button2_Click" />
         </div>
         <hr />
     </div>
@@ -246,7 +268,7 @@
             </asp:ListView>
         </div>
         <div class="buttonContainer">
-            <asp:Button CssClass="Button" ID="Button3" runat="server" Text="View More Suggestions" OnClick="Button3_Click" />
+            <asp:Button CssClass="Button Button-ViewMore" ID="Button3" runat="server" Text="View More Suggestions" OnClick="Button3_Click" />
         </div>
     </div>
 

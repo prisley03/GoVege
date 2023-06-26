@@ -178,8 +178,6 @@ background: #2EB14B;
     text-align: center;"><%# "Rp " + int.Parse(Eval("MsProduct.productPrice").ToString()) * int.Parse(Eval("quantity").ToString()) %></div>
                 </ItemTemplate>
                 </asp:ListView>
-            
-            
         </div>
         <hr />
         <div class="payment-container">

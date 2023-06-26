@@ -19,45 +19,43 @@ namespace GoVege.View
         public List<MsVoucher> promoList;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
-            //{
-            //    Response.Redirect("~/View/HomePage.aspx");
-            //}
-            //else
-            //{
-            //    if (Session["user"] == null)
-            //    {
-            //        var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
-            //        currUser = UserRepository.GetUserByID(id);
-            //        Session["user"] = currUser;
-            //    }
-            //    else
-            //    {
-            //        currUser = (MsUser)Session["user"];
-            //    }
-            //}
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+            }
+            else
+            {
+                if (Session["user"] == null)
+                {
+                    var id = Int32.Parse(Request.Cookies["user_cookie"].Value);
+                    currUser = UserRepository.GetUserByID(id);
+                    Session["user"] = currUser;
+                }
+                else
+                {
+                    currUser = (MsUser)Session["user"];
+                }
+            }
 
-            //if (currUser == null)
-            //{
-            //    Response.Redirect("~/View/HomePage.aspx");
-            //}
-            //else
-            //{
-            //    customerID = currUser.userID;
-            //}
-
-            customerID = 2;
-            currUser = UserRepository.GetUserByID(customerID);
+            if (currUser == null)
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+            }
+            else
+            {
+                customerID = currUser.userID;
+            }
             
             cartList = CartRepository.GetCartByCustId(customerID);
             promoList = PromotionRepository.getAllPromotion();
+
             vendorTarget = cartList.FirstOrDefault().MsProduct.MsVendor;
             ImageVendor.ImageUrl = "~/Assets/Vendor/" +  vendorTarget.vendorImage;
 
             ListViewCart.DataSource = cartList;
             ListViewCart.DataBind();
-            
         }
+
         protected void ListViewCart_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
             String prodId = e.CommandArgument.ToString();
@@ -69,10 +67,10 @@ namespace GoVege.View
             }
             else if(e.CommandName == "remove")
             {
-                error = CartController.RemoveQty(customerID, prodId);  
+                error = CartController.RemoveQty(customerID, prodId);
             }
 
-            if (!error.Equals("Update successful") || e.CommandArgument.ToString().Equals(""))
+            if (e.CommandArgument.ToString().Equals(""))
             {
                 Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
                 ListViewCart.DataSource = cartList;

@@ -10,11 +10,11 @@ namespace GoVege.Controller
     {
         public static String CreateCart(string qty, string custId, string prodId)
         {
-            if (qty.Equals(""))
+            if (qty.Trim().Equals(""))
             {
                 return "Quantity should not be empty";
             }
-            else if(!qty.All(Char.IsDigit)){
+            else if(!qty.Trim().All(Char.IsDigit)){
                 return "Quantity should be numeric";
             }
             else

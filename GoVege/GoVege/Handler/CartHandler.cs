@@ -12,11 +12,26 @@ namespace GoVege.Handler
         public static String CreateCart(string qty, string custId, string prodId)
         {
             MsCart cartTarget = CartRepository.GetCartByCustIdAndProdId(int.Parse(custId), int.Parse(prodId));
+            MsCart cartFirstItem = CartRepository.GetCartByCustId(int.Parse(custId)).FirstOrDefault();
             MsProduct productTarget = ProductRepository.GetProductByID(int.Parse(prodId));
 
             if (cartTarget == null)
             {
-                return CartRepository.CreateCart(int.Parse(qty), int.Parse(custId), int.Parse(prodId));
+                if(cartFirstItem == null)
+                {
+                    return CartRepository.CreateCart(int.Parse(qty), int.Parse(custId), int.Parse(prodId));
+                }
+                else
+                {
+                    if (productTarget.MsVendor.vendorName.Equals(cartFirstItem.MsProduct.MsVendor.vendorName))
+                    {
+                        return CartRepository.CreateCart(int.Parse(qty), int.Parse(custId), int.Parse(prodId));
+                    }
+                    else
+                    {
+                        return "You must remove all items from cart before adding one from a different vendor.";
+                    }
+                }
             }
             else
             {
