@@ -11,10 +11,10 @@
 
         #headerContainer {
             margin: 0;
-    padding: 16px 32px;
-    display: flex;
-    justify-content: space-between;
-    vertical-align: middle;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            vertical-align: middle;
 }
 
         hr{
@@ -35,17 +35,17 @@
 
         .vendor-header-container{
             display: flex;
-    flex-flow: row-reverse;
-    justify-content: space-between;
-    padding-bottom: 3vh;
-    color: #2EB14B;
+            flex-flow: row-reverse;
+            justify-content: space-between;
+            padding-bottom: 3vh;
+            color: #2EB14B;
         }
 
         .product-container, .payment-container{
             padding: 3vh 0;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
         }
 
         .product-wrapper{
@@ -56,27 +56,27 @@
 
         .product-row{
             display: flex;
-    padding: 1rem;
-    font-size: 3vh;
-justify-content: space-between;
-align-items: center;
+            padding: 1rem;
+            font-size: 3vh;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .delivery-container{
             padding: 3vh 0;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
         }
 
         .textbox{
-border: 4px solid #2EB14B;
-    border-radius: 10px;
-    height: 4.5vh;
-    font-size: 2.5vh;
-    font-family: 'Franklin Gothic';
-    padding: 1vw;
-    width: 60%;
+            border: 4px solid #2EB14B;
+            border-radius: 10px;
+            height: 4.5vh;
+            font-size: 2.5vh;
+            font-family: 'Franklin Gothic';
+            padding: 1vw;
+            width: 60%;
         }
 
         .input-item{
@@ -87,27 +87,44 @@ border: 4px solid #2EB14B;
 
         .input-item span{
             font-size: 3vh;
-    font-family: 'Franklin Gothic Regular';
+            font-family: 'Franklin Gothic Regular';
         }
 
         .dropdown{
             border: 4px solid #2EB14B;
-    border-radius: 10px;
-    font-size: 2.5vh;
-    font-family: 'Franklin Gothic';
-    padding: 1vw;
-    width: 100%;
+            border-radius: 10px;
+            font-size: 2.5vh;
+            font-family: 'Franklin Gothic';
+            padding: 1vw;
+            width: 100%;
         }
 
         .button-order{
-background: #2EB14B;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 2.5vh;
-    font-family: 'Franklin Gothic';
-    color: white;
-    padding: 1vw;
-    border: none;
+            background: #2EB14B;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 2.5vh;
+            font-family: 'Franklin Gothic';
+            color: white;
+            padding: 1vw;
+            border: none;
+        }
+
+        .sum-container{
+            display: flex;
+            padding: 1rem;
+            font-size: 3vh;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sum-label{
+            
+        }
+
+        .sum-value{
+            text-align: center;
+            width: 25%;
         }
     </style>
 </asp:Content>
@@ -153,10 +170,30 @@ background: #2EB14B;
     font-size: 3.5vh;
     font-family: 'Franklin Gothic Regular';">Add Items</div></a>
             </div>
-            <asp:ListView ID="ListViewCart" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewCart_ItemCommand">
+            <asp:ListView ID="ListViewCart" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewCart_ItemCommand" OnLayoutCreated="ListViewCart_LayoutCreated">
                 <LayoutTemplate>
                     <div class="product-wrapper">
                         <asp:PlaceHolder ID="rowGroupPlaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
+                    <div class="sum-container">
+                        <div class="sum-label">Sub Total</div>
+                        <div class="sum-value">
+                            <asp:Label ID="LblSum" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                    <div class="sum-container" id="PromoContainer" runat="server">
+                        <div class="sum-label">
+                            <asp:Label ID="LblPromo" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="sum-value">
+                            <asp:Label ID="LblPromoValue" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                    <div class="sum-container">
+                        <div class="sum-label">Grand Total</div>
+                        <div class="sum-value">
+                            <asp:Label ID="LblTotal" runat="server" Text=""></asp:Label>
+                        </div>
                     </div>
                 </LayoutTemplate>
                 <GroupTemplate>
@@ -184,7 +221,7 @@ background: #2EB14B;
                 <h2>Payment Method</h2>
                 <div>
                     <asp:DropDownList ID="DropDownPayment" runat="server" CssClass="dropdown">
-                        <asp:ListItem Selected="True">Payment</asp:ListItem>
+                        <asp:ListItem Selected="True">Choose a Payment Method</asp:ListItem>
                         <asp:ListItem>Mandiry</asp:ListItem>
                         <asp:ListItem>DCA</asp:ListItem>
                         <asp:ListItem>UVU</asp:ListItem>
@@ -192,8 +229,8 @@ background: #2EB14B;
                     </asp:DropDownList>
                 </div>
                 <div>
-                    <asp:DropDownList ID="DropDownPromo" runat="server" CssClass="dropdown">
-                        <asp:ListItem Selected="True">Promotions</asp:ListItem>
+                    <asp:DropDownList ID="DropDownPromo" runat="server" CssClass="dropdown" AutoPostBack="True">
+                        <asp:ListItem Selected="True">Choose a Promotion</asp:ListItem>
                         <asp:ListItem Value="1">35% off for our new users</asp:ListItem>
                         <asp:ListItem Value="2">50% off on christmas eve</asp:ListItem>
                         <asp:ListItem Value="3">10% off at the market</asp:ListItem>

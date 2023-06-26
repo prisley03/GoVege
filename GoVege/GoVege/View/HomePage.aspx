@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .topSection {
-            height: 60vh;
+            height: 80vh;
             background: black;
             overflow: hidden;
         }

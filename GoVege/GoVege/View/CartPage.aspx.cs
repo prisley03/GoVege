@@ -17,6 +17,7 @@ namespace GoVege.View
         public MsUser currUser;
         public List<MsCart> cartList;
         public List<MsVoucher> promoList;
+        public int subTotal = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
@@ -47,6 +48,10 @@ namespace GoVege.View
             }
             
             cartList = CartRepository.GetCartByCustId(customerID);
+            foreach(var cart in cartList)
+            {
+                subTotal += (cart.quantity * cart.MsProduct.productPrice);
+            }
             promoList = PromotionRepository.getAllPromotion();
 
             vendorTarget = cartList.FirstOrDefault().MsProduct.MsVendor;
@@ -79,6 +84,33 @@ namespace GoVege.View
 
             ListViewCart.DataSource = cartList;
             ListViewCart.DataBind();
+        }
+
+        protected void ListViewCart_LayoutCreated(object sender, EventArgs e)
+        {
+            Label LblSum = (Label)ListViewCart.FindControl("LblSum");
+            Label LblPromo = (Label)ListViewCart.FindControl("LblPromo");
+            Label LblPromoValue = (Label)ListViewCart.FindControl("LblPromoValue");
+            Label LblTotal = (Label)ListViewCart.FindControl("LblTotal");
+            LblSum.Text = "Rp " + subTotal.ToString();
+
+            int voucher = 0, total = 0;
+
+            if(DropDownPromo.SelectedIndex != 0)
+            {
+                MsVoucher promo = PromotionRepository.GetPromotionsById(int.Parse(DropDownPromo.SelectedValue));
+                LblPromo.Text = "Discount: " + promo.voucherName;
+                voucher = (int)(promo.discountAmount * subTotal);
+                LblPromoValue.Text = "-" + voucher.ToString();
+            }
+            else
+            {
+                LblPromo.Text = "No Discount";
+                LblPromoValue.Text = "0";
+            }
+
+            total = subTotal - voucher;
+            LblTotal.Text = total.ToString();
         }
     }
 }

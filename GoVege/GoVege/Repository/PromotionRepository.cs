@@ -14,12 +14,9 @@ namespace GoVege.Repository
                 return db.MsVouchers.ToList();
             }
 
-            public MsVoucher GetPromotionsById(int voucherId)
+            public static MsVoucher GetPromotionsById(int voucherId)
             {
-                using (var context = new GoVegeDBEntities())
-                {
-                    return context.MsVouchers.FirstOrDefault(v => v.voucherID == voucherId);
-                }
+                return (from i in db.MsVouchers where voucherId == i.voucherID select i).FirstOrDefault();
             }
     }
 }
