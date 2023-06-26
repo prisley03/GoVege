@@ -74,6 +74,8 @@ namespace GoVege.View
                 errMsg.ForeColor = System.Drawing.Color.Red;
                 errMsg.Text = "Error";
             }
+
+            Response.Redirect("~/View/UpdateProfilePage.aspx");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)

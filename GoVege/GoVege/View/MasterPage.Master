@@ -62,7 +62,7 @@
         header{
             z-index: 1;
             width: 100%;
-            /*position: absolute;*/
+            position: absolute;
             background-color: rgba(0,0,0,0.5);
         }
         #imageContainer{
