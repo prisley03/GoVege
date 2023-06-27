@@ -2,6 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        .Location{
+            margin-top: 1rem;
+            
+            line-height: 1rem;
+        }
+
+        .labelLocation{
+            margin-left: 4rem;
+        }
+
+        .imageLocation{
+            display: block;
+            margin: 0 auto;
+        }
+
         .driverDetails {
             margin: 2rem;
         }
@@ -86,6 +101,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class ="Location">
+        <asp:Label ID="lblLocation" CssClass="labelLocation" runat="server" Text="Track your Delivery here"></asp:Label>
+        <br />
+        <asp:Image ID="imgLocation" CssClass="imageLocation" ImageUrl="../Assets/MapSunib.png" runat="server" />
+    </div>
     <div class="driverDetails">
         <h3>Driver Details</h3>
         <div class="contentDriver">
