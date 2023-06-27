@@ -75,7 +75,7 @@
         .orderDetails {
             margin-left: 5rem;
             margin-right: 5rem;
-            line-height: 2rem;
+            line-height: 1rem;
         }
 
         .RepeaterOrder {

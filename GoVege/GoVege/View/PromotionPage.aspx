@@ -36,7 +36,6 @@
 
         }
         .bodyPromotion {
-            border: 1px solid;
             padding: 10px;
             margin-bottom: 10px;
         }

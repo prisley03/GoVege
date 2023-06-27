@@ -16,7 +16,7 @@ namespace GoVege.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            transactionID = 1;
+            transactionID = 7;
             GoVegeDBEntities db = DatabaseSingleton.GetInstance();
             var order = db.MsTransactions.FirstOrDefault(t => t.transactionID == transactionID);
             if (order != null)
@@ -71,10 +71,15 @@ namespace GoVege.View
             double deliveryFee = 10000;
             double discountVoucher = 0;
             double total = subtotal + deliveryFee;
-            int voucherID = 1;
+            int voucherID;
             string voucherName = string.Empty;
 
-            var voucher = db.MsVouchers.FirstOrDefault(v => v.voucherID == voucherID);
+            var voucher = (from td in db.MsTransactionDetails
+                           join t in db.MsTransactions on td.transactionID equals t.transactionID
+                           join v in db.MsVouchers on t.voucherID equals v.voucherID
+                           where td.transactionID == transactionID
+                           select v).FirstOrDefault();
+
             if (voucher != null)
             {
                 voucherID = voucher.voucherID;
@@ -119,7 +124,10 @@ namespace GoVege.View
             var ordersummaryItems = new List<object>(queryResults);
             ordersummaryItems.Add(subtotalItem);
             ordersummaryItems.Add(deliveryFeeItem);
-            ordersummaryItems.Add(discountItem);
+            if (voucher != null)
+            {
+                ordersummaryItems.Add(discountItem);
+            }
             ordersummaryItems.Add(totalItem);
 
             RepeaterOrderSummary.DataSource = ordersummaryItems;
