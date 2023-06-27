@@ -126,10 +126,41 @@
             text-align: center;
             width: 25%;
         }
+
+        .Button {
+            border: 2px solid #30D315;
+            color: #30D315;
+            background-color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 0;
+            width: 15%;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .Button:hover {
+            color: white;
+            background-color: #30D315;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .cartNoItems{
+            padding: 3vh 6vw;
+            display: flex;
+            flex-direction:column;
+            gap: 2vh;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="store-container">
+    <div class="store-container" id="CartHasItems" runat="server">
         <div class="vendor-header-container">
             <asp:Image ID="ImageVendor" runat="server" Height="150" Width="150" CssClass="img-vendor" />
         
@@ -170,29 +201,26 @@
     font-size: 3.5vh;
     font-family: 'Franklin Gothic Regular';">Add Items</div></a>
             </div>
-            <asp:ListView ID="ListViewCart" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewCart_ItemCommand">
+            <asp:ListView ID="ListViewCart" runat="server">
                 <LayoutTemplate>
-                    <div class="product-wrapper">
-                        <asp:PlaceHolder ID="rowGroupPlaceholder" runat="server"></asp:PlaceHolder>
+                    <div class="product-wrapper">    
+                        <div id="ItemPlaceHolder" runat="server"></div>
                     </div>
                 </LayoutTemplate>
-                <GroupTemplate>
-                    <div class="product-row">
-                        <asp:PlaceHolder ID="colItemPlaceholder" runat="server"></asp:PlaceHolder>
-                    </div>
-                </GroupTemplate>
                 <ItemTemplate>
-                    <div style="display:flex; gap: 0.5rem;font-size: 4vh;width: 10%;">
-                        <asp:LinkButton ID="BtnRemoveItem" runat="server" Text="-" CommandArgument='<%# Eval("MsProduct.productID") %>' CommandName="remove"/>
-                        <div>
-                            <asp:Label ID="LblQty" runat="server" Text=<%# Eval("quantity").ToString() %>></asp:Label>
+                    <div class="product-row">
+                        <div style="display:flex; gap: 0.5rem;font-size: 4vh;width: 10%;">
+                            <asp:LinkButton ID="BtnRemoveItem" runat="server" Text="-" CommandArgument='<%# Eval("MsProduct.productID") %>' OnClick="BtnRemoveItem_Click"/>
+                            <div>
+                                <asp:Label ID="LblQty" runat="server" Text=<%# Eval("quantity").ToString() %>></asp:Label>
+                            </div>
+                            <asp:LinkButton ID="BtnAddItem" runat="server" Text="+" CommandArgument='<%# Eval("MsProduct.productID") %>' OnClick="BtnAddItem_Click"/>
                         </div>
-                        <asp:LinkButton ID="BtnAddItem" runat="server" Text="+" CommandArgument='<%# Eval("MsProduct.productID") %>' CommandName="add"/>
+                        <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("MsProduct.productImage") %> />
+                        <div style="width: 30%;"><%# Eval("MsProduct.productName") %></div>
+                        <div style="width: 25%;
+        text-align: center;"><%# "Rp " + int.Parse(Eval("MsProduct.productPrice").ToString()) * int.Parse(Eval("quantity").ToString()) %></div>
                     </div>
-                    <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("MsProduct.productImage") %> />
-                    <div style="width: 30%;"><%# Eval("MsProduct.productName") %></div>
-                    <div style="width: 25%;
-    text-align: center;"><%# "Rp " + int.Parse(Eval("MsProduct.productPrice").ToString()) * int.Parse(Eval("quantity").ToString()) %></div>
                 </ItemTemplate>
                 </asp:ListView>
         </div>
@@ -240,5 +268,9 @@
                 </div>
             </div>
         <asp:Button ID="BtnOrder" runat="server" Text="Place Order" CssClass="button-order" />
+    </div>
+    <div id="CartNoItems" runat="server" class="cartNoItems">
+        <div style="text-align: center;"><h1>There Are No Items</h1></div>
+        <a href="./HomePage.aspx"><div style="font-family: 'Franklin Gothic Regular';" class="Button">Add Items</div></a>
     </div>
 </asp:Content>
