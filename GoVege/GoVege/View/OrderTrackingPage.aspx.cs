@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace GoVege.View
 {
@@ -34,9 +35,7 @@ namespace GoVege.View
                 DeliveryDetailTable.Rows[2].Cells[1].Text = order.deliveryAddress;
                 DeliveryDetailTable.Rows[3].Cells[1].Text = order.deliveryNotes;
             }
-            BindRepeater(transactionID);
-
-
+            OrderSummaryRepeater(transactionID);
         }
 
         private MsVendor GetVendor(int transactionID)
@@ -53,8 +52,7 @@ namespace GoVege.View
             }
         }
 
-
-        private void BindRepeater(int transactionID)
+        private void OrderSummaryRepeater(int transactionID)
         {
             GoVegeDBEntities db = DatabaseSingleton.GetInstance();
             var query = from td in db.MsTransactionDetails
@@ -67,7 +65,64 @@ namespace GoVege.View
                             Subtotal = td.quantity * td.MsProduct.productPrice
                         };
 
-            RepeaterOrderSummary.DataSource = query.ToList();
+            var queryResults = query.ToList();
+
+            double subtotal = queryResults.Sum(item => item.Subtotal);
+            double deliveryFee = 10000;
+            double discountVoucher = 0;
+            double total = subtotal + deliveryFee;
+            int voucherID = 1;
+            string voucherName = string.Empty;
+
+            var voucher = db.MsVouchers.FirstOrDefault(v => v.voucherID == voucherID);
+            if (voucher != null)
+            {
+                voucherID = voucher.voucherID;
+                voucherName = voucher.voucherName;
+                double discountAmount = voucher.discountAmount;
+                discountVoucher = subtotal * discountAmount;
+                total -= discountVoucher;
+            }
+
+            var subtotalItem = new
+            {
+                Quantity = "",
+                FoodName = "Sub Total:",
+                Price = "",
+                Subtotal = "Rp" + subtotal.ToString("#,#")
+            };
+
+            var deliveryFeeItem = new
+            {
+                Quantity = "",
+                FoodName = "Delivery Fee:",
+                Price = "",
+                Subtotal = "Rp" + deliveryFee.ToString("#,#")
+            };
+
+            var discountItem = new
+            {
+                Quantity = "",
+                FoodName = "" + voucherName,
+                Price = "",
+                Subtotal = "Rp" + discountVoucher.ToString("#,#")
+            };
+
+            var totalItem = new
+            {
+                Quantity = "",
+                FoodName = "Total:",
+                Price = "",
+                Subtotal = "Rp" + total.ToString("#,#")
+            };
+
+            var ordersummaryItems = new List<object>(queryResults);
+            ordersummaryItems.Add(subtotalItem);
+            ordersummaryItems.Add(deliveryFeeItem);
+            ordersummaryItems.Add(discountItem);
+            ordersummaryItems.Add(totalItem);
+
+            RepeaterOrderSummary.DataSource = ordersummaryItems;
             RepeaterOrderSummary.DataBind();
         }
     }

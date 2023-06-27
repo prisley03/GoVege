@@ -77,6 +77,7 @@
 
         .food-name {
             width: 15rem;
+            text-align: left;
         }
 
         .price, .subtotal {
@@ -133,10 +134,11 @@
                             <tr>
                                 <td class="quantity"><%# Eval("Quantity") %></td>
                                 <td class="food-name"><%# Eval("FoodName") %></td>
-                                <td class="price">Rp <%# string.Format("{0:N0}", Eval("Price")).Replace(",", ".") %></td>
-                                <td class="subtotal">Rp <%# string.Format("{0:N0}", Eval("Subtotal")).Replace(",", ".") %></td>
+                                <td class="price"> <%# string.Format("{0:N0}", Eval("Price")).Replace(",", ".") %></td>
+                                <td class="subtotal"><%# string.Format("{0:N0}", Eval("Subtotal")).Replace(",", ".") %></td>
                             </tr>
                         </ItemTemplate>
+                        
                     </asp:Repeater>
                 </tbody>
             </table>
