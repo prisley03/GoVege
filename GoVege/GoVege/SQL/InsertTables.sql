@@ -7,7 +7,9 @@ INSERT INTO [dbo].[MsUser] ([userID], [userName], [userPhone], [userPassword], [
 INSERT INTO [dbo].[MsUser] ([userID], [userName], [userPhone], [userPassword], [userEmail], [userFoodPreference], [userImage]) VALUES (3, N'Ongo Gablogian', N'+62 887-4390-15859', N'ongo1234', N'ongo@mail.com', N'Vegan', N'ongo gablogian.png')
 INSERT INTO [dbo].[MsUser] ([userID], [userName], [userPhone], [userPassword], [userEmail], [userFoodPreference], [userImage]) VALUES (4, N'Martin Scorsese', N'+62 892-4986-18939', N'martin1234', N'martin@mail.com', N'Vegan', N'scorsese.jpg')
 INSERT INTO [dbo].[MsUser] ([userID], [userName], [userPhone], [userPassword], [userEmail], [userFoodPreference], [userImage]) VALUES (5, N'Flight Reacts', N'+62 870-451-048', N'flight1234', N'flight@mail.com', N'Vegetarian', N'shockedguy.png')
+INSERT INTO [dbo].[MsUser] ([userID], [userName], [userPhone], [userPassword], [userEmail], [userFoodPreference], [userImage]) VALUES (6, N'Admin', N'+62 555-555-555', N'admin1234', N'admin@mail.com', N'Admin', N'admin.jpg')
 SET IDENTITY_INSERT [dbo].[MsUser] OFF
+
 
 DELETE FROM [MsVoucher];
 DBCC CHECKIDENT ('[MsVoucher]', RESEED, 0);
@@ -15,7 +17,7 @@ DBCC CHECKIDENT ('[MsVoucher]', RESEED, 0);
 SET IDENTITY_INSERT [dbo].[MsVoucher] ON
 INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (1, N'35% off for our new users', N'Mandiry, DCA, VegPay, UVU', N'2023-04-01', N'2023-04-14', 0.35, N'voucher-3.png')
 INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (2, N'50% off on christmas eve', N'Mandiry, DCA, VegPay, UVU', N'2023-12-18', N'2023-12-26', 0.5, N'voucher-2.png')
-INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (3, N'10% off at the market', N'Mandiry, DCA, VegPay, UVU', N'2023-04-11', N'2023-05-04', 0.1, N'voucher-5.png')
+INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (3, N'10% off at the market', N'Mandiry, DCA, VegPay, UVU', N'2023-06-10', N'2023-12-10', 0.1, N'voucher-5.png')
 INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (4, N'70% off at black friday', N'Mandiry, DCA, VegPay, UVU', N'2023-03-13', N'2023-05-10', 0.7, N'voucher-4.png')
 INSERT INTO [dbo].[MsVoucher] ([voucherID], [voucherName], [description], [startDate], [endDate], [discountAmount], [photo]) VALUES (5, N'60% off on Labor Day', N'Mandiry, DCA, VegPay, UVU', N'2023-08-10', N'2023-09-06', 0.6, N'voucher-1.png')
 SET IDENTITY_INSERT [dbo].[MsVoucher] OFF

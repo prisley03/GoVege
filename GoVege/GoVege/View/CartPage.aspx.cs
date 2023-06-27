@@ -59,6 +59,37 @@ namespace GoVege.View
 
             ListViewCart.DataSource = cartList;
             ListViewCart.DataBind();
+
+            LblSum.Text = "Rp " + subTotal.ToString();
+
+            int voucher = 0;
+            int total;
+
+            if (DropDownPromo.SelectedIndex != 0)
+            {
+                MsVoucher promo = PromotionRepository.GetPromotionsById(int.Parse(DropDownPromo.SelectedValue));
+                if(!(promo.startDate <= DateTime.Today && DateTime.Today <= promo.endDate))
+                {
+                    LblPromo.Text = "Voucher out of date";
+                }
+                else
+                {
+                    LblPromo.Text = "Discount: " + promo.voucherName;
+                    voucher = (int)(promo.discountAmount * subTotal);
+                    LblPromoValue.Text = "- Rp " + voucher.ToString();
+                }
+
+                LblPromo.ForeColor = LblPromoValue.ForeColor = System.Drawing.Color.FromArgb(48, 211, 21);
+                
+                PromoContainer.Visible = true;
+            }
+            else
+            {
+                PromoContainer.Visible = false;
+            }
+
+            total = subTotal - voucher;
+            LblTotal.Text = "Rp " + total.ToString();
         }
 
         protected void ListViewCart_ItemCommand(object sender, ListViewCommandEventArgs e)
@@ -84,33 +115,6 @@ namespace GoVege.View
 
             ListViewCart.DataSource = cartList;
             ListViewCart.DataBind();
-        }
-
-        protected void ListViewCart_LayoutCreated(object sender, EventArgs e)
-        {
-            Label LblSum = (Label)ListViewCart.FindControl("LblSum");
-            Label LblPromo = (Label)ListViewCart.FindControl("LblPromo");
-            Label LblPromoValue = (Label)ListViewCart.FindControl("LblPromoValue");
-            Label LblTotal = (Label)ListViewCart.FindControl("LblTotal");
-            LblSum.Text = "Rp " + subTotal.ToString();
-
-            int voucher = 0, total = 0;
-
-            if(DropDownPromo.SelectedIndex != 0)
-            {
-                MsVoucher promo = PromotionRepository.GetPromotionsById(int.Parse(DropDownPromo.SelectedValue));
-                LblPromo.Text = "Discount: " + promo.voucherName;
-                voucher = (int)(promo.discountAmount * subTotal);
-                LblPromoValue.Text = "-" + voucher.ToString();
-            }
-            else
-            {
-                LblPromo.Text = "No Discount";
-                LblPromoValue.Text = "0";
-            }
-
-            total = subTotal - voucher;
-            LblTotal.Text = total.ToString();
         }
     }
 }

@@ -170,30 +170,10 @@
     font-size: 3.5vh;
     font-family: 'Franklin Gothic Regular';">Add Items</div></a>
             </div>
-            <asp:ListView ID="ListViewCart" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewCart_ItemCommand" OnLayoutCreated="ListViewCart_LayoutCreated">
+            <asp:ListView ID="ListViewCart" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewCart_ItemCommand">
                 <LayoutTemplate>
                     <div class="product-wrapper">
                         <asp:PlaceHolder ID="rowGroupPlaceholder" runat="server"></asp:PlaceHolder>
-                    </div>
-                    <div class="sum-container">
-                        <div class="sum-label">Sub Total</div>
-                        <div class="sum-value">
-                            <asp:Label ID="LblSum" runat="server" Text=""></asp:Label>
-                        </div>
-                    </div>
-                    <div class="sum-container" id="PromoContainer" runat="server">
-                        <div class="sum-label">
-                            <asp:Label ID="LblPromo" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div class="sum-value">
-                            <asp:Label ID="LblPromoValue" runat="server" Text=""></asp:Label>
-                        </div>
-                    </div>
-                    <div class="sum-container">
-                        <div class="sum-label">Grand Total</div>
-                        <div class="sum-value">
-                            <asp:Label ID="LblTotal" runat="server" Text=""></asp:Label>
-                        </div>
                     </div>
                 </LayoutTemplate>
                 <GroupTemplate>
@@ -215,6 +195,26 @@
     text-align: center;"><%# "Rp " + int.Parse(Eval("MsProduct.productPrice").ToString()) * int.Parse(Eval("quantity").ToString()) %></div>
                 </ItemTemplate>
                 </asp:ListView>
+        </div>
+        <div class="sum-container">
+            <div class="sum-label">Sub Total</div>
+            <div class="sum-value">
+                <asp:Label ID="LblSum" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div class="sum-container" id="PromoContainer" runat="server">
+            <div class="sum-label">
+                <asp:Label ID="LblPromo" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="sum-value">
+                <asp:Label ID="LblPromoValue" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div class="sum-container">
+            <div class="sum-label">Grand Total</div>
+            <div class="sum-value">
+                <asp:Label ID="LblTotal" runat="server" Text=""></asp:Label>
+            </div>
         </div>
         <hr />
         <div class="payment-container">
