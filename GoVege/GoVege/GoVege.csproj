@@ -293,6 +293,7 @@
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\MasterPage.Master" />
     <Content Include="View\MerchantInfoPage.aspx" />
+    <Content Include="View\OrderTrackingPage.aspx" />
     <Content Include="View\PromotionPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="View\StorePage.aspx" />
@@ -429,6 +430,13 @@
     </Compile>
     <Compile Include="View\MerchantInfoPage.aspx.designer.cs">
       <DependentUpon>MerchantInfoPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderTrackingPage.aspx.cs">
+      <DependentUpon>OrderTrackingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\OrderTrackingPage.aspx.designer.cs">
+      <DependentUpon>OrderTrackingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\PromotionPage.aspx.cs">
       <DependentUpon>PromotionPage.aspx</DependentUpon>

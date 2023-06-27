@@ -41,16 +41,6 @@
             margin-bottom: 10px;
         }
 
-        .imgPromotion {
-            width: 10rem;
-            height: 10rem;
-            object-fit: fill;
-            display: inline-block;
-            border: 0.001rem solid;
-            border-color: gray;
-            margin: 1rem;
-        }
-
         .contentPromotion {
             position: relative;
             display: inline-block;
@@ -84,6 +74,16 @@
             display: block;
             margin-top: 0.5rem;
         }
+
+        .promoPhoto {
+            width: 10rem;
+            height: 10rem;
+            object-fit: fill;
+            display: inline-block;
+            border: 0.001rem solid;
+            border-color: gray;
+            margin: 1rem;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -106,7 +106,7 @@
     <div class="bodyPromotion">
         <asp:Repeater ID="PromotionRepeater" runat="server">
             <ItemTemplate>
-                <img class="imgPromotion" src='<%# GetPhotoUrl(Eval("Photo")) %>' alt="Promotion Photo" />
+                <image class="promoPhoto" src='../Assets/Voucher/<%#Eval("Photo")%>'></image>
 
                 <div class="contentPromotion">
                     <h3><%# Eval("VoucherName") %></h3>

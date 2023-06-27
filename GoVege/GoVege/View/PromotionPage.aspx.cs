@@ -26,18 +26,6 @@ namespace GoVege.View
             Response.Redirect("HomePage.aspx");
         }
 
-        protected string GetPhotoUrl(object photoPath)
-        {
-            if (photoPath != null)
-            {
-                string relativePath = photoPath.ToString();
-                string absolutePath = ResolveUrl("~/Assets/" + relativePath);
-                return absolutePath;
-            }
-
-            return string.Empty;
-        }
-
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
