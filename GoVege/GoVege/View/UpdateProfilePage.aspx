@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="UpdateProfilePage.aspx.cs" Inherits="GoVege.View.UpdateProfilePage" %>
+﻿<%@ Page Title="GoVege - Update Profile Page" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="UpdateProfilePage.aspx.cs" Inherits="GoVege.View.UpdateProfilePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .container{

@@ -120,6 +120,7 @@
                     </svg>
                     <% Response.Write(vendorRating.ToString("0.0")); %>
                 </div>
+                <div><%= vendorTarget.vendorAddress %></div>
             </div>
         </div>
         

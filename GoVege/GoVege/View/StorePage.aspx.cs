@@ -88,6 +88,7 @@ namespace GoVege.View
             vendorID = Convert.ToInt32(Request.QueryString["VendorID"]);
 
             vendorTarget = VendorRepository.getVendorByID(vendorID);
+            Page.Title = "GoVege - " + vendorTarget.vendorName;
             vendorRating = vendorTarget.vendorRating;
 
 
