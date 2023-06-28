@@ -33,7 +33,7 @@ namespace GoVege.Handler
 
             CartRepository.DeleteCartList(cartList);
 
-            return "Order created!";
+            return transactionID.ToString();
         }
     }
 }

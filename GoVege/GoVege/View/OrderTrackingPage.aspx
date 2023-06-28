@@ -2,9 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        header{
+            position: static;
+        }
+
         .Location{
-            margin-top: 1rem;
-            
+            padding: 5vh 0;
             line-height: 1rem;
         }
 
@@ -102,7 +105,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class ="Location">
-        <asp:Label ID="lblLocation" CssClass="labelLocation" runat="server" Text="Track your Delivery here"></asp:Label>
+        <h2><asp:Label ID="lblLocation" CssClass="labelLocation" runat="server" Text="Track your Delivery here"></asp:Label></h2>
         <br />
         <asp:Image ID="imgLocation" CssClass="imageLocation" ImageUrl="../Assets/MapSunib.png" runat="server" />
     </div>

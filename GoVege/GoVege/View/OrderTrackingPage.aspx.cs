@@ -16,7 +16,12 @@ namespace GoVege.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            transactionID = 7;
+            if (Request.QueryString["TransactionID"] == null)
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+            }
+
+            transactionID = Convert.ToInt32(Request.QueryString["TransactionID"]);
             GoVegeDBEntities db = DatabaseSingleton.GetInstance();
             var order = db.MsTransactions.FirstOrDefault(t => t.transactionID == transactionID);
             if (order != null)

@@ -212,13 +212,14 @@ namespace GoVege.View
 
             String error = TransactionController.CheckOut(date, time, address, notes, cartList, payment, voucherID, userID);
 
-            if (!error.Equals("Order created!"))
+            if (!error.All(Char.IsDigit))
             {
                 LblError.ForeColor = System.Drawing.Color.Crimson;
             }
             else
             {
                 LblError.ForeColor = System.Drawing.Color.FromArgb(48, 211, 21);
+                Response.Redirect("~/View/OrderTrackingPage.aspx?TransactionID=" + int.Parse(error));
             }
 
             LblError.Text = error;
