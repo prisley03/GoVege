@@ -2,6 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        .Location{
+            margin-top: 1rem;
+            
+            line-height: 1rem;
+        }
+
+        .labelLocation{
+            margin-left: 4rem;
+        }
+
+        .imageLocation{
+            display: block;
+            margin: 0 auto;
+        }
+
         .driverDetails {
             margin: 2rem;
         }
@@ -60,7 +75,7 @@
         .orderDetails {
             margin-left: 5rem;
             margin-right: 5rem;
-            line-height: 2rem;
+            line-height: 1rem;
         }
 
         .RepeaterOrder {
@@ -77,6 +92,7 @@
 
         .food-name {
             width: 15rem;
+            text-align: left;
         }
 
         .price, .subtotal {
@@ -85,6 +101,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class ="Location">
+        <asp:Label ID="lblLocation" CssClass="labelLocation" runat="server" Text="Track your Delivery here"></asp:Label>
+        <br />
+        <asp:Image ID="imgLocation" CssClass="imageLocation" ImageUrl="../Assets/MapSunib.png" runat="server" />
+    </div>
     <div class="driverDetails">
         <h3>Driver Details</h3>
         <div class="contentDriver">
@@ -133,10 +154,11 @@
                             <tr>
                                 <td class="quantity"><%# Eval("Quantity") %></td>
                                 <td class="food-name"><%# Eval("FoodName") %></td>
-                                <td class="price">Rp <%# string.Format("{0:N0}", Eval("Price")).Replace(",", ".") %></td>
-                                <td class="subtotal">Rp <%# string.Format("{0:N0}", Eval("Subtotal")).Replace(",", ".") %></td>
+                                <td class="price"> <%# string.Format("{0:N0}", Eval("Price")).Replace(",", ".") %></td>
+                                <td class="subtotal"><%# string.Format("{0:N0}", Eval("Subtotal")).Replace(",", ".") %></td>
                             </tr>
                         </ItemTemplate>
+                        
                     </asp:Repeater>
                 </tbody>
             </table>
