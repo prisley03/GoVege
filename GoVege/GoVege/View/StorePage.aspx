@@ -128,25 +128,25 @@
         <div class="product-container">
             <h2 style="color: #2EB14B;">Today’s Specials</h2>
             
-            <asp:ListView ID="ListViewProduct" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewProduct_ItemCommand">
+            <asp:ListView ID="ListViewProduct" runat="server" OnItemCommand="ListViewProduct_ItemCommand">
                 <LayoutTemplate>
                     <div class="product-wrapper">
-                        <asp:PlaceHolder ID="rowGroupPlaceholder" runat="server"></asp:PlaceHolder>
+                        
+                            <asp:PlaceHolder ID="ItemPlaceHolder" runat="server"></asp:PlaceHolder>
+                        
                     </div>
                 </LayoutTemplate>
-                <GroupTemplate>
-                    <div class="product-card">
-                        <asp:PlaceHolder ID="colItemPlaceholder" runat="server"></asp:PlaceHolder>
-                    </div>
-                </GroupTemplate>
                 <ItemTemplate>
-                    <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("productImage") %> />
-                    <div><%# Eval("productName") %></div>
-                    <div><%# "Rp " + Eval("productPrice") %></div>
-                    <asp:TextBox ID="TxtQty" runat="server"></asp:TextBox>
-                    <asp:LinkButton ID="BtnAddCart" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' CommandName="save"/>
+                    <div class="product-card">
+                        <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("productImage") %> />
+                        <div><%# Eval("productName") %></div>
+                        <div><%# "Rp " + Eval("productPrice") %></div>
+                        <asp:TextBox ID="TxtQty" runat="server"></asp:TextBox>
+                        <asp:LinkButton ID="BtnAddCart" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' CommandName="save"/>
+                    </div>
                 </ItemTemplate>
             </asp:ListView>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         </div>
     </div>
 </asp:Content>

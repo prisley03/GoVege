@@ -303,13 +303,16 @@
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
+    <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
+    <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Controller\registerPageController.cs" />
     <Compile Include="Controller\VendorController.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
     <Compile Include="Factory\VendorFactory.cs" />
     <Compile Include="Handler\customerHandler.cs" />
+    <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -357,8 +360,10 @@
     <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
+    <Compile Include="Repository\DriverRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PromotionRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
     <Compile Include="View\AboutUsPage.aspx.cs">

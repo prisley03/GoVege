@@ -53,7 +53,7 @@ namespace GoVege.View
             CartNoItems.Visible = false;
             CartHasItems.Visible = true;
 
-            if(cartList.Count() == 0)
+            if (cartList.Count() == 0)
             {
                 CartNoItems.Visible = true;
                 CartHasItems.Visible = false;
@@ -62,13 +62,16 @@ namespace GoVege.View
             {
                 foreach (var cart in cartList)
                 {
-                    subTotal += (cart.quantity * cart.MsProduct.productPrice);
+                    MsProduct product = ProductRepository.GetProductByID(cart.productID);
+                    subTotal += (cart.quantity * product.productPrice);
                 }
 
-                vendorTarget = cartList.FirstOrDefault().MsProduct.MsVendor;
+                MsProduct productTarget = ProductRepository.GetProductByID(cartList.FirstOrDefault().productID);
+                vendorTarget = VendorRepository.getVendorByID(productTarget.vendorID);
                 ImageVendor.ImageUrl = "~/Assets/Vendor/" + vendorTarget.vendorImage;
             }
 
+            ListViewCart.Items.Clear();
             ListViewCart.DataSource = cartList;
             ListViewCart.DataBind();
 
@@ -134,6 +137,49 @@ namespace GoVege.View
             }
 
             Response.Redirect("~/View/CartPage.aspx");
+        }
+        protected String GetImageUrl(int id)
+        {
+            MsProduct product = ProductRepository.GetProductByID(id);
+            return product.productImage;
+        }
+
+        protected String GetProductName(int id)
+        {
+            MsProduct product = ProductRepository.GetProductByID(id);
+            return product.productName;
+        }
+
+        protected int GetProductPrice(int id)
+        {
+            MsProduct product = ProductRepository.GetProductByID(id);
+            return product.productPrice;
+        }
+        protected void BtnOrder_Click(object sender, EventArgs e)
+        {
+            String date = TxtDate.Text;
+            String time = TxtTime.Text;
+            String address = TxtAddress.Text;
+            String notes = TxtNotes.Text;
+            String payment = DropDownPayment.SelectedValue;
+            int userID = customerID;
+            int voucherID = int.Parse(DropDownPromo.SelectedValue);
+
+            // for testing purposes
+            //LblError.Text = date + " " + time + " " + address + " " + notes;
+
+            String error = TransactionController.CheckOut(date, time, address, notes, cartList, payment, voucherID, userID);
+
+            if (!error.Equals("Order created!"))
+            {
+                LblError.ForeColor = System.Drawing.Color.Crimson;
+            }
+            else
+            {
+                LblError.ForeColor = System.Drawing.Color.FromArgb(48, 211, 21);
+            }
+
+            LblError.Text = error;
         }
     }
 }

@@ -37,10 +37,16 @@ namespace GoVege.View
                 {
                     int productId = int.Parse(e.CommandArgument.ToString());
                     String qty = (((TextBox)e.Item.FindControl("txtqty")).Text);
-                    String msg = CartController.CreateCart(qty, customerID.ToString(), productId.ToString());
+
+                    String msg = CartController.CreateCart(qty, customerID.ToString(), productId.ToString(), vendorID);
                     if (msg.Equals("Insert successful") ||
                         msg.Equals("Update successful"))
                     {
+                        //if(cart != null)
+                        //{
+                        //    Label1.Text = "Cart First Item: " + productId.ToString() + " " + qty.ToString();
+                        //}
+                        
                         ((TextBox)(e.Item.FindControl("TxtQty"))).Text = "In Cart";
                     }
                     else

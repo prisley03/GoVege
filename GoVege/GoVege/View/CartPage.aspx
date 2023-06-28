@@ -107,7 +107,7 @@
             font-family: 'Franklin Gothic';
             color: white;
             padding: 1vw;
-            border: none;
+            border: 4px solid #2EB14B;
         }
 
         .sum-container{
@@ -156,6 +156,16 @@
             display: flex;
             flex-direction:column;
             gap: 2vh;
+        }
+
+        .button-order:hover{
+            background: white;
+            border: 4px solid #2EB14B;
+            color: #2EB14B;
+        }
+
+        .img-vendor{
+            object-fit: cover;
         }
     </style>
 </asp:Content>
@@ -210,16 +220,16 @@
                 <ItemTemplate>
                     <div class="product-row">
                         <div style="display:flex; gap: 0.5rem;font-size: 4vh;width: 10%;">
-                            <asp:LinkButton ID="BtnRemoveItem" runat="server" Text="-" CommandArgument='<%# Eval("MsProduct.productID") %>' OnClick="BtnRemoveItem_Click"/>
+                            <asp:LinkButton ID="BtnRemoveItem" runat="server" Text="-" CommandArgument='<%# Eval("productID") %>' OnClick="BtnRemoveItem_Click"/>
                             <div>
                                 <asp:Label ID="LblQty" runat="server" Text=<%# Eval("quantity").ToString() %>></asp:Label>
                             </div>
-                            <asp:LinkButton ID="BtnAddItem" runat="server" Text="+" CommandArgument='<%# Eval("MsProduct.productID") %>' OnClick="BtnAddItem_Click"/>
+                            <asp:LinkButton ID="BtnAddItem" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' OnClick="BtnAddItem_Click"/>
                         </div>
-                        <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("MsProduct.productImage") %> />
-                        <div style="width: 30%;"><%# Eval("MsProduct.productName") %></div>
+                        <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  GetImageUrl(int.Parse(Eval("productID").ToString())) %> />
+                        <div style="width: 30%;"><%# GetProductName(int.Parse(Eval("productID").ToString())) %></div>
                         <div style="width: 25%;
-        text-align: center;"><%# "Rp " + int.Parse(Eval("MsProduct.productPrice").ToString()) * int.Parse(Eval("quantity").ToString()) %></div>
+        text-align: center;"><%# "Rp " + (GetProductPrice(int.Parse(Eval("productID").ToString())) * int.Parse(Eval("quantity").ToString())).ToString() %></div>
                     </div>
                 </ItemTemplate>
                 </asp:ListView>
@@ -258,7 +268,7 @@
                 </div>
                 <div>
                     <asp:DropDownList ID="DropDownPromo" runat="server" CssClass="dropdown" AutoPostBack="True">
-                        <asp:ListItem Selected="True">Choose a Promotion</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="0">Choose a Promotion</asp:ListItem>
                         <asp:ListItem Value="1">35% off for our new users</asp:ListItem>
                         <asp:ListItem Value="2">50% off on christmas eve</asp:ListItem>
                         <asp:ListItem Value="3">10% off at the market</asp:ListItem>
@@ -267,7 +277,8 @@
                     </asp:DropDownList>
                 </div>
             </div>
-        <asp:Button ID="BtnOrder" runat="server" Text="Place Order" CssClass="button-order" />
+        <asp:Label ID="LblError" runat="server" Text=""></asp:Label>
+        <asp:Button ID="BtnOrder" runat="server" Text="Place Order" CssClass="button-order" OnClick="BtnOrder_Click" />
     </div>
     <div id="CartNoItems" runat="server" class="cartNoItems">
         <div style="text-align: center;"><h1>There Are No Items</h1></div>
