@@ -40,6 +40,10 @@ namespace GoVege.View
                 DeliveryDetailTable.Rows[2].Cells[1].Text = order.deliveryAddress;
                 DeliveryDetailTable.Rows[3].Cells[1].Text = order.deliveryNotes;
             }
+            else
+            {
+                Response.Redirect("HomePage.aspx");
+            }
             OrderSummaryRepeater(transactionID);
         }
 
