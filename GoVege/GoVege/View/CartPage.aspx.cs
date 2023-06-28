@@ -53,6 +53,34 @@ namespace GoVege.View
             CartNoItems.Visible = false;
             CartHasItems.Visible = true;
 
+            if (!IsPostBack)
+            {
+                if (Session["delivery_date"] != null)
+                {
+                    TxtDate.Text = Session["delivery_date"].ToString();
+                }
+                if (Session["delivery_time"] != null)
+                {
+                    TxtTime.Text = Session["delivery_time"].ToString();
+                }
+                if (Session["delviery_notes"] != null)
+                {
+                    TxtNotes.Text = Session["delviery_notes"].ToString();
+                }
+                if (Session["delivery_address"] != null)
+                {
+                    TxtAddress.Text = Session["delivery_address"].ToString();
+                }
+                if (Session["delivery_payment"] != null)
+                {
+                    DropDownPayment.SelectedIndex = int.Parse(Session["delivery_payment"].ToString());
+                }
+                if (Session["delivery_promo"] != null)
+                {
+                    DropDownPromo.SelectedIndex = int.Parse(Session["delivery_promo"].ToString());
+                }
+            }
+
             if (cartList.Count() == 0)
             {
                 CartNoItems.Visible = true;
@@ -122,6 +150,13 @@ namespace GoVege.View
                 Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
             }
 
+            Session["delivery_date"] = TxtDate.Text;
+            Session["delivery_time"] = TxtTime.Text;
+            Session["delviery_notes"] = TxtNotes.Text;
+            Session["delivery_address"] = TxtAddress.Text;
+            Session["delivery_payment"] = DropDownPayment.SelectedIndex;
+            Session["delivery_promo"] = DropDownPromo.SelectedIndex;
+
             Response.Redirect("~/View/CartPage.aspx");
         }
 
@@ -135,6 +170,13 @@ namespace GoVege.View
             {
                 Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
             }
+
+            Session["delivery_date"] = TxtDate.Text;
+            Session["delivery_time"] = TxtTime.Text;
+            Session["delviery_notes"] = TxtNotes.Text;
+            Session["delivery_address"] = TxtAddress.Text;
+            Session["delivery_payment"] = DropDownPayment.SelectedIndex;
+            Session["delivery_promo"] = DropDownPromo.SelectedIndex;
 
             Response.Redirect("~/View/CartPage.aspx");
         }
