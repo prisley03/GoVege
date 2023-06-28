@@ -13,9 +13,17 @@ namespace GoVege.Handler
         {
             return VendorRepository.loadVegetarianVendor(count);
         }
+        public static List<MsVendor> loadVegetarianAllVendor()
+        {
+            return VendorRepository.loadVegetarianAllVendor();
+        }
         public static List<MsVendor> loadVeganVendor(int count)
         {
             return VendorRepository.loadVeganVendor(count);
+        }
+        public static List<MsVendor> loadVeganAllVendor()
+        {
+            return VendorRepository.loadVeganAllVendor();
         }
         public static List<MsVendorCategory> loadRecommendedCategories(int count)
         {

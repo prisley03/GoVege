@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GoVege",
+    "\\GoVege\\GoVege",
+    "\\GoVege\\GoVege\\View"
   ],
-  "SelectedNode": "\\GoVege.sln",
+  "SelectedNode": "\\GoVege\\GoVege.sln",
   "PreviewInSolutionExplorer": false
 }

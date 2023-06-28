@@ -15,7 +15,7 @@
             display: flex;
             justify-content: space-between;
             vertical-align: middle;
-}
+        }
 
         hr{
             left: 5.56%;
