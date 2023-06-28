@@ -307,9 +307,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
+    <Compile Include="Factory\ProductFactory.cs" />
     <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Controller\registerPageController.cs" />
@@ -317,6 +319,7 @@
     <Compile Include="Factory\CustomerFactory.cs" />
     <Compile Include="Factory\VendorFactory.cs" />
     <Compile Include="Handler\customerHandler.cs" />
+    <Compile Include="Handler\ProductHandler.cs" />
     <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">

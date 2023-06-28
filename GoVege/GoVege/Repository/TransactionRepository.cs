@@ -11,11 +11,28 @@ namespace GoVege.Repository
     {
         private static GoVegeDBEntities db = DatabaseSingleton.GetInstance();
 
+        public static List<MsTransaction> GetAllTransactions()
+        {
+            return db.MsTransactions.ToList();
+        }
+
+        public static void DeleteTransactionHeader(MsTransaction trans)
+        {
+            db.MsTransactions.Remove(trans);
+            db.SaveChanges();
+            return;
+        }
+
         public static void InsertTransactionDetails(int transactionID, int productID, int qty)
         {
             MsTransactionDetail newTransactionDetail = TransactionFactory.CreateTransactionDetail(transactionID, productID, qty);
             db.MsTransactionDetails.Add(newTransactionDetail);
             db.SaveChanges();
+        }
+
+        public static List<MsTransactionDetail> GetTransactionDetailsByTransactionID(int transactionID)
+        {
+            return (from i in db.MsTransactionDetails where i.transactionID == transactionID select i).ToList();
         }
 
         public static int InsertTransaction(String date, String time, String address, String notes, String payment, int voucherID, int userID, int driverID)

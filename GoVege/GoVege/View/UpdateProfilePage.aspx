@@ -10,7 +10,7 @@
             margin-right: auto;
             width: 100vw;
             object-fit: cover;
-            max-height: 100vh;
+            max-height: 125vh;
             position: inherit;
             max-width: 100%;
             overflow-x: hidden;
@@ -35,9 +35,13 @@
             font-size: 18px;
             color: white;
             background-color: #30D315;
-            border: none;
+            border: 4px solid #30D315;
             padding: 15px;
             border-radius: 5px;
+        }
+        .btnCont:hover{
+            color: #30D315;
+            background-color: white;
         }
         .txtBox{
             width: 15rem;
@@ -81,11 +85,14 @@
             font-size: 18px;
             color: white;
             background-color: red;
-            border: none;
+            border: 4px solid red;
             padding: 15px;
             border-radius: 5px;
         }
-
+        .btnDelete:hover{
+            color: red;
+            background-color:  white;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

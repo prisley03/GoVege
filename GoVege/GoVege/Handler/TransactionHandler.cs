@@ -35,5 +35,18 @@ namespace GoVege.Handler
 
             return transactionID.ToString();
         }
+
+        public static void CheckEmptyTransactions()
+        {
+            List<MsTransaction> transList = TransactionRepository.GetAllTransactions();
+            foreach (var trans in transList)
+            {
+                if (TransactionRepository.GetTransactionDetailsByTransactionID(trans.transactionID).Count() == 0)
+                {
+                    TransactionRepository.DeleteTransactionHeader(trans);
+                }
+            }
+        }
+
     }
 }
