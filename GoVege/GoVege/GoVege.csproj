@@ -284,6 +284,7 @@
     <Content Include="SQL\DropTables.sql" />
     <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\AboutUsPage.aspx" />
+    <Content Include="View\AdminDriverPage.aspx" />
     <Content Include="View\CartPage.aspx" />
     <Content Include="View\ContactUsPage.aspx" />
     <Content Include="View\CustomerInfoPage.aspx" />
@@ -301,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\DriverController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
@@ -309,6 +311,7 @@
     <Compile Include="Factory\CustomerFactory.cs" />
     <Compile Include="Factory\VendorFactory.cs" />
     <Compile Include="Handler\customerHandler.cs" />
+    <Compile Include="Handler\DriverHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
     <Compile Include="Model\GoVegeDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -356,6 +359,7 @@
     <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
+    <Compile Include="Repository\DriverRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PromotionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
@@ -366,6 +370,13 @@
     </Compile>
     <Compile Include="View\AboutUsPage.aspx.designer.cs">
       <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminDriverPage.aspx.cs">
+      <DependentUpon>AdminDriverPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminDriverPage.aspx.designer.cs">
+      <DependentUpon>AdminDriverPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
