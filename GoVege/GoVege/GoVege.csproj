@@ -414,6 +414,7 @@
     </Compile>
     <Compile Include="View\AdminUpdateDriverPage.aspx.designer.cs">
       <DependentUpon>AdminUpdateDriverPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminInsertvendorPage.aspx.cs">
       <DependentUpon>AdminInsertvendorPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -504,6 +505,7 @@
     </Compile>
     <Compile Include="View\InsertDriverPage.aspx.designer.cs">
       <DependentUpon>InsertDriverPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\InsertProductPage.aspx.cs">
       <DependentUpon>InsertProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
