@@ -66,24 +66,24 @@
         <div id="AlbumFieldAfter">
             <div class="FieldContent">
                 <asp:Label ID="Label1" runat="server" Text="Vendor Name"></asp:Label>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtVendorNameAfter" runat="server"></asp:TextBox>
             </div>
             <div class="FieldContent">
                 <asp:Label ID="Label2" runat="server" Text="Vendor Address"></asp:Label>
                 <br />
-                <asp:TextBox ID="TextBox2" runat="server" Width="875px" ></asp:TextBox>
+                <asp:TextBox ID="TxtVendorAddressAfter" runat="server" Width="875px" ></asp:TextBox>
             </div>
             <div class="FieldContent">
                 <asp:Label ID="Label3" runat="server" Text="Rating"></asp:Label>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtRatingAfter" runat="server"></asp:TextBox>
             </div>
             <div class="FieldContent">
                 <asp:Label ID="Label4" runat="server" Text="Preference"></asp:Label>
-                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtPreferenceAfter" runat="server"></asp:TextBox>
             </div>
             <div class="FieldContent">
                 <asp:Label ID="Label5" runat="server" Text="Category"></asp:Label>
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtCategoryAfter" runat="server"></asp:TextBox>
             </div>
             <div class="FieldContent">
                 <asp:Label ID="Label7" runat="server" Text="Album Image"></asp:Label>

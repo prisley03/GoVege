@@ -88,11 +88,11 @@ namespace GoVege.View
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
             LblError.ForeColor = System.Drawing.Color.Red;
-            string vendorName = TxtVendorNameBefore.Text;
-            string vendorAddress = TxtVendorAddressBefore.Text;
-            string rating = TxtRatingBefore.Text;
-            string preference = TxtPreferenceBefore.Text;
-            string category = TxtCategoryBefore.Text;
+            string vendorName = TxtVendorNameAfter.Text;
+            string vendorAddress = TxtVendorAddressAfter.Text;
+            string rating = TxtRatingAfter.Text;
+            string preference = TxtPreferenceAfter.Text;
+            string category = TxtCategoryAfter.Text;
             HttpPostedFile vendorImage = VendorImageFileUpload.PostedFile;
             vendorID = int.Parse(Request.QueryString["VendorID"]);
             string errorMsg = VendorController.updateVendor(vendorID, vendorName, vendorAddress, rating, preference, category, vendorImage);

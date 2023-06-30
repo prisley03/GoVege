@@ -59,11 +59,11 @@ namespace GoVege.View
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
             LblError.ForeColor = System.Drawing.Color.Red;
-            string name = TxtNameBefore.Text;
-            string desc = TxtVoucherDescBefore.Text;
-            string dateS = TxtDateStartBefore.Text;
-            string dateE = TxtDateEndBefore.Text;
-            string disc = TxtDiscountBefore.Text;
+            string name = TxtNameAfter.Text;
+            string desc = DescAfter.Text;
+            string dateS = DSAfter.Text;
+            string dateE = DEAfter.Text;
+            string disc = DiscAfter.Text;
 
             HttpPostedFile voucherImage = VoucherImageFileUpload.PostedFile;
             voucherID = int.Parse(Request.QueryString["VoucherID"]);
