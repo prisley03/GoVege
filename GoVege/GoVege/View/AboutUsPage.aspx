@@ -86,7 +86,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="padding-top:25px">
+    <div style="padding-top:15vh">
         <div id="titleText">
             <h1>About Us</h1>
         </div>

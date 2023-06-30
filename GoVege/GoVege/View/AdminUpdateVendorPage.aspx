@@ -55,13 +55,13 @@
                 <asp:TextBox ID="TxtCategoryBefore" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
             <div class="FieldContent">
-                <asp:Label ID="LblImageUpload" runat="server" Text="Album Image"></asp:Label>
+                <asp:Label ID="LblImageUpload" runat="server" Text="Vendor Image"></asp:Label>
                 <br />
                 <asp:Image ID="ImageBefore" runat="server" Height="200" Width="200" />
             </div>
         </div>
 
-         <h2>New Album Data Input</h2>
+         <h2>New Vendor Data Input</h2>
 
         <div id="AlbumFieldAfter">
             <div class="FieldContent">

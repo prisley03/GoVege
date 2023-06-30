@@ -61,7 +61,7 @@
             </div>
         </div>
 
-         <h2>New Album Data Input</h2>
+         <h2>New Voucher Data Input</h2>
 
         <div id="AlbumFieldAfter">
             <div class="FieldContent">

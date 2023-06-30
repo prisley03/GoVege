@@ -3,6 +3,10 @@
 
     <style>
 
+        .containerAll{
+            padding-top:15vh;
+        }
+
         #headText{
             margin:auto;
             width:70%;
@@ -82,7 +86,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div>
+    <div class="containerAll">
         <div id="headText">
             <h1>Get In Touch</h1><br />
             <h5>
