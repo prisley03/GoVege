@@ -562,6 +562,7 @@
     </Compile>
     <Compile Include="View\AdminVendorPage.aspx.designer.cs">
       <DependentUpon>AdminVendorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\VendorDetailsPage.aspx.cs">
       <DependentUpon>VendorDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

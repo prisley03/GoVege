@@ -35,7 +35,7 @@ namespace GoVege.View
                 {
                     cust = (MsUser)Session["user"];
                 }
-                if (cust.userFoodPreference == "Admin")
+                if (cust.userFoodPreference.Equals("Admin"))
                 {
                     NavAdmin.Visible = true;
                 }

@@ -190,7 +190,7 @@
             <asp:ListView ID="LVVoucherSearched" runat="server">
                 <ItemTemplate>
                     <div class="voucherItemContainer">
-                        <image class="contentImage" src='../Assets/voucher<%#Eval("photo")%>'></image>
+                        <image class="contentImage" src='../Assets/voucher/<%#Eval("photo")%>'></image>
                         <p><%#Eval("voucherName")%></p>
                         <p><%#Eval("description")%></p>
                         <div class="LinkContainer">

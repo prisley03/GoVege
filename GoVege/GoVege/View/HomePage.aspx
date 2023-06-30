@@ -203,6 +203,7 @@
                 </ItemTemplate>
             </asp:ListView>
         </div>
+        <hr />
     </div>
     <div class="vegetarianRestaurant" runat="server" id="vegetarianRestaurantID">
         <h2>

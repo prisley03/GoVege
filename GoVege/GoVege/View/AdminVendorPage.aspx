@@ -262,6 +262,5 @@
                 </ItemTemplate>
             </asp:ListView>
         </div>
-        <hr />
     </div>
 </asp:Content>
