@@ -15,6 +15,7 @@ namespace GoVege.View
         {
             NavCustomer.Visible = false;
             NavGuest.Visible = false;
+            NavAdmin.Visible = false;
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
             {
@@ -34,7 +35,14 @@ namespace GoVege.View
                 {
                     cust = (MsUser)Session["user"];
                 }
-                NavCustomer.Visible = true;
+                if (cust.userFoodPreference.Equals("Admin"))
+                {
+                    NavAdmin.Visible = true;
+                }
+                else
+                {
+                    NavCustomer.Visible = true;
+                }
                 BtnProfile.Text = "Welcome, " + cust.userName;
             }
         }
@@ -70,6 +78,33 @@ namespace GoVege.View
 
             Session.Remove("user");
             Response.Redirect("LoginPage.aspx");
+        }
+        protected void BtnLogout_Click2(object sender, EventArgs e)
+        {
+            string[] cookies = Request.Cookies.AllKeys;
+
+            foreach (string c in cookies)
+            {
+                Response.Cookies[c].Expires = DateTime.Now.AddDays(-2);
+            }
+
+            Session.Remove("user");
+            Response.Redirect("LoginPage.aspx");
+        }
+
+        protected void BtnAdminVendor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminVendorPage.aspx");
+        }
+
+        protected void BtnAdminDriver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminDriverPage.aspx");
+        }
+
+        protected void BtnAdminVoucher_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminVoucherPage.aspx");
         }
     }
 }

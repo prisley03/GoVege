@@ -7,7 +7,7 @@ using GoVege.Repository;
 
 namespace GoVege.Handler
 {
-    public class customerHandler
+    public class CustomerHandler
     {
         public static bool RegisterCustomer(string fullName, string phoneNum, string email, string password, string foodPref)
         {

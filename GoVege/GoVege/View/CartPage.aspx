@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="CartPage.aspx.cs" Inherits="GoVege.View.CartPage" %>
+﻿<%@ Page Title="GoVege - Cart" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="CartPage.aspx.cs" Inherits="GoVege.View.CartPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .store-container{
@@ -15,7 +15,7 @@
             display: flex;
             justify-content: space-between;
             vertical-align: middle;
-}
+        }
 
         hr{
             left: 5.56%;
@@ -107,7 +107,7 @@
             font-family: 'Franklin Gothic';
             color: white;
             padding: 1vw;
-            border: none;
+            border: 4px solid #2EB14B;
         }
 
         .sum-container{
@@ -126,10 +126,51 @@
             text-align: center;
             width: 25%;
         }
+
+        .Button {
+            border: 2px solid #30D315;
+            color: #30D315;
+            background-color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 0;
+            width: 15%;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .Button:hover {
+            color: white;
+            background-color: #30D315;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .cartNoItems{
+            padding: 3vh 6vw;
+            display: flex;
+            flex-direction:column;
+            gap: 2vh;
+        }
+
+        .button-order:hover{
+            background: white;
+            border: 4px solid #2EB14B;
+            color: #2EB14B;
+        }
+
+        .img-vendor{
+            object-fit: cover;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="store-container">
+    <div class="store-container" id="CartHasItems" runat="server">
         <div class="vendor-header-container">
             <asp:Image ID="ImageVendor" runat="server" Height="150" Width="150" CssClass="img-vendor" />
         
@@ -170,51 +211,48 @@
     font-size: 3.5vh;
     font-family: 'Franklin Gothic Regular';">Add Items</div></a>
             </div>
-            <asp:ListView ID="ListViewCart" runat="server" GroupPlaceholderID="rowGroupPlaceholder" ItemPlaceholderID="colItemPlaceholder" OnItemCommand="ListViewCart_ItemCommand" OnLayoutCreated="ListViewCart_LayoutCreated">
+            <asp:ListView ID="ListViewCart" runat="server">
                 <LayoutTemplate>
-                    <div class="product-wrapper">
-                        <asp:PlaceHolder ID="rowGroupPlaceholder" runat="server"></asp:PlaceHolder>
-                    </div>
-                    <div class="sum-container">
-                        <div class="sum-label">Sub Total</div>
-                        <div class="sum-value">
-                            <asp:Label ID="LblSum" runat="server" Text=""></asp:Label>
-                        </div>
-                    </div>
-                    <div class="sum-container" id="PromoContainer" runat="server">
-                        <div class="sum-label">
-                            <asp:Label ID="LblPromo" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div class="sum-value">
-                            <asp:Label ID="LblPromoValue" runat="server" Text=""></asp:Label>
-                        </div>
-                    </div>
-                    <div class="sum-container">
-                        <div class="sum-label">Grand Total</div>
-                        <div class="sum-value">
-                            <asp:Label ID="LblTotal" runat="server" Text=""></asp:Label>
-                        </div>
+                    <div class="product-wrapper">    
+                        <div id="ItemPlaceHolder" runat="server"></div>
                     </div>
                 </LayoutTemplate>
-                <GroupTemplate>
-                    <div class="product-row">
-                        <asp:PlaceHolder ID="colItemPlaceholder" runat="server"></asp:PlaceHolder>
-                    </div>
-                </GroupTemplate>
                 <ItemTemplate>
-                    <div style="display:flex; gap: 0.5rem;font-size: 4vh;width: 10%;">
-                        <asp:LinkButton ID="BtnRemoveItem" runat="server" Text="-" CommandArgument='<%# Eval("MsProduct.productID") %>' CommandName="remove"/>
-                        <div>
-                            <asp:Label ID="LblQty" runat="server" Text=<%# Eval("quantity").ToString() %>></asp:Label>
+                    <div class="product-row">
+                        <div style="display:flex; gap: 0.5rem;font-size: 4vh;width: 10%;">
+                            <asp:LinkButton ID="BtnRemoveItem" runat="server" Text="-" CommandArgument='<%# Eval("productID") %>' OnClick="BtnRemoveItem_Click"/>
+                            <div>
+                                <asp:Label ID="LblQty" runat="server" Text=<%# Eval("quantity").ToString() %>></asp:Label>
+                            </div>
+                            <asp:LinkButton ID="BtnAddItem" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' OnClick="BtnAddItem_Click"/>
                         </div>
-                        <asp:LinkButton ID="BtnAddItem" runat="server" Text="+" CommandArgument='<%# Eval("MsProduct.productID") %>' CommandName="add"/>
+                        <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  GetImageUrl(int.Parse(Eval("productID").ToString())) %> />
+                        <div style="width: 30%;"><%# GetProductName(int.Parse(Eval("productID").ToString())) %></div>
+                        <div style="width: 25%;
+        text-align: center;"><%# "Rp " + (GetProductPrice(int.Parse(Eval("productID").ToString())) * int.Parse(Eval("quantity").ToString())).ToString() %></div>
                     </div>
-                    <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("MsProduct.productImage") %> />
-                    <div style="width: 30%;"><%# Eval("MsProduct.productName") %></div>
-                    <div style="width: 25%;
-    text-align: center;"><%# "Rp " + int.Parse(Eval("MsProduct.productPrice").ToString()) * int.Parse(Eval("quantity").ToString()) %></div>
                 </ItemTemplate>
                 </asp:ListView>
+        </div>
+        <div class="sum-container">
+            <div class="sum-label">Sub Total</div>
+            <div class="sum-value">
+                <asp:Label ID="LblSum" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div class="sum-container" id="PromoContainer" runat="server">
+            <div class="sum-label">
+                <asp:Label ID="LblPromo" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="sum-value">
+                <asp:Label ID="LblPromoValue" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div class="sum-container">
+            <div class="sum-label">Grand Total</div>
+            <div class="sum-value">
+                <asp:Label ID="LblTotal" runat="server" Text=""></asp:Label>
+            </div>
         </div>
         <hr />
         <div class="payment-container">
@@ -230,7 +268,7 @@
                 </div>
                 <div>
                     <asp:DropDownList ID="DropDownPromo" runat="server" CssClass="dropdown" AutoPostBack="True">
-                        <asp:ListItem Selected="True">Choose a Promotion</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="0">Choose a Promotion</asp:ListItem>
                         <asp:ListItem Value="1">35% off for our new users</asp:ListItem>
                         <asp:ListItem Value="2">50% off on christmas eve</asp:ListItem>
                         <asp:ListItem Value="3">10% off at the market</asp:ListItem>
@@ -239,6 +277,11 @@
                     </asp:DropDownList>
                 </div>
             </div>
-        <asp:Button ID="BtnOrder" runat="server" Text="Place Order" CssClass="button-order" />
+        <asp:Label ID="LblError" runat="server" Text=""></asp:Label>
+        <asp:Button ID="BtnOrder" runat="server" Text="Place Order" CssClass="button-order" OnClick="BtnOrder_Click" />
+    </div>
+    <div id="CartNoItems" runat="server" class="cartNoItems">
+        <div style="text-align: center;"><h1>There Are No Items</h1></div>
+        <a href="./HomePage.aspx"><div style="font-family: 'Franklin Gothic Regular';" class="Button">Add Items</div></a>
     </div>
 </asp:Content>

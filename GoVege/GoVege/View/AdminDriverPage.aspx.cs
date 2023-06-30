@@ -1,4 +1,4 @@
-﻿using GoVege.Controller;
+using GoVege.Controller;
 using GoVege.Model;
 using GoVege.Repository;
 using System;

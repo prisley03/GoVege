@@ -45,6 +45,5 @@ namespace GoVege.Repository
             db.MsDrivers.Add(Driver);
             db.SaveChanges();
         }
-
     }
 }

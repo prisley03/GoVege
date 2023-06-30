@@ -48,6 +48,10 @@ namespace GoVege.View
             {
 
             }
+            else if (cust.userFoodPreference.Equals("Admin"))
+            {
+                Response.Redirect("AdminVendorPage.aspx");
+            }
             else if (cust.userFoodPreference.Equals("Vegan"))
             {
                 vegetarianRestaurantID.Visible = false;
@@ -107,7 +111,7 @@ namespace GoVege.View
             string name = txtSearched.Text;
             if (cust == null)
             {
-                vendorList = VendorController.loadVendorByName(name, "Vegetarian");
+                vendorList = VendorController.loadVendorByName(name, "All");
             }
             else if (cust.userFoodPreference.Equals("Vegan"))
             {

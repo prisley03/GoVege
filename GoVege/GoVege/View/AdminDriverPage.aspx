@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="AdminDriverPage.aspx.cs" Inherits="GoVege.View.AdminDriverPage" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="AdminDriverPage.aspx.cs" Inherits="GoVege.View.AdminDriverPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <style>
@@ -126,6 +126,4 @@
         </div>
         <asp:Button ID="insertButton" runat="server" Text="Insert New Driver" OnClick="insertButton_Click" Height="46px" Width="209px" CssClass="insertButton"/>
     </div>
-
-
 </asp:Content>

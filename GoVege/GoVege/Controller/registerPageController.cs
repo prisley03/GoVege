@@ -33,7 +33,7 @@ namespace GoVege.Controller
 
             if (!agreed) return false;
 
-            if (customerHandler.RegisterCustomer(fullname, phoneNum, email, password, foodPref)) return true;
+            if (CustomerHandler.RegisterCustomer(fullname, phoneNum, email, password, foodPref)) return true;
             return false;
         }
 
@@ -66,7 +66,7 @@ namespace GoVege.Controller
                 emailChanged = true;
             }
 
-            if (customerHandler.UpdateCustomer(fullname, phoneNum, email, password, foodPref, emailChanged, id)) return true;
+            if (CustomerHandler.UpdateCustomer(fullname, phoneNum, email, password, foodPref, emailChanged, id)) return true;
             return false;
         }
 
@@ -131,7 +131,7 @@ namespace GoVege.Controller
                 return null;
             }
 
-            return customerHandler.LoginCustomer(email, password);
+            return CustomerHandler.LoginCustomer(email, password);
         }
     }
 }
