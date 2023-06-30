@@ -112,6 +112,13 @@ namespace GoVege.View
             LblPromo.Text = "";
             LblPromoValue.Text = "";
 
+            string selectedPromoID = Request.QueryString["PromotionID"];
+
+            if (selectedPromoID != null)
+            {
+                DropDownPromo.SelectedIndex = int.Parse(selectedPromoID);
+            }
+
             if (DropDownPromo.SelectedIndex != 0)
             {
                 MsVoucher promo = PromotionRepository.GetPromotionsById(int.Parse(DropDownPromo.SelectedValue));

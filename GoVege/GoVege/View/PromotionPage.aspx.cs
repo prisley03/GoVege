@@ -33,7 +33,10 @@ namespace GoVege.View
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            int promotionID = int.Parse(btn.CommandArgument);
 
+            Response.Redirect("CartPage.aspx?PromotionID=" + promotionID.ToString());
         }
     }
 }

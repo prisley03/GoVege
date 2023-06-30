@@ -106,5 +106,10 @@ namespace GoVege.View
         {
             Response.Redirect("AdminVoucherPage.aspx");
         }
+
+        protected void BtnVoucher_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PromotionPage.aspx");
+        }
     }
 }

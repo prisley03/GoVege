@@ -167,11 +167,11 @@
         <div class="search-container">
             <div class="searchAddressContainer">
                 <div class="topLabel">
-                    <h1><asp:Label CssClass="topText" ID="Label1" runat="server" Text="voucher Page"></asp:Label></h1>
+                    <h1><asp:Label CssClass="topText" ID="Label1" runat="server" Text="Voucher Page"></asp:Label></h1>
                 </div>
             </div>
             <div class="searchRestaurantContainer">
-                <asp:TextBox CssClass="Textbox" ID="txtSearched" placeholder="Search Your Restaurant Here" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="Textbox" ID="txtSearched" placeholder="Search Your Voucher Here" runat="server"></asp:TextBox>
                 <asp:Button CssClass="Button Button-Search" ID="ButtonSearchRestaurant" runat="server" Text="Search" OnClick="ButtonSearchRestaurant_Click" />
             </div>
         </div>

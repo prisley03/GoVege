@@ -62,7 +62,7 @@
             justify-content: space-around;
         }
 
-        .button {
+        .Button {
             border: 2px solid #30D315;
             color: #30D315;
             background-color: white;
@@ -73,7 +73,7 @@
             margin-top: 0;
         }
 
-        .button:hover {
+        .Button:hover {
             color: white;
             background-color: #30D315;
             border-radius: 3px;
@@ -115,8 +115,8 @@
                             </div>
                             <div class="driverInfoContainer">
                                 <div class="buttonActionContainer">
-                                    <asp:LinkButton CssClass="button" ID="updateButton" runat="server" CommandArgument='<%# Eval("driverId") %>' OnClick="updateButton_Click">Update</asp:LinkButton>
-                                    <asp:LinkButton CssClass="button" ID="deleteButton" runat="server" CommandArgument='<%# Eval("driverId") %>' OnClick="deleteButton_Click">Delete</asp:LinkButton>
+                                    <asp:LinkButton CssClass="Button" ID="updateButton" runat="server" CommandArgument='<%# Eval("driverId") %>' OnClick="updateButton_Click">Update</asp:LinkButton>
+                                    <asp:LinkButton CssClass="Button" ID="deleteButton" runat="server" CommandArgument='<%# Eval("driverId") %>' OnClick="deleteButton_Click">Delete</asp:LinkButton>
                                 </div>
                             </div>
                         </div>

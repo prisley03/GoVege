@@ -94,7 +94,7 @@
         <div class="bannerPromotionDetails">
             <asp:Label ID="txtBanner" runat="server" Text="20% Off at Our Partner Store"></asp:Label>
             <br />
-            <asp:Button ID="restoBtn" CssClass="button" runat="server" Text="Go To Restaurant Button" OnClick="restoBtn_Click" />
+            <asp:Button ID="restoBtn" CssClass="button" runat="server" Text="Go To Restaurant" OnClick="restoBtn_Click" />
         </div>
     </div>
     <div class="headerPromotion">
