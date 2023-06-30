@@ -566,6 +566,7 @@
     </Compile>
     <Compile Include="View\UpdateDriverPage.aspx.designer.cs">
       <DependentUpon>UpdateDriverPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\UpdateProductPage.aspx.cs">
       <DependentUpon>UpdateProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
