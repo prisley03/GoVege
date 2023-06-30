@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="StorePage.aspx.cs" Inherits="GoVege.View.StorePage1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="VendorDetailsPage.aspx.cs" Inherits="GoVege.View.VendorDetailsPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .store-container{
@@ -83,6 +83,61 @@
     justify-content: space-between;
     vertical-align: middle;
 }
+
+        .button-container{
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-update{
+            background-color:#30D315; color:white; font-size:0.8rem ; padding:4px 6px; border: 2px solid #30D315;
+        }
+
+        .btn-update:hover{
+            color:#30D315; background-color:white;
+        }
+
+        .btn-delete{
+            background-color:#b24152; color:white; font-size:0.8rem ; padding:4px 6px; border: 2px solid #b24152;
+        }
+
+        .btn-delete:hover{
+            color:#b24152; background-color:white;
+        }
+
+        .buttonContainer {
+            height: auto;
+            width: 100%;
+            align-self: center;
+            cursor: pointer;
+            margin: 2rem 0px 10px 0px;
+        }
+
+        .Button-ViewMore{
+            width: inherit;
+        }
+
+        .Button:hover {
+            color: white;
+            background-color: #30D315;
+            border-radius: 3px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .Button {
+            border: 2px solid #30D315;
+            color: #30D315;
+            background-color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 0;
+            padding: 0.5rem 1rem;
+            font-size: medium;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -128,26 +183,24 @@
         <hr />
         <div class="product-container">
             <h2 style="color: #2EB14B;">Today’s Specials</h2>
-            
-            <asp:ListView ID="ListViewProduct" runat="server" OnItemCommand="ListViewProduct_ItemCommand">
-                <LayoutTemplate>
-                    <div class="product-wrapper">
-                        
-                            <asp:PlaceHolder ID="ItemPlaceHolder" runat="server"></asp:PlaceHolder>
-                        
+            <div class="product-wrapper">
+            <% foreach (var product in productList)
+                { %>
+                <div class="product-card">
+                    <% SetImageUrl(product.productImage); %>
+                    <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" />
+                    <div><%= product.productName %></div>
+                    <div><%= "Rp " + product.productPrice %></div>
+                    <div class="button-container">
+                        <a href=<%= "./UpdateProductPage.aspx?ProductID=" + product.productID %> class="btn-update">Update</a>
+                        <a href=<%= "./DeleteProductPage.aspx?ProductID=" + product.productID %> class="btn-delete">Delete</a>
                     </div>
-                </LayoutTemplate>
-                <ItemTemplate>
-                    <div class="product-card">
-                        <asp:Image ID="ImageProduct" runat="server" Height="150" Width="150" CssClass="img-product" ImageUrl=<%#"~/Assets/Product/" +  Eval("productImage") %> />
-                        <div><%# Eval("productName") %></div>
-                        <div><%# "Rp " + Eval("productPrice") %></div>
-                        <asp:TextBox ID="TxtQty" runat="server"></asp:TextBox>
-                        <asp:LinkButton ID="BtnAddCart" runat="server" Text="+" CommandArgument='<%# Eval("productID") %>' CommandName="save"/>
-                    </div>
-                </ItemTemplate>
-            </asp:ListView>
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                </div>
+            <% } %>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <asp:Button CssClass="Button Button-ViewMore" ID="BtnInsert" runat="server" Text="Insert Product" OnClick="BtnInsert_Click" />
         </div>
     </div>
 </asp:Content>

@@ -9,21 +9,28 @@ namespace GoVege.Handler
 {
     public class CartHandler
     {
-        public static String CreateCart(string qty, string custId, string prodId)
+        public static String CreateCart(string qty, string custId, string prodId, int vendorID)
         {
             MsCart cartTarget = CartRepository.GetCartByCustIdAndProdId(int.Parse(custId), int.Parse(prodId));
-            MsCart cartFirstItem = CartRepository.GetCartByCustId(int.Parse(custId)).FirstOrDefault();
+            MsCart cartFirstItem = CartRepository.GetFirstCartByCustId(int.Parse(custId));
+            int cartFirstVendor;
+
+            if(cartTarget != null)
+            {
+                cartFirstVendor = cartTarget.productID;
+            }
             MsProduct productTarget = ProductRepository.GetProductByID(int.Parse(prodId));
 
             if (cartTarget == null)
             {
-                if(cartFirstItem == null)
+                if (cartFirstItem == null)
                 {
                     return CartRepository.CreateCart(int.Parse(qty), int.Parse(custId), int.Parse(prodId));
                 }
                 else
                 {
-                    if (productTarget.MsVendor.vendorName.Equals(cartFirstItem.MsProduct.MsVendor.vendorName))
+                    MsProduct product = ProductRepository.GetProductByID(cartFirstItem.productID);
+                    if (productTarget.vendorID == product.vendorID)
                     {
                         return CartRepository.CreateCart(int.Parse(qty), int.Parse(custId), int.Parse(prodId));
                     }
@@ -32,6 +39,9 @@ namespace GoVege.Handler
                         return "You must remove all items from cart before adding one from a different vendor.";
                     }
                 }
+
+                // testing
+                //return CartRepository.CreateCart(int.Parse(qty), int.Parse(custId), int.Parse(prodId));
             }
             else
             {

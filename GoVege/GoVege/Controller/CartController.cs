@@ -8,7 +8,7 @@ namespace GoVege.Controller
 {
     public class CartController
     {
-        public static String CreateCart(string qty, string custId, string prodId)
+        public static String CreateCart(string qty, string custId, string prodId, int vendorID)
         {
             if (qty.Trim().Equals(""))
             {
@@ -19,7 +19,7 @@ namespace GoVege.Controller
             }
             else
             {
-                return CartHandler.CreateCart(qty, custId, prodId);
+                return CartHandler.CreateCart(qty, custId, prodId, vendorID);
             }
         }
 

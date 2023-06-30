@@ -46,71 +46,183 @@ namespace GoVege.View
             {
                 customerID = currUser.userID;
             }
-            
+
             cartList = CartRepository.GetCartByCustId(customerID);
-            foreach(var cart in cartList)
-            {
-                subTotal += (cart.quantity * cart.MsProduct.productPrice);
-            }
             promoList = PromotionRepository.getAllPromotion();
 
-            vendorTarget = cartList.FirstOrDefault().MsProduct.MsVendor;
-            ImageVendor.ImageUrl = "~/Assets/Vendor/" +  vendorTarget.vendorImage;
+            CartNoItems.Visible = false;
+            CartHasItems.Visible = true;
 
-            ListViewCart.DataSource = cartList;
-            ListViewCart.DataBind();
-        }
-
-        protected void ListViewCart_ItemCommand(object sender, ListViewCommandEventArgs e)
-        {
-            String prodId = e.CommandArgument.ToString();
-            String error = null;
-
-            if (e.CommandName == "add")
+            if (!IsPostBack)
             {
-                error = CartController.AddQty(customerID, prodId);
+                if (Session["delivery_date"] != null)
+                {
+                    TxtDate.Text = Session["delivery_date"].ToString();
+                }
+                if (Session["delivery_time"] != null)
+                {
+                    TxtTime.Text = Session["delivery_time"].ToString();
+                }
+                if (Session["delviery_notes"] != null)
+                {
+                    TxtNotes.Text = Session["delviery_notes"].ToString();
+                }
+                if (Session["delivery_address"] != null)
+                {
+                    TxtAddress.Text = Session["delivery_address"].ToString();
+                }
+                if (Session["delivery_payment"] != null)
+                {
+                    DropDownPayment.SelectedIndex = int.Parse(Session["delivery_payment"].ToString());
+                }
+                if (Session["delivery_promo"] != null)
+                {
+                    DropDownPromo.SelectedIndex = int.Parse(Session["delivery_promo"].ToString());
+                }
             }
-            else if(e.CommandName == "remove")
+
+            if (cartList.Count() == 0)
             {
-                error = CartController.RemoveQty(customerID, prodId);
-            }
-
-            if (e.CommandArgument.ToString().Equals(""))
-            {
-                Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
-                ListViewCart.DataSource = cartList;
-                ListViewCart.DataBind();
-            }
-
-            ListViewCart.DataSource = cartList;
-            ListViewCart.DataBind();
-        }
-
-        protected void ListViewCart_LayoutCreated(object sender, EventArgs e)
-        {
-            Label LblSum = (Label)ListViewCart.FindControl("LblSum");
-            Label LblPromo = (Label)ListViewCart.FindControl("LblPromo");
-            Label LblPromoValue = (Label)ListViewCart.FindControl("LblPromoValue");
-            Label LblTotal = (Label)ListViewCart.FindControl("LblTotal");
-            LblSum.Text = "Rp " + subTotal.ToString();
-
-            int voucher = 0, total = 0;
-
-            if(DropDownPromo.SelectedIndex != 0)
-            {
-                MsVoucher promo = PromotionRepository.GetPromotionsById(int.Parse(DropDownPromo.SelectedValue));
-                LblPromo.Text = "Discount: " + promo.voucherName;
-                voucher = (int)(promo.discountAmount * subTotal);
-                LblPromoValue.Text = "-" + voucher.ToString();
+                CartNoItems.Visible = true;
+                CartHasItems.Visible = false;
             }
             else
             {
-                LblPromo.Text = "No Discount";
-                LblPromoValue.Text = "0";
+                foreach (var cart in cartList)
+                {
+                    MsProduct product = ProductRepository.GetProductByID(cart.productID);
+                    subTotal += (cart.quantity * product.productPrice);
+                }
+
+                MsProduct productTarget = ProductRepository.GetProductByID(cartList.FirstOrDefault().productID);
+                vendorTarget = VendorRepository.getVendorByID(productTarget.vendorID);
+                ImageVendor.ImageUrl = "~/Assets/Vendor/" + vendorTarget.vendorImage;
+            }
+
+            ListViewCart.Items.Clear();
+            ListViewCart.DataSource = cartList;
+            ListViewCart.DataBind();
+
+            LblSum.Text = "Rp " + subTotal.ToString();
+
+            int voucher = 0;
+            int total;
+
+            PromoContainer.Visible = false;
+            LblPromo.Text = "";
+            LblPromoValue.Text = "";
+
+            if (DropDownPromo.SelectedIndex != 0)
+            {
+                MsVoucher promo = PromotionRepository.GetPromotionsById(int.Parse(DropDownPromo.SelectedValue));
+                if(!(promo.startDate <= DateTime.Today && DateTime.Today <= promo.endDate))
+                {
+                    LblPromo.Text = "Voucher out of date";
+                    LblPromo.ForeColor = LblPromoValue.ForeColor = System.Drawing.Color.Crimson;
+                }
+                else
+                {
+                    LblPromo.Text = "Discount: " + promo.voucherName;
+                    voucher = (int)(promo.discountAmount * subTotal);
+                    LblPromoValue.Text = "- Rp " + voucher.ToString();
+                    LblPromo.ForeColor = LblPromoValue.ForeColor = System.Drawing.Color.FromArgb(48, 211, 21);
+                }
+
+                PromoContainer.Visible = true;
+            }
+            else
+            {
+                
             }
 
             total = subTotal - voucher;
-            LblTotal.Text = total.ToString();
+            LblTotal.Text = "Rp " + total.ToString();
+        }
+
+        protected void BtnRemoveItem_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            String prodId = btn.CommandArgument.ToString();
+            String error = CartController.RemoveQty(customerID, prodId);
+
+            if (prodId.Equals(""))
+            {
+                Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
+            }
+
+            Session["delivery_date"] = TxtDate.Text;
+            Session["delivery_time"] = TxtTime.Text;
+            Session["delviery_notes"] = TxtNotes.Text;
+            Session["delivery_address"] = TxtAddress.Text;
+            Session["delivery_payment"] = DropDownPayment.SelectedIndex;
+            Session["delivery_promo"] = DropDownPromo.SelectedIndex;
+
+            Response.Redirect("~/View/CartPage.aspx");
+        }
+
+        protected void BtnAddItem_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            String prodId = btn.CommandArgument.ToString();
+            String error = CartController.AddQty(customerID, prodId);
+
+            if (prodId.Equals(""))
+            {
+                Response.Write("<script language=javascript>alert('ERROR: " + error + "');</script>");
+            }
+
+            Session["delivery_date"] = TxtDate.Text;
+            Session["delivery_time"] = TxtTime.Text;
+            Session["delviery_notes"] = TxtNotes.Text;
+            Session["delivery_address"] = TxtAddress.Text;
+            Session["delivery_payment"] = DropDownPayment.SelectedIndex;
+            Session["delivery_promo"] = DropDownPromo.SelectedIndex;
+
+            Response.Redirect("~/View/CartPage.aspx");
+        }
+        protected String GetImageUrl(int id)
+        {
+            MsProduct product = ProductRepository.GetProductByID(id);
+            return product.productImage;
+        }
+
+        protected String GetProductName(int id)
+        {
+            MsProduct product = ProductRepository.GetProductByID(id);
+            return product.productName;
+        }
+
+        protected int GetProductPrice(int id)
+        {
+            MsProduct product = ProductRepository.GetProductByID(id);
+            return product.productPrice;
+        }
+        protected void BtnOrder_Click(object sender, EventArgs e)
+        {
+            String date = TxtDate.Text;
+            String time = TxtTime.Text;
+            String address = TxtAddress.Text;
+            String notes = TxtNotes.Text;
+            String payment = DropDownPayment.SelectedValue;
+            int userID = customerID;
+            int voucherID = int.Parse(DropDownPromo.SelectedValue);
+
+            // for testing purposes
+            //LblError.Text = date + " " + time + " " + address + " " + notes;
+
+            String error = TransactionController.CheckOut(date, time, address, notes, cartList, payment, voucherID, userID);
+
+            if (!error.All(Char.IsDigit))
+            {
+                LblError.ForeColor = System.Drawing.Color.Crimson;
+            }
+            else
+            {
+                LblError.ForeColor = System.Drawing.Color.FromArgb(48, 211, 21);
+                Response.Redirect("~/View/OrderTrackingPage.aspx?TransactionID=" + int.Parse(error));
+            }
+
+            LblError.Text = error;
         }
     }
 }

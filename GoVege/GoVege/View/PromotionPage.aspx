@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="PromotionPage.aspx.cs" Inherits="GoVege.View.PromotionPage" %>
+﻿<%@ Page Title="GoVege - Promotions" Language="C#" MasterPageFile="~/View/MasterPage.Master" AutoEventWireup="true" CodeBehind="PromotionPage.aspx.cs" Inherits="GoVege.View.PromotionPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -36,7 +36,6 @@
 
         }
         .bodyPromotion {
-            border: 1px solid;
             padding: 10px;
             margin-bottom: 10px;
         }

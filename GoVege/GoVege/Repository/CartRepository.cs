@@ -21,6 +21,18 @@ namespace GoVege.Repository
             return (from i in db.MsCarts where i.userID == custId select i).ToList();
         }
 
+        public static MsCart GetFirstCartByCustId(int custId)
+        {
+            if((from i in db.MsCarts where i.userID == custId select i).ToList().Count() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return (from i in db.MsCarts where i.userID == custId select i).ToList().ElementAt(0);
+            }
+        }
+
         public static String CreateCart(int qty, int custId, int prodId)
         {
             MsCart newCart = CartFactory.CreateCart(qty, custId, prodId);
@@ -42,6 +54,13 @@ namespace GoVege.Repository
             db.MsCarts.Remove(cartTarget);
             db.SaveChanges();
             return "Delete successful";
+        }
+
+        public static void DeleteCartList(List<MsCart> cartList)
+        {
+            db.MsCarts.RemoveRange(cartList);
+            db.SaveChanges();
+            return;
         }
     }
 }

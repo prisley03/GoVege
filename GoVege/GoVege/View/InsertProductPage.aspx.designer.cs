@@ -11,88 +11,124 @@ namespace GoVege.View
 {
 
 
-    public partial class OrderTrackingPage
+    public partial class InsertProductPage
     {
 
         /// <summary>
-        /// lblLocation control.
+        /// backgroundImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocation;
+        protected global::System.Web.UI.WebControls.Image backgroundImg;
 
         /// <summary>
-        /// imgLocation control.
+        /// LblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLocation;
+        protected global::System.Web.UI.WebControls.Label LblName;
 
         /// <summary>
-        /// imgDriverPhoto control.
+        /// TxtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgDriverPhoto;
+        protected global::System.Web.UI.WebControls.TextBox TxtName;
 
         /// <summary>
-        /// lblDriverName control.
+        /// LblPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDriverName;
+        protected global::System.Web.UI.WebControls.Label LblPrice;
 
         /// <summary>
-        /// lblDriverRating control.
+        /// TxtPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDriverRating;
+        protected global::System.Web.UI.WebControls.TextBox TxtPrice;
 
         /// <summary>
-        /// lblVehicleName control.
+        /// LblImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicleName;
+        protected global::System.Web.UI.WebControls.Label LblImage;
 
         /// <summary>
-        /// lblLicensePlate control.
+        /// FileUploadImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLicensePlate;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadImage;
 
         /// <summary>
-        /// DeliveryDetailTable control.
+        /// LblType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table DeliveryDetailTable;
+        protected global::System.Web.UI.WebControls.Label LblType;
 
         /// <summary>
-        /// RepeaterOrderSummary control.
+        /// RBLType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterOrderSummary;
+        protected global::System.Web.UI.WebControls.RadioButtonList RBLType;
+
+        /// <summary>
+        /// LblCal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCal;
+
+        /// <summary>
+        /// TxtCal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCal;
+
+        /// <summary>
+        /// LblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblError;
+
+        /// <summary>
+        /// BtnInsert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnInsert;
     }
 }

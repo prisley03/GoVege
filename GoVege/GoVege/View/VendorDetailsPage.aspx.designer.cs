@@ -11,7 +11,7 @@ namespace GoVege.View
 {
 
 
-    public partial class StorePage1
+    public partial class VendorDetailsPage
     {
 
         /// <summary>
@@ -24,21 +24,21 @@ namespace GoVege.View
         protected global::System.Web.UI.WebControls.Image ImageVendor;
 
         /// <summary>
-        /// ListViewProduct control.
+        /// ImageProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewProduct;
+        protected global::System.Web.UI.WebControls.Image ImageProduct;
 
         /// <summary>
-        /// Label1 control.
+        /// BtnInsert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button BtnInsert;
     }
 }

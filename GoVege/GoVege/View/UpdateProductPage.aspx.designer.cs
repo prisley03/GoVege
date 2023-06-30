@@ -11,170 +11,125 @@ namespace GoVege.View
 {
 
 
-    public partial class CartPage
+    public partial class UpdateProductPage
     {
 
         /// <summary>
-        /// CartHasItems control.
+        /// backgroundImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CartHasItems;
+        protected global::System.Web.UI.WebControls.Image backgroundImg;
 
         /// <summary>
-        /// ImageVendor control.
+        /// LblID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImageVendor;
+        protected global::System.Web.UI.WebControls.Label LblID;
 
         /// <summary>
-        /// LblDate control.
+        /// LblValueID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDate;
+        protected global::System.Web.UI.WebControls.Label LblValueID;
 
         /// <summary>
-        /// TxtDate control.
+        /// LblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtDate;
+        protected global::System.Web.UI.WebControls.Label LblName;
 
         /// <summary>
-        /// LblTime control.
+        /// TxtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTime;
+        protected global::System.Web.UI.WebControls.TextBox TxtName;
 
         /// <summary>
-        /// TxtTime control.
+        /// LblPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTime;
+        protected global::System.Web.UI.WebControls.Label LblPrice;
 
         /// <summary>
-        /// LblAddress control.
+        /// TxtPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAddress;
+        protected global::System.Web.UI.WebControls.TextBox TxtPrice;
 
         /// <summary>
-        /// TxtAddress control.
+        /// LblImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtAddress;
+        protected global::System.Web.UI.WebControls.Label LblImage;
 
         /// <summary>
-        /// LblNotes control.
+        /// FileUploadImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNotes;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadImage;
 
         /// <summary>
-        /// TxtNotes control.
+        /// LblType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNotes;
+        protected global::System.Web.UI.WebControls.Label LblType;
 
         /// <summary>
-        /// ListViewCart control.
+        /// RBLType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewCart;
+        protected global::System.Web.UI.WebControls.RadioButtonList RBLType;
 
         /// <summary>
-        /// LblSum control.
+        /// LblCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSum;
+        protected global::System.Web.UI.WebControls.Label LblCal;
 
         /// <summary>
-        /// PromoContainer control.
+        /// TxtCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PromoContainer;
-
-        /// <summary>
-        /// LblPromo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPromo;
-
-        /// <summary>
-        /// LblPromoValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPromoValue;
-
-        /// <summary>
-        /// LblTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTotal;
-
-        /// <summary>
-        /// DropDownPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownPayment;
-
-        /// <summary>
-        /// DropDownPromo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownPromo;
+        protected global::System.Web.UI.WebControls.TextBox TxtCal;
 
         /// <summary>
         /// LblError control.
@@ -186,21 +141,12 @@ namespace GoVege.View
         protected global::System.Web.UI.WebControls.Label LblError;
 
         /// <summary>
-        /// BtnOrder control.
+        /// BtnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnOrder;
-
-        /// <summary>
-        /// CartNoItems control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CartNoItems;
+        protected global::System.Web.UI.WebControls.Button BtnUpdate;
     }
 }
