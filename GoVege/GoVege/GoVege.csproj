@@ -290,6 +290,7 @@
     <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\AboutUsPage.aspx" />
     <Content Include="View\AdminDriverPage.aspx" />
+    <Content Include="View\AdminUpdateDriverPage.aspx" />
     <Content Include="View\AdminInsertvendorPage.aspx" />
     <Content Include="View\AdminInsertVoucherPage.aspx" />
     <Content Include="View\AdminUpdateVendorPage.aspx" />
@@ -302,6 +303,7 @@
     <Content Include="View\DriverInfoPage.aspx" />
     <Content Include="View\FAQPage.aspx" />
     <Content Include="View\HomePage.aspx" />
+    <Content Include="View\InsertDriverPage.aspx" />
     <Content Include="View\InsertProductPage.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\MasterPage.Master" />
@@ -310,6 +312,7 @@
     <Content Include="View\PromotionPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="View\StorePage.aspx" />
+    <Content Include="View\UpdateDriverPage.aspx" />
     <Content Include="View\UpdateProductPage.aspx" />
     <Content Include="View\UpdateProfilePage.aspx" />
     <Content Include="View\AdminVendorPage.aspx" />
@@ -318,12 +321,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\DriverController.cs" />
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
     <Compile Include="Controller\VoucherController.cs" />
     <Compile Include="Factory\VoucherFactory.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
+    <Compile Include="Factory\DriverFactory.cs" />
     <Compile Include="Factory\ProductFactory.cs" />
     <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
@@ -332,6 +337,7 @@
     <Compile Include="Factory\CustomerFactory.cs" />
     <Compile Include="Factory\VendorFactory.cs" />
     <Compile Include="Handler\customerHandler.cs" />
+    <Compile Include="Handler\DriverHandler.cs" />
     <Compile Include="Handler\ProductHandler.cs" />
     <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\VendorHandler.cs" />
@@ -402,6 +408,12 @@
     <Compile Include="View\AdminDriverPage.aspx.designer.cs">
       <DependentUpon>AdminDriverPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminUpdateDriverPage.aspx.cs">
+      <DependentUpon>AdminUpdateDriverPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminUpdateDriverPage.aspx.designer.cs">
+      <DependentUpon>AdminUpdateDriverPage.aspx</DependentUpon>
     <Compile Include="View\AdminInsertvendorPage.aspx.cs">
       <DependentUpon>AdminInsertvendorPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -486,6 +498,12 @@
     <Compile Include="View\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\InsertDriverPage.aspx.cs">
+      <DependentUpon>InsertDriverPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertDriverPage.aspx.designer.cs">
+      <DependentUpon>InsertDriverPage.aspx</DependentUpon>
     <Compile Include="View\InsertProductPage.aspx.cs">
       <DependentUpon>InsertProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,6 +560,12 @@
     <Compile Include="View\StorePage.aspx.designer.cs">
       <DependentUpon>StorePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateDriverPage.aspx.cs">
+      <DependentUpon>UpdateDriverPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateDriverPage.aspx.designer.cs">
+      <DependentUpon>UpdateDriverPage.aspx</DependentUpon>
     <Compile Include="View\UpdateProductPage.aspx.cs">
       <DependentUpon>UpdateProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
