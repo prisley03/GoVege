@@ -11,151 +11,133 @@ namespace GoVege.View
 {
 
 
-    public partial class MasterPage
+    public partial class AdminInsertVoucherPage
     {
 
         /// <summary>
-        /// head control.
+        /// LblVoucherName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label LblVoucherName;
 
         /// <summary>
-        /// form1 control.
+        /// TxtVoucherName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox TxtVoucherName;
 
         /// <summary>
-        /// imageLogo control.
+        /// LblVoucherDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imageLogo;
+        protected global::System.Web.UI.WebControls.Label LblVoucherDesc;
 
         /// <summary>
-        /// NavGuest control.
+        /// TxtVoucherDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NavGuest;
+        protected global::System.Web.UI.WebControls.TextBox TxtVoucherDesc;
 
         /// <summary>
-        /// BtnLogin control.
+        /// LblDateS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogin;
+        protected global::System.Web.UI.WebControls.Label LblDateS;
 
         /// <summary>
-        /// BtnRegister control.
+        /// TxtDateS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRegister;
+        protected global::System.Web.UI.WebControls.TextBox TxtDateS;
 
         /// <summary>
-        /// NavCustomer control.
+        /// LblDateE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NavCustomer;
+        protected global::System.Web.UI.WebControls.Label LblDateE;
 
         /// <summary>
-        /// BtnCart control.
+        /// TxtDateE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCart;
+        protected global::System.Web.UI.WebControls.TextBox TxtDateE;
 
         /// <summary>
-        /// BtnLogout control.
+        /// LblDiscount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogout;
+        protected global::System.Web.UI.WebControls.Label LblDiscount;
 
         /// <summary>
-        /// BtnProfile control.
+        /// TxtDiscount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnProfile;
+        protected global::System.Web.UI.WebControls.TextBox TxtDiscount;
 
         /// <summary>
-        /// NavAdmin control.
+        /// LblImageUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NavAdmin;
+        protected global::System.Web.UI.WebControls.Label LblImageUpload;
 
         /// <summary>
-        /// BtnAdminVendor control.
+        /// VoucherImageFileUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAdminVendor;
+        protected global::System.Web.UI.WebControls.FileUpload VoucherImageFileUpload;
 
         /// <summary>
-        /// BtnAdminDriver control.
+        /// LblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAdminDriver;
+        protected global::System.Web.UI.WebControls.Label LblError;
 
         /// <summary>
-        /// BtnAdminVoucher control.
+        /// BtnInsert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAdminVoucher;
-
-        /// <summary>
-        /// BtnLogout2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogout2;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button BtnInsert;
     }
 }

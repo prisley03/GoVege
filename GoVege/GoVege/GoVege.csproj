@@ -122,10 +122,12 @@
     <Content Include="Assets\FAQ\Question.png" />
     <Content Include="Assets\FAQ\Vegetables.png" />
     <Content Include="Assets\feaae4bea0e6b2cac8e9ee7359d9b508d33c0527.png" />
+    <Content Include="Assets\gadoGadoImage.png" />
     <Content Include="Assets\gpsLocation.png" />
     <Content Include="Assets\hermes-rivera-Ww8eQWjMJWk-unsplash.jpg" />
     <Content Include="Assets\instagramIcon.png" />
     <Content Include="Assets\koftaFlatbreads.jpg" />
+    <Content Include="Assets\louis-hansel-MlPD-AzZYMg-unsplash.jpg" />
     <Content Include="Assets\MapSunib.png" />
     <Content Include="Assets\pottedPlant.png" />
     <Content Include="Assets\Product\bibimbap.jpg" />
@@ -171,6 +173,8 @@
     <Content Include="Assets\Product\tacos.jpg" />
     <Content Include="Assets\Product\tahu.jpe" />
     <Content Include="Assets\Product\tempe.jpg" />
+    <Content Include="Assets\sales.jpg" />
+    <Content Include="Assets\sales50.png" />
     <Content Include="Assets\twitterIcon.png" />
     <Content Include="Assets\User\dalecooper.jpg" />
     <Content Include="Assets\User\kanye.jpg" />
@@ -285,6 +289,12 @@
     <Content Include="SQL\DropTables.sql" />
     <Content Include="SQL\InsertTables.sql" />
     <Content Include="View\AboutUsPage.aspx" />
+    <Content Include="View\AdminDriverPage.aspx" />
+    <Content Include="View\AdminInsertvendorPage.aspx" />
+    <Content Include="View\AdminInsertVoucherPage.aspx" />
+    <Content Include="View\AdminUpdateVendorPage.aspx" />
+    <Content Include="View\AdminUpdateVoucherPage.aspx" />
+    <Content Include="View\AdminVoucherPage.aspx" />
     <Content Include="View\CartPage.aspx" />
     <Content Include="View\ContactUsPage.aspx" />
     <Content Include="View\CustomerInfoPage.aspx" />
@@ -302,6 +312,7 @@
     <Content Include="View\StorePage.aspx" />
     <Content Include="View\UpdateProductPage.aspx" />
     <Content Include="View\UpdateProfilePage.aspx" />
+    <Content Include="View\AdminVendorPage.aspx" />
     <Content Include="View\VendorDetailsPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -309,6 +320,8 @@
     <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\PromotionController.cs" />
+    <Compile Include="Controller\VoucherController.cs" />
+    <Compile Include="Factory\VoucherFactory.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\ProductFactory.cs" />
@@ -374,12 +387,55 @@
     <Compile Include="Repository\TransactionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VendorRepository.cs" />
+    <Compile Include="Repository\VoucherRepository.cs" />
     <Compile Include="View\AboutUsPage.aspx.cs">
       <DependentUpon>AboutUsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\AboutUsPage.aspx.designer.cs">
       <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminDriverPage.aspx.cs">
+      <DependentUpon>AdminDriverPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminDriverPage.aspx.designer.cs">
+      <DependentUpon>AdminDriverPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminInsertvendorPage.aspx.cs">
+      <DependentUpon>AdminInsertvendorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminInsertvendorPage.aspx.designer.cs">
+      <DependentUpon>AdminInsertvendorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminInsertVoucherPage.aspx.cs">
+      <DependentUpon>AdminInsertVoucherPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminInsertVoucherPage.aspx.designer.cs">
+      <DependentUpon>AdminInsertVoucherPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminUpdateVendorPage.aspx.cs">
+      <DependentUpon>AdminUpdateVendorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminUpdateVendorPage.aspx.designer.cs">
+      <DependentUpon>AdminUpdateVendorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminUpdateVoucherPage.aspx.cs">
+      <DependentUpon>AdminUpdateVoucherPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminUpdateVoucherPage.aspx.designer.cs">
+      <DependentUpon>AdminUpdateVoucherPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminVoucherPage.aspx.cs">
+      <DependentUpon>AdminVoucherPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminVoucherPage.aspx.designer.cs">
+      <DependentUpon>AdminVoucherPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
@@ -500,6 +556,12 @@
     <Compile Include="View\UpdateProfilePage.aspx.designer.cs">
       <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminVendorPage.aspx.cs">
+      <DependentUpon>AdminVendorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AdminVendorPage.aspx.designer.cs">
+      <DependentUpon>AdminVendorPage.aspx</DependentUpon>
     <Compile Include="View\VendorDetailsPage.aspx.cs">
       <DependentUpon>VendorDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
