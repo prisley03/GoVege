@@ -201,7 +201,7 @@
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorSearched" runat="server">
                 <ItemTemplate>
-                    <a href='StorePage.aspx?VendorID=<%#Eval("vendorID")%>'>
+                    <a href='VendorDetailsPage.aspx?VendorID=<%#Eval("vendorID")%>'>
                         <div class="vendorItemContainer">
                             <image class="contentImage" src='../Assets/Vendor/<%#Eval("vendorImage")%>'></image>
                             <p><%#Eval("vendorName")%></p>
@@ -223,7 +223,7 @@
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorVegetarian" runat="server">
                 <ItemTemplate>
-                    <a href='StorePage.aspx?VendorID=<%#Eval("vendorID")%>'>
+                    <a href='VendorDetailsPage.aspx?VendorID=<%#Eval("vendorID")%>'>
                         <div class="vendorItemContainer">
                             <image class="contentImage" src='../Assets/Vendor/<%#Eval("vendorImage")%>'></image>
                             <p><%#Eval("vendorName")%></p>
@@ -248,7 +248,7 @@
         <div class="vendorContainer">
             <asp:ListView ID="LVVendorVegan" runat="server">
                 <ItemTemplate>
-                    <a href='StorePage.aspx?VendorID=<%#Eval("vendorID")%>'>
+                    <a href='VendorDetailsPage.aspx?VendorID=<%#Eval("vendorID")%>'>
                         <div class="vendorItemContainer">
                             <image class="contentImage" src='../Assets/Vendor/<%#Eval("vendorImage")%>'></image>
                             <p><%#Eval("vendorName")%></p>

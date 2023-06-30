@@ -13,7 +13,7 @@ namespace GoVege.Handler
         public static String CheckOut(String date, String time, String address, String notes, List<MsCart> cartList, String payment, int voucherID, int userID)
         {
             Random rnd = new Random();
-            List<MsDriver> driverList = DriverRepository.GetAllDrivers();
+            List<MsDriver> driverList = DriverRepository.getAllDriver();
             int driverID = rnd.Next(1, driverList.Count());
             int transactionID;
 
